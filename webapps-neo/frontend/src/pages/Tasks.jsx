@@ -2,6 +2,7 @@ import { useSignal } from "@preact/signals";
 import { useLocation, useRoute } from "preact-iso";
 import { useContext, useEffect, useLayoutEffect, useRef } from "preact/hooks";
 import { useTranslation } from "react-i18next";
+import { save_blob } from "../helper/download.js";
 
 import engine_rest, {
   RequestState,
@@ -1454,12 +1455,7 @@ const AttachmentsTab = () => {
       { headers, credentials: "include" },
     );
     if (!response.ok) return;
-    const url = URL.createObjectURL(await response.blob()),
-      link = document.createElement("a");
-    link.href = url;
-    link.download = a.name ?? a.id;
-    link.click();
-    URL.revokeObjectURL(url);
+    save_blob(await response.blob(), a.name ?? a.id);
   };
 
   const delete_open = useSignal(false),
