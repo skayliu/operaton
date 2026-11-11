@@ -379,6 +379,22 @@ section.task-tabs {
   box-sizing: border-box;
 }
 
+/* A boolean field reads on one line: box first, then its text. The stacking
+   rule above is meant for "label above control" fields, so a checkbox label
+   would otherwise put the box on its own row, and the full-width rule would
+   stretch it. Both are reset here. */
+.dialog-fields label:has(> input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.dialog-fields label:has(> input[type="checkbox"]) > input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  flex: none;
+}
+
 /* The dialog form used by <ListFilter> for create/edit. The global `form`
    rule sets a 2-column label/input grid, which would put the criteria
    fieldset and the sort-override fieldset side-by-side and overlap them
@@ -2018,6 +2034,58 @@ nav:has(> .breadcrumbs) {
 }
 
 /* The date and time of a scheduled suspension sit side by side. */
+.loading-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2);
+  color: var(--text-disabled);
+  text-align: center;
+}
+
+.loading-block.page {
+  min-height: 60vh;
+}
+
+.loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 0.2rem solid var(--border-color);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: loading-spin 800ms linear infinite;
+}
+
+.loading-label {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.loading-detail,
+.loading-hint {
+  margin: 0;
+  max-width: 34ch;
+  font-size: var(--small-font-size);
+}
+
+.loading-hint {
+  color: var(--color-warning);
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation-duration: 3s;
+  }
+}
+
 .date-time {
   display: flex;
   gap: var(--spacing-2);
