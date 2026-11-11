@@ -357,6 +357,7 @@ export const BPMNViewer = ({ xml, container, tokens, highlight, mode = 'definiti
       viewer.destroy()
       viewerRef.current = null
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [container, definition_id, xml, mode, tokens])
 
   const controls = (

@@ -1690,9 +1690,7 @@ const InstanceUserTasks = () => {
           </tr>
         </thead>
         <tbody>
-          {rows.map(
-            // eslint-disable-next-line react/jsx-key
-            ({
+          {rows.map(({
               id,
               assignee,
               name,

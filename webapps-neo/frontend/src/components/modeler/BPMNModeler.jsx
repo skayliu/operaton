@@ -67,7 +67,7 @@ const process_id_of = (modeler) => {
  *   undo()  redo()  zoom(delta)  fit()  toggle_minimap()
  *   toggle_linting(active?)  focus_element(id, anchor?)
  */
-export const BPMNModeler = forwardRef(function BPMNModeler(
+export const BPMNModeler = forwardRef((
   {
     source,
     on_dirty,
@@ -78,7 +78,7 @@ export const BPMNModeler = forwardRef(function BPMNModeler(
     on_lint,
   },
   ref,
-) {
+) => {
   const [t] = useTranslation(),
     // Building the modeler and importing the XML takes a visible moment on a
     // cold start; an empty canvas meanwhile reads as a broken editor.

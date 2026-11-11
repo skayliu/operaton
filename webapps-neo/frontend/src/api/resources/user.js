@@ -108,7 +108,7 @@ const user = {
   credentials_update: update_credentials,
   unlock: unlock_user,
   password_policy: get_password_policy,
-  check_password: check_password,
+  check_password,
 };
 
 export default user;
