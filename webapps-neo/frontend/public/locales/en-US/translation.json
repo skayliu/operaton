@@ -1,6 +1,12 @@
 {
   "common": {
     "loading": "Loading...",
+    "loading-slow": "Still loading. Check your connection, or reload the page.",
+    "load-failed": {
+      "title": "This page could not be loaded",
+      "text": "Part of the application failed to download. Reloading usually fixes it.",
+      "reload": "Reload page"
+    },
     "fetching": "Fetching...",
     "no-data": "No data",
     "no-data-requested": "No data requested",
@@ -40,7 +46,97 @@
     "date": "Date",
     "time": "Time"
   },
+  "modeler": {
+    "loading": "Loading the modeler...",
+    "loading-detail": "The editor downloads once and is then cached by the browser.",
+    "title": "Modeler",
+    "new": "New",
+    "open": "Open file",
+    "download": "Download",
+    "undo": "Undo",
+    "redo": "Redo",
+    "zoom-in": "Zoom in",
+    "zoom-out": "Zoom out",
+    "fit": "Fit to view",
+    "minimap": "Minimap",
+    "properties": {
+      "label": "Properties",
+      "resize": "Resize or collapse the properties panel",
+      "expand": "Show properties",
+      "collapse": "Hide properties"
+    },
+    "draft-pending": "Not yet in draft",
+    "confirm-replace": "Replace the current draft? The draft currently stored in this browser will be replaced and cannot be recovered.",
+    "replace": "Replace",
+    "confirm-leave": "Leave the modeler? Your latest changes could not be saved as a draft and will be lost.",
+    "leave": "Leave",
+    "lint": {
+      "toggle": "Show or hide the validation markers",
+      "off": "Validation off",
+      "clean": "No problems",
+      "summary": "{{errors}} errors, {{warnings}} warnings",
+      "problems": "{{count}} problems found"
+    },
+    "unsupported": "{{kind}} modeling is not available yet. This version supports BPMN.",
+    "errors": {
+      "import": "The diagram could not be read.",
+      "export": "The diagram could not be exported.",
+      "download": "The browser did not start the download.",
+      "unsupported-file": "{{name}} is not a BPMN file ({{kind}}).",
+      "unknown-kind": "unknown type"
+    },
+    "deploy": {
+      "action": "Deploy",
+      "title": "Deploy diagram",
+      "hint": "Deploying creates a new version. The previous version stays in the engine's history.",
+      "name": "Deployment name",
+      "tenant": "Tenant",
+      "tenant-placeholder": "Leave empty for the default tenant",
+      "duplicate-filtering": "Skip unchanged resources",
+      "deploy-changed-only": "Only deploy changed resources",
+      "files": "Files",
+      "submit": "Deploy",
+      "deploying": "Deploying…",
+      "failed": "Deployment failed.",
+      "failed-status": "Deployment failed (HTTP {{status}}): {{message}}",
+      "empty": "There is nothing to deploy — the diagram could not be exported.",
+      "succeeded": "Deployed \"{{name}}\" as version {{version}}.",
+      "succeeded-no-version": "Deployed \"{{name}}\"."
+    },
+    "export": {
+      "action": "XML / Export",
+      "title": "View XML and export",
+      "loading": "Preparing the export…",
+      "xml-label": "BPMN XML",
+      "xml-meta": "{{lines}} lines · {{size}}",
+      "copy": "Copy XML",
+      "copied": "Copied",
+      "copy-failed": "The clipboard is not available. Select the text and copy it manually.",
+      "scale": "Resolution",
+      "scale-option": "{{value}}×",
+      "transparent": "Transparent background",
+      "rendering": "Rendering the image…",
+      "png-meta": "{{width}} × {{height}} px",
+      "preview": "Export preview",
+      "download": "Download {{format}}",
+      "failed": "The diagram could not be exported.",
+      "empty": "There is nothing to export — the diagram could not be read.",
+      "png-failed": "This browser could not produce the PNG.",
+      "xml-truncated": "Showing the first {{lines}} lines — download the XML to read the rest."
+    },
+    "draft": {
+      "restored": "Restored the unsaved draft from your last visit.",
+      "discard": "Discard draft",
+      "save": "Save draft",
+      "save-hint": "Writes the diagram to this browser now. Drafts are also saved automatically after every edit.",
+      "saving": "Saving draft…",
+      "saved": "Draft saved",
+      "saved-at": "Draft saved at {{time}}",
+      "failed": "Draft could not be saved (browser storage unavailable)."
+    }
+  },
   "nav": {
+    "modeler": "Modeler",
     "tasks": "Tasks",
     "processes": "Processes",
     "decisions": "Decisions",

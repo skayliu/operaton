@@ -13,7 +13,16 @@ import * as Icons from "../assets/icons.jsx";
  *
  * @param open {import("@preact/signals").Signal<boolean>}
  */
-const Dialog = ({ open, title, hide_header = false, aria_label, children }) => {
+const Dialog = ({
+  open,
+  title,
+  hide_header = false,
+  aria_label,
+  // Optional, and applied to the <dialog> element itself: the shared dialog
+  // width is deliberately narrow, and only the caller knows when to exceed it.
+  class: class_name,
+  children,
+}) => {
   const [t] = useTranslation(),
     ref = useRef(null),
     heading_id = useId();
@@ -28,6 +37,7 @@ const Dialog = ({ open, title, hide_header = false, aria_label, children }) => {
   return (
     <dialog
       ref={ref}
+      class={class_name}
       onClose={() => (open.value = false)}
       aria-label={aria_label}
       aria-labelledby={title && !hide_header ? heading_id : undefined}

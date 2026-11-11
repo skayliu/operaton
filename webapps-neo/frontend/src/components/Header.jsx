@@ -24,6 +24,7 @@ const swap_server = (e, state) => {
 const builtin_nav = [
   { href: "/tasks", nameKey: "nav.tasks", hotkey: "alt+shift+1" },
   { href: "/processes", nameKey: "nav.processes", hotkey: "alt+shift+2" },
+  { href: "/modeler", nameKey: "nav.modeler", hotkey: "alt+shift+9" },
   { href: "/decisions", nameKey: "nav.decisions", hotkey: "alt+shift+3" },
   { href: "/deployments", nameKey: "nav.deployments", hotkey: "alt+shift+4" },
   { href: "/batches", nameKey: "nav.batches", hotkey: "alt+shift+5" },
@@ -37,7 +38,9 @@ const builtin_nav = [
 // the rendered href and the `url.startsWith` active check see the same shape.
 const nav_entries = (authorized_apps) =>
   [
-    ...builtin_nav.filter((entry) => page_allowed(authorized_apps, entry.href)),
+    ...builtin_nav.filter((entry) =>
+      page_allowed(authorized_apps, entry.href),
+    ),
     ...plugins_for(PLUGIN_POINTS.PAGE)
       .filter((plugin) => plugin.properties?.href && plugin.properties?.nameKey)
       .map((plugin) => ({
@@ -90,6 +93,7 @@ export function Header() {
   useHotkeys("alt+shift+5", () => route(app_path("/batches")));
   useHotkeys("alt+shift+6", () => route(app_path("/migrations")));
   useHotkeys("alt+shift+7", () => route(app_path("/admin")));
+  useHotkeys("alt+shift+9", () => route(app_path("/modeler")));
 
   // Plugin page hotkeys, resolved in one handler. The list is frozen before
   // render, so the combined keys string is stable across renders.

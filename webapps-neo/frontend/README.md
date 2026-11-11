@@ -62,6 +62,22 @@ the `VITE_METRICS_ENABLED=true` environment variable (dev build) or
 `"metricsEnabled": true` in the runtime `config.json` (deployment). Once enabled
 it appears as a **Metrics** entry in the main navigation.
 
+## Process modeler
+
+The web apps include a **BPMN process modeler** — a bpmn-js editor with the
+Camunda properties panel, a deploy action that uploads the diagram to the engine,
+and export to BPMN XML, SVG or PNG. Drafts are kept in IndexedDB, so an
+accidental reload does not lose the diagram.
+
+The modeler is part of the **cockpit** application, exactly like `/processes`:
+any user who may open cockpit also gets the **Modeler** entry in the main
+navigation, the `alt+shift+9` shortcut and the `/modeler` route. There is no
+separate feature flag; restricting it is a matter of cockpit permissions.
+
+The page is still imported lazily, so the modeler bundle — bpmn-js, the
+properties panel and the Camunda moddle extensions — is only downloaded once
+someone opens it.
+
 ## Documentation
 
 Documentation for the Operaton web apps can currently be found inside the [`/docs`](./docs/) folder.

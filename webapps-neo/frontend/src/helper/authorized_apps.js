@@ -12,6 +12,7 @@ export const PAGE_APPS = {
   "/deployments": "cockpit",
   "/batches": "cockpit",
   "/migrations": "cockpit",
+  "/modeler": "cockpit",
   "/admin": "admin",
 };
 

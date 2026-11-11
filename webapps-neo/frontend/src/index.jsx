@@ -1,11 +1,15 @@
 import { render } from "preact";
-import { Suspense } from "preact/compat";
+import { Suspense, lazy } from "preact/compat";
 import { LocationProvider, Route, Router } from "preact-iso";
 import { AppState, createAppState } from "./state.js";
 import "./helper/i18n";
 
 import { Header } from "./components/Header.jsx";
 import { GoTo } from "./components/GoTo.jsx";
+import {
+  GuardedLocation,
+  NavigationGuard,
+} from "./components/NavigationGuard.jsx";
 
 import { Home } from "./pages/Home.jsx";
 import { DashboardPage } from "./pages/Dashboard.jsx";
@@ -17,6 +21,8 @@ import { DeploymentsPage } from "./pages/Deployments.jsx";
 import { BatchesPage } from "./pages/Batches.jsx";
 import { NotFound } from "./pages/_404.jsx";
 import { require_app } from "./components/RequireApp.jsx";
+import { Loading } from "./components/Loading.jsx";
+import { RouteErrorBoundary } from "./components/RouteErrorBoundary.jsx";
 import { SetupPage } from "./pages/Setup.jsx";
 import { AccountPage } from "./pages/Account.jsx";
 
@@ -47,10 +53,50 @@ const DeploymentsGuarded = require_app(DeploymentsPage, "cockpit");
 const BatchesGuarded = require_app(BatchesPage, "cockpit");
 const MigrationsGuarded = require_app(MigrationsPage, "cockpit");
 const AdminGuarded = require_app(AdminPage, "admin");
+// The modeler carries bpmn-js' Modeler, palette, command stack and properties
+// panel — none of which a read-only deployment needs. Loaded on its route only.
+const ModelerPage = lazy(() =>
+  import("./pages/Modeler.jsx").then((module) => ({
+    default: module.ModelerPage,
+  })),
+);
+
+/**
+ * The modeler chunk is ~225 kB gzip: on a cold cache it takes a visible moment
+ * to arrive.
+ *
+ * The Suspense boundary sits *inside* the route instead of around the whole
+ * application, so the header and tabs stay on screen and usable and only the
+ * content area shows the spinner. An empty fallback here is what used to leave
+ * the page looking blank and broken.
+ */
+const ModelerRoute = (props) => {
+  const [t] = useTranslation();
+  return (
+    <Suspense
+      fallback={
+        <Loading
+          page
+          label={t("modeler.loading")}
+          detail={t("modeler.loading-detail")}
+        />
+      }
+    >
+      <RouteErrorBoundary>
+        <ModelerPage {...props} />
+      </RouteErrorBoundary>
+    </Suspense>
+  );
+};
+
+// The modeler is a cockpit feature, gated exactly like `/processes`. The page
+// stays lazily imported, so bpmn-js and the properties panel are only fetched
+// once someone actually opens it.
+const ModelerGuarded = require_app(ModelerRoute, "cockpit");
 
 export const App = () => {
   return (
-    <Suspense fallback="">
+    <Suspense fallback={<Loading page />}>
       <AppState.Provider value={createAppState()}>
         <Routing />
       </AppState.Provider>
@@ -112,7 +158,8 @@ const Routing = () => {
   if (logged_in.value.data === "authenticated") {
     return (
       <LocationProvider>
-        <Header />
+        <GuardedLocation>
+          <Header />
         <Router>
           <Route path={app_path("/")} component={DashboardPage} />
           <Route
@@ -131,6 +178,10 @@ const Routing = () => {
             component={ProcessesGuarded}
           />
           <Route path={app_path("/migrations")} component={MigrationsGuarded} />
+          <Route
+            path={app_path("/modeler/:kind?/:id?")}
+            component={ModelerGuarded}
+          />
           <Route
             path={app_path("/deployments/:deployment_id?")}
             component={DeploymentsGuarded}
@@ -160,6 +211,8 @@ const Routing = () => {
           <Route default component={NotFound} />
         </Router>
         <GoTo />
+        <NavigationGuard />
+        </GuardedLocation>
       </LocationProvider>
     );
   } else if (logged_in.value.data === "unknown") {
