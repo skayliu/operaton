@@ -1,0 +1,677 @@
+/**
+ * Layout for /modeler.
+ *
+ * Scoped to `.modeler-*` on purpose: the properties panel ships global-looking
+ * class names (`.bio-properties-panel`, `.djs-*`) that must not leak into the
+ * viewer pages, and `bpmn-js` is only imported by the lazy modeler chunk.
+ *
+ * Placed in the `custom` layer so the shared component rules keep precedence
+ * over anything generic they define for `main`, `button` or `dialog`.
+ */
+@layer custom {
+  .modeler-page {
+    display: flex;
+    flex-direction: column;
+    /* Fill the viewport below the sticky header; the canvas scrolls itself. */
+    height: calc(100vh - 6rem);
+    min-height: 30rem;
+    padding: 0;
+    gap: 0;
+  }
+
+  .modeler-toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+    padding: var(--spacing-1);
+    background: var(--background-2);
+    border-bottom: var(--border);
+  }
+
+  .modeler-toolbar h1 {
+    margin: 0 var(--spacing-1) 0 0;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .modeler-toolbar .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0;
+  }
+
+  /* Toolbar toggles (minimap) show their state, not just their label. */
+  .modeler-toolbar .button-group button[aria-pressed="true"] {
+    background: var(--background-3);
+    border-color: var(--border-color-3);
+  }
+
+  .modeler-file {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--text-disabled);
+  }
+
+  .modeler-dirty {
+    color: var(--color-warning);
+    white-space: nowrap;
+  }
+
+  .modeler-error {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    margin: 0;
+    padding: var(--spacing-1);
+    border-bottom: var(--border);
+  }
+
+  /* Banner for the two asynchronous outcomes the user must not miss:
+     "deployed version N" and "an unsaved draft was restored". */
+  .modeler-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-1);
+    margin: 0;
+    padding: var(--spacing-1);
+    border-bottom: var(--border);
+    background: var(--background-2);
+  }
+
+  .modeler-notice.success {
+    color: var(--color-success);
+    border-bottom-color: var(--color-success);
+  }
+
+  .modeler-notice button {
+    flex: 0 0 auto;
+  }
+
+  .modeler-surface {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    background: var(--background-1);
+  }
+
+  .modeler-canvas {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* Covers the canvas while bpmn-js is still building the diagram. Sits above
+     the `.djs-container` the editor appends to the same box. */
+  .modeler-canvas-loading {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-1);
+  }
+
+  /* The editor positions its own container; it needs a bounded box to fill. */
+  .modeler-canvas > .djs-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Divider between canvas and panel: drag to resize, click to collapse.
+     Narrow enough to read as a border until it is hovered or focused. */
+  .modeler-split {
+    position: relative;
+    flex: 0 0 6px;
+    background: var(--background-2);
+  }
+
+  .modeler-splitter {
+    position: absolute;
+    inset: 0;
+    cursor: col-resize;
+    /* Pointer drags must not scroll the page on touch devices. */
+    touch-action: none;
+  }
+
+  .modeler-splitter:hover,
+  .modeler-splitter:focus-visible {
+    background: var(--border-color-2);
+    outline: none;
+  }
+
+  .modeler-split.collapsed .modeler-splitter {
+    cursor: default;
+  }
+
+  .modeler-split-toggle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    border: var(--border);
+    border-radius: 50%;
+    background: var(--background-1);
+    color: var(--text-2);
+    font-size: 0.75rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  /* Collapsed, the divider is the last box in the surface. A centred toggle
+     then reaches roughly 7px past the right edge of `main`, which is itself a
+     scroll container (`overflow-y: auto` computes `overflow-x` to auto too),
+     so that sliver became a horizontal scrollbar under the canvas. Anchor the
+     toggle inside the divider instead of overhanging the viewport. */
+  .modeler-split.collapsed .modeler-split-toggle {
+    left: auto;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .modeler-split-toggle:hover {
+    background: var(--background-3);
+    color: var(--text);
+  }
+
+  /* Width comes from the splitter; `hidden` removes the panel entirely and
+     leaves the divider in place as the way back. */
+  .modeler-properties {
+    flex: 0 0 var(--modeler-panel-width, 20rem);
+    width: var(--modeler-panel-width, 20rem);
+    max-width: 60%;
+    min-height: 0;
+    overflow: auto;
+    border-left: var(--border);
+    background: var(--background-1);
+  }
+
+  /* diagram-js-minimap ships bpmn-io theme tokens that are not defined on this
+     page; feed it the app's own surfaces so it matches light and dark. */
+  .modeler-canvas .djs-minimap {
+    top: var(--spacing-1);
+    right: var(--spacing-1);
+    --minimap-background-color: var(--background-1);
+    --minimap-border-color: var(--border-color-2);
+    --minimap-viewport-border-color: var(--color-primary);
+  }
+
+  .modeler-canvas .djs-minimap .map {
+    width: 15rem;
+    height: 9rem;
+  }
+
+  /* The toolbar owns the toggle; the module's own would be a second control
+     for the same state, and a closed map would still draw an empty frame. */
+  .modeler-canvas .djs-minimap .toggle {
+    display: none;
+  }
+
+  .modeler-canvas .djs-minimap:not(.open) {
+    display: none;
+  }
+
+  .modeler-properties .bio-properties-panel {
+    height: 100%;
+  }
+
+  /* ---- Export / XML viewer -------------------------------------------- */
+
+  /* The shared dialog width is sized for forms. A diagram's XML needs room,
+     but the previews must still fit a laptop screen without scrolling the
+     whole dialog. */
+  .modeler-export-dialog {
+    width: min(calc(100% - var(--spacing-2) * 2), 56rem);
+    max-width: 56rem;
+  }
+
+  .modeler-export-tabs {
+    margin: 0;
+  }
+
+  .modeler-export-tabs button[aria-pressed="true"] {
+    background: var(--background-3);
+    border-color: var(--border-color-3);
+    font-weight: 600;
+  }
+
+  .modeler-export-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+    min-height: 14rem;
+  }
+
+  .modeler-export-status {
+    margin: 0;
+    color: var(--text-disabled);
+  }
+
+  .modeler-export-meta {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-disabled);
+  }
+
+  /* Read-only XML: monospace, its own scroll box, and no wrapping — wrapped
+     XML is unreadable and every line number becomes a guess. */
+  .modeler-export-code {
+    margin: 0;
+    padding: var(--spacing-1);
+    max-height: 45vh;
+    overflow: auto;
+    border: var(--border);
+    border-radius: 0.25rem;
+    background: var(--background-2);
+    color: var(--text);
+    font-family: monospace;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    white-space: pre;
+    tab-size: 2;
+  }
+
+  /* Syntax colouring for the XML viewer. The spans come from
+     xml_highlight.js; the palette is per theme so a token keeps its meaning
+     rather than inheriting a colour that only reads on one surface. */
+  .xml-code {
+    --xml-tag: #0a7d3c;
+    --xml-attr: #8250df;
+    --xml-value: #0d5aa0;
+    --xml-punct: #5c5c5c;
+    --xml-comment: #6a737d;
+    --xml-meta: #a04a00;
+    --xml-entity: #b73c00;
+
+    padding: 0;
+    /* The line boxes own their whitespace instead. */
+    white-space: normal;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .xml-code {
+      --xml-tag: #7ee787;
+      --xml-attr: #d2a8ff;
+      --xml-value: #79c0ff;
+      --xml-punct: #9aa0a6;
+      --xml-comment: #8b949e;
+      --xml-meta: #ffab70;
+      --xml-entity: #ffa657;
+    }
+  }
+
+  /* `min-content` is what makes the box scroll sideways instead of squeezing
+     the longest line. */
+  .xml-code code {
+    display: block;
+    min-width: min-content;
+  }
+
+  .xml-line {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* Sticky, not repeated: the document does not wrap, so the numbers have to
+     stay in view while a long attribute scrolls past. The opaque background is
+     what keeps the text from showing through underneath. */
+  .xml-ln {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    flex: 0 0 auto;
+    width: 3.5em;
+    padding: 0 0.6em 0 0.4em;
+    border-right: var(--border);
+    background: var(--background-2);
+    color: var(--text-disabled);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+  }
+
+  .xml-src {
+    flex: 1 0 auto;
+    padding-right: var(--spacing-1);
+    white-space: pre;
+  }
+
+  .xml-t.tag {
+    color: var(--xml-tag);
+  }
+
+  .xml-t.attr {
+    color: var(--xml-attr);
+  }
+
+  .xml-t.value {
+    color: var(--xml-value);
+  }
+
+  .xml-t.punct {
+    color: var(--xml-punct);
+  }
+
+  .xml-t.comment,
+  .xml-t.cdata {
+    color: var(--xml-comment);
+    font-style: italic;
+  }
+
+  .xml-t.doctype,
+  .xml-t.prolog {
+    color: var(--xml-meta);
+  }
+
+  .xml-t.entity {
+    color: var(--xml-entity);
+  }
+
+  /* Says what was left out; the download and the copy button still carry the
+     whole file. */
+  .xml-more {
+    display: block;
+    padding: var(--spacing-1);
+    border-top: var(--border);
+    color: var(--text-disabled);
+    font-size: 0.8rem;
+  }
+
+  /* White ground on purpose: the canvas draws dark shapes for a white paper,
+     and a "transparent" preview on a dark theme reads as an empty box. */
+  .modeler-export-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 45vh;
+    padding: var(--spacing-1);
+    overflow: auto;
+    border: var(--border);
+    border-radius: 0.25rem;
+    background: #ffffff;
+  }
+
+  .modeler-export-preview img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .modeler-export-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-2);
+  }
+
+  .modeler-export-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+  }
+
+  .modeler-export-options select {
+    width: auto;
+  }
+
+  .modeler-deploy-files {
+    margin: 0.25rem 0 0;
+    padding-left: 1rem;
+  }
+
+  /* Narrow screens: the properties panel becomes a drawer below the canvas
+     rather than squeezing the diagram to a few hundred pixels. */
+  @media (max-width: 60rem) {
+    .modeler-page {
+      height: auto;
+      min-height: 0;
+    }
+
+    .modeler-surface {
+      flex-direction: column;
+    }
+
+    .modeler-canvas {
+      min-height: 24rem;
+    }
+
+    /* Stacked layout: width is no longer the free dimension, so the divider
+       becomes a thin bar holding only the collapse toggle. */
+    .modeler-split {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.125rem var(--spacing-1);
+      border-top: var(--border);
+      background: var(--background-2);
+    }
+
+    .modeler-splitter {
+      display: none;
+    }
+
+    .modeler-split-toggle {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 0.125rem 0.25rem;
+      transform: none;
+      border: 0;
+      border-radius: 0;
+      background: none;
+    }
+
+    .modeler-properties {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      max-height: 40vh;
+      border-left: 0;
+      border-top: var(--border);
+    }
+
+    .modeler-canvas .djs-minimap .map {
+      width: 10rem;
+      height: 6rem;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Properties panel: keep list decorations inside the panel.
+ *
+ * bpmn-js-properties-panel indents list content with negative offsets — the
+ * nested-list dot at `left: -19px` and the collapsible header at
+ * `margin-left: -8px`. Both assume a parent that is already indented, which
+ * holds for a list nested in a collapsible entry but not for a top-level one
+ * such as "Process variables", which sits straight inside
+ * `.bio-properties-panel-group-entries`. The scroll container clips
+ * horizontally (`overflow-x: hidden`), so that dot and the left edge of the
+ * expand arrow get cut off instead of drawn.
+ *
+ * Deliberately unlayered: the library CSS is unlayered too, and an unlayered
+ * rule beats everything inside `@layer custom` regardless of specificity.
+ * ------------------------------------------------------------------------- */
+.modeler-properties .bio-properties-panel-group-entries > .bio-properties-panel-list-entry {
+  padding-left: 1rem;
+}
+
+.modeler-properties .bio-properties-panel-group-entries > .bio-properties-panel-list-entry::before {
+  left: -0.75rem;
+}
+
+/* ---------------------------------------------------------------------------
+ * Collapsible entries: stop hard-coding the header height.
+ *
+ * The arrow is `top: 2px` with `height: 22px`, and the side line starts at
+ * `top: -6px`, i.e. 6px above the entries box. Both only line up when the
+ * header is exactly 25px tall — 21px line height plus the title's 2px+2px
+ * padding. When it is shorter (a different line height, a denser theme, a
+ * zoomed UI) the arrow's bottom half is clipped by the header's
+ * `overflow: hidden`, and the side line is drawn straight through the arrow.
+ *
+ * Anchor the arrow to the header's centre instead of to its top edge, let the
+ * header stop clipping (the title carries its own `overflow: hidden` +
+ * `text-overflow: ellipsis`, so the label still truncates), and start the side
+ * line inside the entries box. None of the three then depends on the header
+ * being any particular height.
+ * ------------------------------------------------------------------------- */
+.modeler-properties .bio-properties-panel-collapsible-entry-header {
+  overflow: visible;
+}
+
+.modeler-properties .bio-properties-panel-collapsible-entry-arrow {
+  top: 10%;
+  /* `translateY` keeps the 22px hit area centred; the icon's own rotation is
+     on the `svg`, so it is unaffected. */
+  transform: translateY(-50%);
+}
+
+.modeler-properties .bio-properties-panel-collapsible-entry-entries::before {
+  top: -4px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Validation (bpmn-js-bpmnlint) and draft state.
+ *
+ * The lint summary button and the issue dropdown are styled by the library
+ * against bpmn-io's semantic tokens (`--bio-*`), which the app does not ship —
+ * without them the button renders transparent over the canvas. Map them onto
+ * the modeler palette here instead of forking the library stylesheet.
+ * ------------------------------------------------------------------------- */
+@layer custom {
+  .modeler-canvas {
+    --bio-surface-subtle: var(--background-2);
+    --bio-text: var(--text, #222);
+    --bio-text-subtle: var(--text-disabled, #666);
+    --bio-text-on-primary: #ffffff;
+    --bio-danger-marker: var(--color-error, #c0392b);
+    --bio-warning-marker: var(--color-warning, #b9770e);
+    --bio-success-marker: var(--color-success, #1e8449);
+    --bjsl-color-error: var(--bio-danger-marker);
+    --bjsl-color-warning: var(--bio-warning-marker);
+    --bjsl-color-success: var(--bio-success-marker);
+    --bjsl-font-color: var(--bio-text);
+  }
+
+  /* The library parks its summary pill at the bottom centre of the canvas;
+     keep the minimap's corner clear and give it a readable ground. */
+  .modeler-canvas .bjsl-button {
+    bottom: var(--spacing-1);
+    background: var(--background-2);
+    border: var(--border);
+    color: var(--text, #222);
+  }
+
+  .modeler-canvas .bjsl-button-error,
+  .modeler-canvas .bjsl-button-warning,
+  .modeler-canvas .bjsl-button-success {
+    background: var(--background-2);
+    color: var(--text, #222);
+    border-color: currentColor;
+  }
+
+  .modeler-canvas .bjsl-button-error .icon {
+    color: var(--color-error, #c0392b);
+  }
+
+  .modeler-canvas .bjsl-button-warning .icon {
+    color: var(--color-warning, #b9770e);
+  }
+
+  .modeler-canvas .bjsl-button-success .icon {
+    color: var(--color-success, #1e8449);
+  }
+
+  .modeler-save-state {
+    color: var(--text-disabled);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    /* The clock carries milliseconds now, so a proportional font would make
+       the status line twitch on every save. */
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Problem list above the canvas. A strip, not a panel: it should never
+     compete with the diagram for height, and never scroll sideways — a rule
+     message is prose, so it wraps instead of widening the strip. */
+  .modeler-lint {
+    max-height: 10rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-bottom: var(--border);
+    background: var(--background-2);
+    font-size: 0.85rem;
+  }
+
+  .modeler-lint summary {
+    padding: var(--spacing-1);
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .modeler-lint ul {
+    margin: 0;
+    padding: 0 0 var(--spacing-1);
+    list-style: none;
+  }
+
+  .modeler-lint li button {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--spacing-1);
+    width: 100%;
+    /* The shared button rule is content-box, so width:100% plus the horizontal
+       padding overflowed the strip and produced a horizontal scrollbar. */
+    box-sizing: border-box;
+    padding: 0.15rem var(--spacing-2);
+    border: 0;
+    border-radius: 0;
+    background: none;
+    text-align: left;
+    font-size: inherit;
+  }
+
+  /* Let the message take the leftover width and wrap; without min-width:0 a
+     flex item refuses to shrink below its longest word. */
+  .modeler-lint-message {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .modeler-lint li button:hover,
+  .modeler-lint li button:focus-visible {
+    background: var(--background-3);
+  }
+
+  .modeler-lint li.error .modeler-lint-message {
+    color: var(--color-error, #c0392b);
+  }
+
+  .modeler-lint li.warn .modeler-lint-message {
+    color: var(--color-warning, #b9770e);
+  }
+
+  .modeler-lint code {
+    flex: none;
+    color: var(--text-disabled);
+    white-space: nowrap;
+  }
+}
