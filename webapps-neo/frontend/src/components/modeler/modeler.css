@@ -674,4 +674,110 @@
     color: var(--text-disabled);
     white-space: nowrap;
   }
+
+  /* Type picker shown at `/modeler` before any `:kind` is chosen. The page is a
+     flex column of fixed height, so the picker centres itself with
+     `margin: auto` instead of stretching: the editor page reuses this shell
+     and must not inherit a vertical rhythm it never asked for. */
+  .modeler-picker {
+    margin: auto;
+    width: min(100% - var(--spacing-2) * 2, 56rem);
+    padding: var(--spacing-2) 0;
+  }
+
+  .modeler-picker > h1 {
+    margin: 0 0 var(--spacing-1);
+  }
+
+  .modeler-picker-lead {
+    margin: 0 0 var(--spacing-3);
+    color: var(--text-2);
+  }
+
+  .modeler-picker-grid {
+    display: grid;
+    /* `auto-fit` + `minmax` gives two columns on a desktop and one on a
+       phone without a second media query. */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--spacing-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .modeler-picker-grid > li {
+    display: flex;
+  }
+
+  .modeler-pick {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: var(--spacing-1);
+    padding: var(--spacing-3);
+    border: var(--border);
+    border-radius: var(--border-radius-2);
+    /* The shared `a` rule paints links blue and underlines them; these cards
+       read as surfaces, so they opt out and carry their own colour. */
+    background: var(--background-1);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 120ms ease, background-color 120ms ease;
+  }
+
+  a.modeler-pick:hover,
+  a.modeler-pick:focus-visible {
+    border-color: var(--color-primary);
+    background: var(--background-2);
+  }
+
+  .modeler-pick.is-pending {
+    /* Dashed, not solid: the card is intentionally not actionable, and a solid
+       border read as broken rather than not-yet-available. */
+    border-style: dashed;
+    background: var(--background-2);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+  }
+
+  .modeler-pick-kind {
+    align-self: flex-start;
+    padding: 0.1em var(--spacing-1);
+    border-radius: var(--border-radius);
+    background: var(--color-primary-transparent);
+    color: var(--color-link);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+  }
+
+  .modeler-pick.is-pending .modeler-pick-kind {
+    background: var(--background-4);
+    color: var(--text-disabled);
+  }
+
+  .modeler-pick-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .modeler-pick-text {
+    color: var(--text-2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .modeler-pick.is-pending .modeler-pick-text {
+    color: var(--text-disabled);
+  }
+
+  .modeler-pick-badge {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.1em var(--spacing-1);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    color: var(--text-disabled);
+    font-size: 0.75rem;
+  }
 }

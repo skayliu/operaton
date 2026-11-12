@@ -1,20 +1,14 @@
 import { useSignal, useSignalEffect } from "@preact/signals";
-import { useEffect, useMemo, useRef } from "preact/hooks";
-import { useRoute } from "preact-iso";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { useLocation, useRoute } from "preact-iso";
 import { useTranslation } from "react-i18next";
 import { ConfirmDialog } from "../components/Dialog.jsx";
-import { BPMNModeler } from "../components/modeler/BPMNModeler.jsx";
+import { Loading } from "../components/Loading.jsx";
 import { DeployDialog } from "../components/modeler/DeployDialog.jsx";
 import { ExportDialog } from "../components/modeler/ExportDialog.jsx";
-import {
-  bpmn_template,
-  random_process_id,
-} from "../components/modeler/templates.js";
-import {
-  clear_draft,
-  load_draft,
-  save_draft,
-} from "../components/modeler/draft_store.js";
+import { ModelerPicker } from "./ModelerPicker.jsx";
+import { bpmn_template, random_process_id } from "../components/modeler/templates.js";
+import { clear_draft, load_draft, save_draft } from "../components/modeler/draft_store.js";
 import { create_gate } from "../components/modeler/save_gate.js";
 import {
   KIND_NAMES,
@@ -33,6 +27,7 @@ import {
 } from "../components/modeler/modeler_helpers.js";
 import { save_file } from "../helper/download.js";
 import { set_leave_guard } from "../helper/leave_guard.js";
+import { app_path } from "../config.js";
 import "../components/modeler/modeler.css";
 
 const DEFAULT_KIND = "bpmn";
@@ -49,17 +44,23 @@ const MAX_LISTED_ISSUES = 100;
 /**
  * The modeler page.
  *
- * One shell for every kind (`/modeler/:kind/:id?`), with the editor itself
- * behind an interface — `import_xml / export_xml / is_dirty / undo / redo /
- * zoom / fit / toggle_linting`. P0 wires up BPMN only; DMN and Form slot in as
- * siblings without touching the tool bar, the deploy dialog or the leave guard.
+ * `/modeler` is the type picker: it draws no canvas and imports nothing beyond
+ * `ModelerPicker`, which is why the editor below is loaded from an effect
+ * instead of at module scope — opening the picker must not pay for bpmn-js, the
+ * properties panel and the camunda moddle (~297 kB gzip).
  *
- * Route-level lazy (see index.jsx) keeps bpmn-js, the properties panel and the
- * camunda moddle out of the first paint.
+ * `/modeler/:kind/:id?` is the editor shell, one for every kind. The editor
+ * itself sits behind an interface — `import_xml / export_xml / is_dirty / undo /
+ * redo / zoom / fit / toggle_linting` — so DMN and Form slot in as siblings
+ * without touching the tool bar, the deploy dialog or the leave guard.
  */
 export const ModelerPage = () => {
   const [t] = useTranslation(),
     { params } = useRoute(),
+    { route } = useLocation(),
+    // The editor is fetched here rather than imported at module scope, so the
+    // picker above stays cheap. `undefined` means "not started yet".
+    [Canvas, set_Canvas] = useState(undefined),
     kind = params.kind || DEFAULT_KIND,
     // P0 only ships BPMN; the others still land on the page and say so rather
     // than 404 or render an empty canvas.
@@ -72,10 +73,19 @@ export const ModelerPage = () => {
     name_follows = useRef(true),
     save_timer = useRef(null),
     last_persisted = useRef(""),
+    // The kind the draft restore was started for. Reading it back after the
+    // await is what stops a switch to another kind (the picker, a link) from
+    // dropping a `draft:dmn` into the BPMN canvas.
+    restore_kind = useRef(null),
     // Process ids handed out in this session. A new document must never reuse
     // one: two diagrams sharing an id deploy as versions of the same process
     // definition, which is exactly the collision a random id is meant to avoid.
     used_process_ids = useRef(new Set()),
+    // Whether the draft read has already been claimed. Set synchronously,
+    // before the await, so a second route change cannot both start one: the
+    // second would read the store again and overwrite the canvas with the same
+    // document mid-import.
+    restore_done = useRef(false),
     file_name = useSignal(`process.bpmn`),
     // Built once: `useSignal` only reads its first value, so recomputing this on
     // every render would burn ids for nothing. The object (not just the XML
@@ -379,6 +389,14 @@ export const ModelerPage = () => {
     file_name.value = next;
   };
 
+  /**
+   * Forget the stored draft and put a fresh template on the canvas.
+   *
+   * This is the only way out of a draft: the autosave keeps writing it back,
+   * and every later visit restores it. It answers the banner's "discard" as
+   * well as the tool bar's, which is why both exist — the banner is only there
+   * for the visit that actually restored something.
+   */
   const discard_draft = () => {
     void clear_draft(kind);
     draft_restored.value = false;
@@ -386,7 +404,25 @@ export const ModelerPage = () => {
     last_persisted.current = "";
     save_state.value = "idle";
     saved_at.value = null;
+    // A template loads next, so the restore has already happened for this
+    // mount; without this the banner's own "discard" could never run twice.
+    restore_done.current = true;
     load_document(blank_document(), "process.bpmn");
+  };
+
+  /**
+   * Discard, but only once the user has agreed.
+   *
+   * The tool bar has no banner to lean on, and the button sits next to "save
+   * draft": one stray click would otherwise clear both the draft and the
+   * canvas. The banner's own button stays immediate — there the draft was just
+   * restored, so the intent is already unambiguous.
+   */
+  const discard_with_confirm = async () => {
+    if (!(await ask(t("modeler.confirm-discard"), t("modeler.draft.discard")))) {
+      return;
+    }
+    discard_draft();
   };
 
   const toggle_lint = () => {
@@ -415,50 +451,76 @@ export const ModelerPage = () => {
     return "";
   };
 
-  // Restore the draft left behind by the previous visit. The route's `:id`
-  // (an already deployed definition, P3) wins over a local draft, so that
-  // opening a definition never shows someone else's unsaved work.
-  useEffect(() => {
+  /**
+   * Put the stored draft on the canvas and report what it was.
+   *
+   * Only `/modeler/:kind` calls this: the route already carries the kind, so
+   * the draft is loaded, never searched for. `/modeler` itself stays on the
+   * type picker — redirecting from there to whichever kind has a draft is what
+   * used to skip the "what do you want to model?" screen entirely, and it made
+   * the back button mean "back to my diagram" instead of "back to the picker".
+   * Never rejects: a draft that cannot be read leaves the blank template on
+   * screen.
+   */
+  const restore_draft = async (target_kind, id) => {
+    // One read per mount, so a reload or a second route change cannot race the
+    // first read into the same canvas.
+    if (restore_done.current) return false;
+    restore_done.current = true;
+
     const gate = restore_gate.current;
-    let cancelled = false;
+    restore_kind.current = target_kind;
+    try {
+      // The route's `:id` (an already deployed definition, P3) wins over a
+      // local draft, so that opening a definition never shows someone else's
+      // unsaved work.
+      if (id) return false;
+      const draft = await load_draft(target_kind);
+      // The kind changed while IndexedDB answered: this draft belongs to
+      // another page, not to the one on screen.
+      if (restore_kind.current !== target_kind) return false;
+      if (!draft?.xml) return false;
 
-    void (async () => {
-      try {
-        if (!supported || params.id) return;
-        const draft = await load_draft(kind);
-        if (cancelled || !draft?.xml) return;
-
-        name_follows.current = false;
-        last_persisted.current = draft.xml;
-        load_document(draft.xml, draft.name || "process.bpmn");
-        // The draft is exactly what the canvas now shows.
-        draft_stale.current = false;
-        // Restoring is unconditional. This check used to skip the restore for
-        // anything it read as the untouched starting point, which silently
-        // threw the draft away: a diagram holding only a start and an end
-        // event, or one written without the `bpmn:` prefix, came back as a
-        // brand new template — and the autosave that followed wrote that
-        // template over the draft. Whether the document looks blank is only
-        // relevant to the banner, never to whether the user's work is loaded.
-        draft_restored.value = !is_blank_bpmn(draft.xml);
-        if (draft.saved_at) {
-          saved_at.value = draft.saved_at;
-          save_state.value = "saved";
-        }
-      } finally {
-        // Whether there was a draft, there was none, or the read failed: saves
-        // may run from here on.
-        gate.release();
+      name_follows.current = false;
+      last_persisted.current = draft.xml;
+      load_document(draft.xml, draft.name || "process.bpmn");
+      // The draft is exactly what the canvas now shows.
+      draft_stale.current = false;
+      // Restoring is unconditional. This check used to skip the restore for
+      // anything it read as the untouched starting point, which silently
+      // threw the draft away: a diagram holding only a start and an end
+      // event, or one written without the `bpmn:` prefix, came back as a
+      // brand new template — and the autosave that followed wrote that
+      // template over the draft. Whether the document looks blank is only
+      // relevant to the banner, never to whether the user's work is loaded.
+      draft_restored.value = !is_blank_bpmn(draft.xml);
+      if (draft.saved_at) {
+        saved_at.value = draft.saved_at;
+        save_state.value = "saved";
       }
-    })();
-
-    return () => {
-      cancelled = true;
-      // A save waiting behind a restore that will never finish would hang the
-      // leave guard; releasing twice is a no-op.
+      return true;
+    } finally {
+      // Whether there was a draft, there was none, or the read failed: saves
+      // may run from here on.
       gate.release();
-    };
-  }, []);
+    }
+  };
+
+  /**
+   * `/modeler/:kind` — put the stored draft back on the canvas.
+   *
+   * Runs on mount, on a kind change and when an `:id` arrives, which covers
+   * reloading or bookmarking the editor as well as arriving from the picker.
+   * `restore_draft` holds the one-shot guard, so a second run cannot read the
+   * store again and fight over the canvas.
+   */
+  useEffect(() => {
+    if (!params.kind) return;
+    void restore_draft(params.kind, params.id);
+    // `restore_draft` reads props and refs only, so the effect is about the
+    // route, not about the function's identity.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.kind, params.id]);
 
   /**
    * Settle the draft before the editor is torn down, and only ask if that
@@ -490,6 +552,9 @@ export const ModelerPage = () => {
           ask: () => ask(t("modeler.confirm-leave"), t("modeler.leave")),
         }),
       ),
+    // `ask` is rebuilt on every render and `dirty` is read through `.peek()`,
+    // so listing them would re-register the guard after every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [t],
   );
 
@@ -503,6 +568,9 @@ export const ModelerPage = () => {
     };
     window.addEventListener("beforeunload", on_before_unload);
     return () => window.removeEventListener("beforeunload", on_before_unload);
+    // The signal is read when the event fires, not during render, so there is
+    // nothing to subscribe to.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Leaving the page: flush the pending edit. `persist_draft` exports through
@@ -515,8 +583,40 @@ export const ModelerPage = () => {
       save_timer.current = null;
       void persist_draft();
     },
+    // Unmount only: it has to run once, when the editor is torn down.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
+
+  // Fetch the editor once the route has a kind. The picker above returns
+  // before this runs, which is the point: `/modeler` never reaches the import.
+  useEffect(() => {
+    if (!params.kind || !supported || Canvas !== undefined) return undefined;
+    let live = true;
+
+    void import("../components/modeler/BPMNModeler.jsx").then(
+      (module) => {
+        if (live) set_Canvas(() => module.BPMNModeler);
+      },
+      (caught) => {
+        if (!live) return;
+        // A failed chunk load must not leave a spinner running forever.
+        set_Canvas(() => null);
+        error.value = error_message(caught, t("modeler.errors.import"));
+      },
+    );
+
+    return () => {
+      live = false;
+    };
+    // `error` is written (not read) here; Canvas/t drive the single import
+    // attempt.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params.kind, supported, Canvas, t]);
+
+  // No `:kind`: the "what do you want to model?" screen. Cheap on purpose, and
+  // it must not reach the editor import below.
+  if (!params.kind) return <ModelerPicker />;
 
   if (!supported) {
     return (
@@ -531,12 +631,42 @@ export const ModelerPage = () => {
     );
   }
 
+  // The editor module has not arrived yet: say so instead of drawing a toolbar
+  // around nothing.
+  if (Canvas === undefined) {
+    return <Loading page label={t("modeler.loading")} detail={t("modeler.loading-detail")} />;
+  }
+
+  if (Canvas === null) {
+    return (
+      <main id="content" class="modeler-page">
+        <h1>{t("modeler.title")}</h1>
+        <p class="error" role="alert">
+          {error.value || t("modeler.errors.import")}{" "}
+          <button type="button" onClick={() => (error.value = null)}>
+            {t("common.close")}
+          </button>
+        </p>
+      </main>
+    );
+  }
+
   return (
     <main id="content" class="modeler-page">
       <div class="modeler-toolbar">
         <h1>{t("modeler.title")}</h1>
 
         <div class="button-group">
+          {/* Navigation, not editing: it belongs at the far end from the
+              document actions. The draft is written on the way out, so the
+              diagram is still there next time. */}
+          <button
+            type="button"
+            class="modeler-back"
+            onClick={() => route(app_path("/modeler"))}
+          >
+            {t("modeler.back")}
+          </button>
           <button type="button" onClick={new_document}>
             {t("modeler.new")}
           </button>
@@ -604,6 +734,12 @@ export const ModelerPage = () => {
             onClick={save_now}
           >
             {t("modeler.draft.save")}
+          </button>
+          {/* Always available: the draft is the one thing that survives
+              leaving, and without this there is no way to get rid of it once
+              the restored banner is gone. */}
+          <button type="button" onClick={discard_with_confirm}>
+            {t("modeler.draft.discard")}
           </button>
         </div>
 
@@ -679,7 +815,7 @@ export const ModelerPage = () => {
         </details>
       )}
 
-      <BPMNModeler
+      <Canvas
         ref={editor}
         source={source.value}
         on_dirty={(value) => {
@@ -697,9 +833,9 @@ export const ModelerPage = () => {
         on_lint={(issues) => (lint.value = issues)}
       />
 
-      {/* One dialog for every "unsaved work" question: leaving the page, and
-          replacing the document with a new or opened one. Its confirm label is
-          chosen by the caller, e.g. "Leave" vs "Discard". */}
+      {/* One dialog for every "unsaved work" question: leaving the page,
+          replacing the document with a new or opened one, and discarding the
+          draft. Its confirm label is chosen by the caller. */}
       <ConfirmDialog
         open={ask_open}
         message={ask_message.value}
