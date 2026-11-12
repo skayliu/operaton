@@ -24,8 +24,8 @@ const swap_server = (e, state) => {
 const builtin_nav = [
   { href: "/tasks", nameKey: "nav.tasks", hotkey: "alt+shift+1" },
   { href: "/processes", nameKey: "nav.processes", hotkey: "alt+shift+2" },
-  { href: "/modeler", nameKey: "nav.modeler", hotkey: "alt+shift+9" },
   { href: "/decisions", nameKey: "nav.decisions", hotkey: "alt+shift+3" },
+  { href: "/modeler", nameKey: "nav.modeler", hotkey: "alt+shift+9" },
   { href: "/deployments", nameKey: "nav.deployments", hotkey: "alt+shift+4" },
   { href: "/batches", nameKey: "nav.batches", hotkey: "alt+shift+5" },
   { href: "/migrations", nameKey: "nav.migrations", hotkey: "alt+shift+6" },

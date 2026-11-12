@@ -67,8 +67,8 @@ describe("Header", () => {
     expect(hrefs).toEqual([
       "/tasks",
       "/processes",
-      "/modeler",
       "/decisions",
+      "/modeler",
       "/deployments",
       "/batches",
       "/migrations",
@@ -88,8 +88,8 @@ describe("Header", () => {
       expect(hrefs).toEqual([
         "/app-neo/tasks",
         "/app-neo/processes",
-        "/app-neo/modeler",
         "/app-neo/decisions",
+        "/app-neo/modeler",
         "/app-neo/deployments",
         "/app-neo/batches",
         "/app-neo/migrations",
