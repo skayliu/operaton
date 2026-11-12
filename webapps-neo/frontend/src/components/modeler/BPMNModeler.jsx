@@ -12,6 +12,11 @@ import {
 import camunda_moddle from "camunda-bpmn-moddle/resources/camunda.json";
 import LintingModule from "bpmn-js-bpmnlint";
 import { bpmnlint_config } from "./bpmnlint_config.js";
+import {
+  modeler_i18n_additional_modules,
+  refresh_modeler,
+  sync_modeler_language,
+} from "./modeler_i18n.js";
 import { PanelSplitter } from "./PanelSplitter.jsx";
 import {
   MINIMAP_OPEN_KEY,
@@ -22,6 +27,8 @@ import {
   element_bounds,
   is_at_saved_point,
   open_groups_layout,
+  same_size,
+  viewbox_after_resize,
   stored_minimap_open,
   stored_panel_collapsed,
   stack_index,
@@ -74,12 +81,11 @@ export const BPMNModeler = forwardRef((
     on_error,
     on_process_id,
     on_import,
-    on_minimap_change,
     on_lint,
   },
   ref,
 ) => {
-  const [t] = useTranslation(),
+  const [t, i18n] = useTranslation(),
     // Building the modeler and importing the XML takes a visible moment on a
     // cold start; an empty canvas meanwhile reads as a broken editor.
     [loading, set_loading] = useState(true),
@@ -98,9 +104,11 @@ export const BPMNModeler = forwardRef((
     // but it throws away the undo history; a draft save only moves this
     // mark, so ctrl+z survives saving.
     saved_point = useRef(-1),
-    // Read once at construction: the module's own toggle keeps its state, we
-    // only mirror it for the toolbar button and for the next visit.
-    minimap_open = useRef(stored_minimap_open()),
+    // The module owns the open state: the corner control asks it to toggle and
+    // learns the result from the `minimap.toggle` event. This copy exists so that
+    // control can render its pressed state, and so the effect below can restore
+    // the stored preference once the module is there.
+    [minimap_visible, set_minimap_visible] = useState(false),
     // The panel collapses every group by default. Keep the state it reports so
     // a re-import can re-expand the important ones without losing the groups
     // the user opened or closed themselves.
@@ -114,7 +122,6 @@ export const BPMNModeler = forwardRef((
     on_error,
     on_process_id,
     on_import,
-    on_minimap_change,
     on_lint,
   };
 
@@ -134,7 +141,10 @@ export const BPMNModeler = forwardRef((
         bpmnlint: bpmnlint_config,
       },
       minimap: {
-        open: minimap_open.current,
+        // Never open itself: the corner control in the canvas is the one
+        // switch for the map. A module that opened on its own would draw its
+        // own close control in the same corner, and both would show at once.
+        open: false,
         // The minimap redraws on every command; batching keeps dragging a
         // large diagram smooth without the overview lagging behind by much.
         debounceDelay: 100,
@@ -147,11 +157,20 @@ export const BPMNModeler = forwardRef((
         // Camunda 7 and Operaton share the `camunda:` namespace, so one
         // provider covers both. The Zeebe provider must not be added here.
         CamundaPlatformPropertiesProviderModule,
+        // Last on purpose: didi lets the final registration of a name win, and
+        // this one replaces the built-in English `translate`.
+        ...modeler_i18n_additional_modules,
       ],
       moddleExtensions: { camunda: camunda_moddle },
     });
 
     modeler_ref.current = modeler;
+    // The canvas language is whatever the shell is using; the dictionary is
+    // fetched here rather than at construction, so the editor chunk stays
+    // loadable before any locale file is present.
+    void sync_modeler_language(i18n).then(() => {
+      if (modeler_ref.current === modeler) refresh_modeler(modeler);
+    });
 
     const event_bus = modeler.get("eventBus"),
       on_change = () => {
@@ -171,20 +190,17 @@ export const BPMNModeler = forwardRef((
       on_lint = (event) => {
         callbacks.current.on_lint?.(summarize_issues(event.issues));
       },
-      // The minimap ships its own toggle; the toolbar mirrors it so both
-      // controls stay in sync and the choice is remembered.
+      // The minimap module owns the state and fires this event; the canvas
+      // button mirrors it so its pressed state matches, and the choice is
       on_minimap_toggle = (event) => {
-        minimap_open.current = Boolean(event.open);
-        write_stored(MINIMAP_OPEN_KEY, minimap_open.current);
-        callbacks.current.on_minimap_change?.(minimap_open.current);
+        write_stored(MINIMAP_OPEN_KEY, Boolean(event.open));
+        set_minimap_visible(Boolean(event.open));
       };
 
     event_bus.on("commandStack.changed", on_change);
     event_bus.on("propertiesPanel.layoutChanged", on_panel_layout);
     event_bus.on("minimap.toggle", on_minimap_toggle);
     event_bus.on("linting.completed", on_lint);
-    // The page renders its toolbar before this effect runs.
-    callbacks.current.on_minimap_change?.(minimap_open.current);
 
     return () => {
       event_bus.off("commandStack.changed", on_change);
@@ -194,7 +210,9 @@ export const BPMNModeler = forwardRef((
       modeler.destroy();
       modeler_ref.current = null;
     };
-  }, []);
+    // `i18n` is the one stable i18next instance, so listing it satisfies
+    // exhaustive-deps without re-creating the editor on a language change.
+  }, [i18n]);
 
   /**
    * bpmn-js has no way to cancel an `importXML`. When `source` changes while
@@ -262,12 +280,95 @@ export const BPMNModeler = forwardRef((
   }, [source]);
 
   /**
-   * The canvas only re-measures itself on a window resize, so resizing or
-   * revealing the panel has to say so — otherwise the diagram stays laid out
-   * for the old width and the fit-to-view shortcut is off by the difference.
+   * Switching language while the editor is open.
+   *
+   * Only the dictionary is swapped: the context pad, the popup menu and the
+   * properties panel re-ask `translate` whenever they open or re-render, and
+   * `refresh_modeler` tells the palette to re-read its entries. Nothing is
+   * re-imported, so the undo history and the user's place on the canvas
+   * survive — the document never changed, only its labels.
+   *
+   * Skipped on the first run: the mount import has not landed yet, and there
+   * is nothing on the canvas to re-label.
    */
+  const language_seen = useRef(null);
+
   useEffect(() => {
-    modeler_ref.current?.get("canvas", false)?.resized?.();
+    if (language_seen.current === null) {
+      language_seen.current = i18n.language;
+      return undefined;
+    }
+    if (language_seen.current === i18n.language) return undefined;
+    language_seen.current = i18n.language;
+
+    const modeler = modeler_ref.current;
+    if (!modeler) return undefined;
+
+    let cancelled = false;
+    const run = async () => {
+      // Behind the pending import: the refresh must describe what is on screen.
+      await import_chain.current;
+      if (cancelled || modeler_ref.current !== modeler) return;
+      await sync_modeler_language(i18n);
+      if (cancelled || modeler_ref.current !== modeler) return;
+      refresh_modeler(modeler);
+    };
+    void run();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [i18n, i18n.language]);
+
+  /**
+   * The canvas only re-measures itself on a window resize, so a change to the
+   * panel has to say so — otherwise the diagram stays laid out for the old
+   * width and the fit-to-view shortcut is off by the difference.
+   *
+   * Measured on the canvas box rather than trusted from the panel state:
+   * collapsing and the splitter's own collapse both land here, and a layout
+   * that did not actually move the canvas edge (a no-op drag, a stacked mobile
+   * layout where the panel takes no width) costs nothing.
+   */
+  const canvas_size = useRef(null);
+
+  useEffect(() => {
+    const canvas = modeler_ref.current?.get("canvas", false);
+    if (!canvas) return;
+
+    // `Canvas#_container` is the sized box. It is private, but it is the same
+    // property `resized()` itself measures, so there is no public equivalent
+    // to prefer.
+    const measure = () => {
+      const element = canvas._container;
+      const width = element?.clientWidth;
+      if (!Number.isFinite(width)) return;
+      const height = element.clientHeight;
+      if (!Number.isFinite(height)) return;
+      const next = { width, height };
+      if (same_size(canvas_size.current, next)) return;
+      const previous = canvas_size.current;
+      canvas_size.current = next;
+
+      // Read before the resize is announced: `resized()` invalidates the cache,
+      // and the box the current view was computed against is the one being
+      // replaced. Nothing in diagram-js moves the drawing on `canvas.resized`,
+      // so without this the canvas keeps its old origin and the diagram slides
+      // out of view instead of reflowing. The zoom is kept: re-fitting would
+      // discard a zoom the user set on purpose on every nudge.
+      const centred =
+        previous && viewbox_after_resize(canvas.viewbox(), previous, next);
+      if (centred) canvas.viewbox(centred);
+      canvas.resized?.();
+      canvas.resized?.();
+    };
+
+    measure();
+
+    if (typeof ResizeObserver === "undefined" || !canvas._container) return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(canvas._container);
+    return () => observer.disconnect();
   }, [panel_width, panel_collapsed]);
 
   // A narrower window may leave no room for the width that was dragged out.
@@ -284,6 +385,30 @@ export const BPMNModeler = forwardRef((
   const change_panel_width = (next) => {
     set_panel_width(next);
     write_stored(PANEL_WIDTH_KEY, next);
+  };
+
+  /**
+   * The stored preference is applied here rather than at construction: the module
+   * is built with `open: false` so its own control cannot appear beside the
+   * corner one, and opening it afterwards keeps a single source of truth.
+   */
+  useEffect(() => {
+    const minimap = modeler_ref.current?.get("minimap", false);
+    if (!minimap) return;
+    if (minimap.isOpen() !== minimap_visible) minimap.toggle(minimap_visible);
+    // The stored preference is applied here, not at construction: the module is
+    // built with `open: false` so its own control cannot appear in the corner.
+  }, [minimap_visible]);
+
+  /**
+   * The minimap module owns the actual toggle, including the persistence and
+   * the `minimap.toggle` event the button state is mirrored from. Delegating
+   * keeps one source of truth: a map dragged to a new position keeps its
+   * viewport rectangle in sync with the canvas because both come from the same
+   * module.
+   */
+  const toggle_minimap = () => {
+    modeler_ref.current?.get("minimap", false)?.toggle();
   };
 
   const toggle_panel = () => {

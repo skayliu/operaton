@@ -1,5 +1,5 @@
 import { useRef } from "preact/hooks";
-import { PANEL_SIZE, clamp_panel_width } from "./modeler_helpers.js";
+import { PANEL_SIZE, clamp_panel_width, panel_width_from_pointer } from "./modeler_helpers.js";
 
 /** Pointer travel below this is a click, not a drag. */
 const DRAG_THRESHOLD = 2;
@@ -27,7 +27,16 @@ export const PanelSplitter = ({
 }) => {
   const drag = useRef(null);
 
-  const surface_rect = (element) => element.parentElement.getBoundingClientRect();
+  /**
+   * The box the divider is measured against.
+   *
+   * The bar is only a few pixels wide and sits between canvas and panel, so its
+   * own parent is the bar, not the surface: measuring that would report a width
+   * of a few pixels, which clamps the panel to its minimum and freezes it there.
+   */
+  const surface_rect = (element) =>
+    (element.closest(".modeler-surface") ?? element.parentElement.parentElement)
+      .getBoundingClientRect();
 
   const on_pointer_down = (event) => {
     if (event.button !== 0 || collapsed) return;
@@ -45,7 +54,12 @@ export const PanelSplitter = ({
 
     const rect = surface_rect(event.currentTarget);
     // The panel sits on the right: dragging left widens it.
-    on_width(clamp_panel_width(rect.right - event.clientX, rect.width));
+    on_width(
+      clamp_panel_width(
+        panel_width_from_pointer(rect.right, event.clientX),
+        rect.width,
+      ),
+    );
   };
 
   const end_drag = (event) => {

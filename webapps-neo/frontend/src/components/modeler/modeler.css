@@ -35,15 +35,46 @@
     white-space: nowrap;
   }
 
-  .modeler-toolbar .button-group {
+  /* One frame per intent, so "these belong together" reads without a
+     caption over every button. Each group wraps as a unit on a narrow
+     window instead of scattering its buttons through the toolbar. */
+  .modeler-toolbar-groups {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-1);
+  }
+
+  .modeler-toolbar-group {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.25rem;
-    margin: 0;
+    padding: 0.125rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background: var(--background-1);
+  }
+
+  /* The shared `button` rule lives in a layer this file is meant to override,
+     and it carries `margin-top: 1em` — inside a toolbar frame that pushes every
+     label a line below the frame's own top edge. */
+  .modeler-toolbar button {
+    margin-top: 0;
+    white-space: nowrap;
+  }
+
+  /* Deploy is the one action that changes the engine rather than the
+     document, so it stays outside every frame. */
+  .modeler-toolbar-deploy {
+    display: flex;
+    align-items: center;
+    padding: 0;
   }
 
   /* Toolbar toggles (minimap) show their state, not just their label. */
-  .modeler-toolbar .button-group button[aria-pressed="true"] {
+  .modeler-toolbar-group button[aria-pressed="true"] {
     background: var(--background-3);
     border-color: var(--border-color-3);
   }
@@ -204,7 +235,7 @@
   /* diagram-js-minimap ships bpmn-io theme tokens that are not defined on this
      page; feed it the app's own surfaces so it matches light and dark. */
   .modeler-canvas .djs-minimap {
-    top: var(--spacing-1);
+    top: 2.75rem;
     right: var(--spacing-1);
     --minimap-background-color: var(--background-1);
     --minimap-border-color: var(--border-color-2);
@@ -216,9 +247,11 @@
     height: 9rem;
   }
 
-  /* The toolbar owns the toggle; the module's own would be a second control
-     for the same state, and a closed map would still draw an empty frame. */
-  .modeler-canvas .djs-minimap .toggle {
+  /* The module ships its own `button.toggle`, whose label is generated text
+     ("Close minimap"). The corner control is the one switch for the map, so
+     this one is never rendered: it stays in the DOM for the module's own click
+     and aria wiring, but must not share the corner with the switch. */
+  .modeler-canvas .djs-minimap.open .toggle {
     display: none;
   }
 
@@ -694,22 +727,7 @@
     color: var(--text-2);
   }
 
-  .modeler-picker-grid {
-    display: grid;
-    /* `auto-fit` + `minmax` gives two columns on a desktop and one on a
-       phone without a second media query. */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: var(--spacing-2);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .modeler-picker-grid > li {
-    display: flex;
-  }
-
-  .modeler-pick {
+      .modeler-pick {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -731,17 +749,67 @@
     background: var(--background-2);
   }
 
-  .modeler-pick.is-pending {
-    /* Dashed, not solid: the card is intentionally not actionable, and a solid
-       border read as broken rather than not-yet-available. */
-    border-style: dashed;
-    background: var(--background-2);
-    color: var(--text-disabled);
-    cursor: not-allowed;
+        /* -------------------------------------------------------------------------
+   * bpmn.io watermark.
+   *
+   * The shared `.bjs-powered-by` rule in `components.css` pins the badge with
+   * `position: fixed !important` to the viewport corner. That is right for the
+   * read-only viewer, but inside the editor it ignores the layout entirely:
+   * the badge floats over the panel instead of belonging to the canvas.
+   *
+   * Re-anchor it to the canvas, so the badge sits in the corner of the box it
+   * actually belongs to.
+   *
+   * `components.css` is unlayered while this file sits in `@layer custom`. For
+   * `!important` declarations the layer order is reversed, so these rules win
+   * over the global one despite the lower specificity.
+   * ------------------------------------------------------------------------- */
+  .modeler-canvas .bjs-powered-by {
+    position: absolute !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: 0.75rem !important;
+    right: 0.75rem !important;
+    z-index: 1;
   }
 
-  .modeler-pick-kind {
-    align-self: flex-start;
+  /* Rows replace the two large picker cards: one line per model, so a
+     deployed definition reads like the list of things it is. */
+  .modeler-picker-heading {
+    margin: var(--spacing-2) 0 var(--spacing-1);
+    font-size: 0.95rem;
+  }
+
+  .modeler-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0 0 var(--spacing-1);
+    padding: 0;
+    list-style: none;
+  }
+
+  .modeler-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    padding: var(--spacing-1) var(--spacing-2);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background: var(--background-1);
+    color: var(--text);
+    text-decoration: none;
+    transition: border-color 120ms ease, background-color 120ms ease;
+  }
+
+  a.modeler-row:hover,
+  a.modeler-row:focus-visible {
+    border-color: var(--color-primary);
+    background: var(--background-2);
+  }
+
+  .modeler-row-kind {
+    flex: none;
     padding: 0.1em var(--spacing-1);
     border-radius: var(--border-radius);
     background: var(--color-primary-transparent);
@@ -751,33 +819,168 @@
     letter-spacing: 0.04em;
   }
 
-  .modeler-pick.is-pending .modeler-pick-kind {
-    background: var(--background-4);
-    color: var(--text-disabled);
+  .modeler-row-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
   }
 
-  .modeler-pick-title {
-    font-size: 1.1rem;
+  .modeler-row-title {
     font-weight: bold;
+    overflow-wrap: anywhere;
   }
 
-  .modeler-pick-text {
+  .modeler-row-text {
     color: var(--text-2);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
   }
 
-  .modeler-pick.is-pending .modeler-pick-text {
-    color: var(--text-disabled);
+  .modeler-row-action {
+    flex: none;
+    color: var(--color-link);
+    font-size: 0.85rem;
   }
 
-  .modeler-pick-badge {
-    align-self: flex-start;
-    margin-top: auto;
-    padding: 0.1em var(--spacing-1);
-    border: var(--border);
-    border-radius: var(--border-radius);
-    color: var(--text-disabled);
-    font-size: 0.75rem;
+  .modeler-storage-note {
+    margin: var(--spacing-2) 0 0;
+    color: var(--text-2);
+    font-size: 0.85rem;
   }
+
+}
+
+/* ---- Minimap: one control, two appearances ------------------------------
+
+   The map ships its own button.toggle, built by the module and re-titled to
+   'Open minimap' / 'Close minimap' on every open/close
+   (diagram-js-minimap/dist/index.esm.js:410, :634-666). Its label is
+   generated text (content: attr(title)), which is why an earlier round hid
+   that button and added a control of our own - that is what put two icons in
+   the same corner. This block keeps the module's button as the only switch
+   and gives it the two shapes the design asks for:
+
+     collapsed -> a 32x32 icon button in the corner
+     expanded  -> the thumbnail, with an inward-arrow collapse glyph inside
+                  its own top-right corner
+
+   These rules are unlayered on purpose: diagram-js-minimap.css is imported as
+   plain CSS, and an unlayered rule beats any rule inside @layer custom, so
+   anything written in that layer silently loses to it. */
+
+/* The box itself is the control while the map is closed: 32x32 in the
+   corner, drawing the collapsed glyph. */
+.modeler-canvas .djs-minimap {
+  top: var(--spacing-1);
+  right: var(--spacing-1);
+  z-index: 175;
+  --minimap-background-color: var(--background-1);
+  --minimap-border-color: var(--border-color-2);
+  --minimap-border-radius: var(--border-radius);
+  --minimap-viewport-border-color: var(--color-primary);
+}
+
+.modeler-canvas .djs-minimap:not(.open) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+
+/* Open: a real thumbnail, still anchored to the same corner, so the
+   collapse glyph inside it is the only other control in that area. */
+.modeler-canvas .djs-minimap.open {
+  top: var(--spacing-1);
+  right: var(--spacing-1);
+  display: block;
+}
+
+.modeler-canvas .djs-minimap .map {
+  width: 15rem;
+  height: 9rem;
+  cursor: crosshair;
+}
+
+/* The module's own button, reset to a bare glyph: no text, no platform
+   chrome. font-size:0 removes the generated label while the title attribute
+   survives, so hover hints and screen readers still say what it does. */
+.modeler-canvas .djs-minimap .toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-2);
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+/* A mask rather than an image, so the glyph follows the current text colour
+   through hover and the dark theme without a second asset per state. */
+.modeler-canvas .djs-minimap .toggle:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Collapsed: the whole 32x32 box is the button, so the glyph is centred. */
+.modeler-canvas .djs-minimap:not(.open) .toggle {
+  width: 32px;
+  height: 32px;
+}
+
+.modeler-canvas .djs-minimap:not(.open) .toggle:before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6'/%3E%3Cpath d='M9 3v15'/%3E%3Cpath d='M15 6v15'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6'/%3E%3Cpath d='M9 3v15'/%3E%3Cpath d='M15 6v15'/%3E%3C/svg%3E");
+}
+
+/* Expanded: the button sits inside the thumbnail's own top-right corner,
+   which is where the module already puts it (position:absolute; right:0).
+   Only its size and the glyph change. */
+.modeler-canvas .djs-minimap.open .toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.modeler-canvas .djs-minimap.open .toggle:before {
+  width: 16px;
+  height: 16px;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 9h-5V4'/%3E%3Cpath d='M4 15h5v5'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 9h-5V4'/%3E%3Cpath d='M4 15h5v5'/%3E%3C/svg%3E");
+}
+
+.modeler-canvas .djs-minimap .toggle:hover {
+  color: var(--text);
+}
+
+.modeler-canvas .djs-minimap .toggle:focus-visible {
+  outline-offset: -2px;
+}
+
+/* The viewport rectangle is the 'you are here' marker. */
+.modeler-canvas .djs-minimap .viewport-dom {
+  border-width: 2px;
+  border-radius: 2px;
+  cursor: move;
 }
