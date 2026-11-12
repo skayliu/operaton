@@ -1,0 +1,528 @@
+/**
+ * French (fr-FR) canvas dictionary: the palette / context pad / replace menu
+ * entries plus the properties panel.
+ *
+ * Terminology follows the French BPMN literature: tâche (task), sous-processus,
+ * passerelle (gateway), événement (event), flux de séquence (sequence flow),
+ * écouteur d'exécution / écouteur de tâche (the two listener kinds),
+ * travailleur de tâches (job worker).
+ *
+ * Placeholders are kept verbatim: substitution runs against the *value*, not the
+ * key, so `${someDate}` and `{eventType}` must survive unchanged.
+ */
+export const FR = {
+  ",": ",",
+  ") to identify the error.": ") pour identifier l'erreur.",
+  ") to match a specific error, or leave empty to catch any error.":
+    ") pour cibler une erreur précise, ou laissez vide pour capturer n'importe quelle erreur.",
+  ").": ").",
+  "{eventType}: {type}": "{eventType} : {type}",
+  "<custom type>": "<type personnalisé>",
+  "<empty>": "<vide>",
+  "<none>": "<aucun>",
+  "1 hour and 30 minutes": "1 heure et 30 minutes",
+  "14 days": "14 jours",
+  "15 seconds": "15 secondes",
+  "A cycle defined as ISO 8601 repeating intervals format, or a cron expression.":
+    "Un cycle défini au format des intervalles répétés ISO 8601, ou une expression cron.",
+  "A cycle defined as ISO 8601 repeating intervals format.":
+    "Un cycle défini au format des intervalles répétés ISO 8601.",
+  "A FEEL expression that determines whether the event should trigger.":
+    "Une expression FEEL qui détermine si l'événement doit se déclencher.",
+  "A specific point in time defined as ISO 8601 combined date and time representation.":
+    "Un instant précis défini selon la représentation combinée date et heure ISO 8601.",
+  "A time duration defined as ISO 8601 durations format.":
+    "Une durée définie au format des durées ISO 8601.",
+  "About conditional events.": "À propos des événements conditionnels.",
+  "Activate create/remove space tool":
+    "Activer l'outil de création/suppression d'espace",
+  "Activate global connect tool": "Activer l'outil de connexion globale",
+  "Activate hand tool": "Activer l'outil main",
+  "Activate lasso tool": "Activer l'outil lasso",
+  "Active elements": "Éléments actifs",
+  "Active elements collection": "Collection d'éléments actifs",
+  "Activity reference": "Référence de l'activité",
+  "Ad-hoc subprocess documentation": "Documentation du sous-processus ad hoc",
+  "Add custom key-value metadata to this element. Extension properties have no effect on process execution — they can be used to attach configuration visible for other consumers of the BPMN diagram.":
+    "Ajoutez des métadonnées clé-valeur personnalisées à cet élément. Les propriétés d'extension n'ont aucun effet sur l'exécution du processus ; elles peuvent servir à joindre une configuration visible pour d'autres consommateurs du diagramme BPMN.",
+  "Add custom logic that reacts to various events in the workflow execution life-cycle.":
+    "Ajoutez une logique personnalisée qui réagit à différents événements du cycle de vie de l'exécution du flux de travail.",
+  "Add input mappings to control what is passed to the activity as local variables.":
+    "Ajoutez des mappages d'entrée pour contrôler ce qui est transmis à l'activité en tant que variables locales.",
+  "Add lane above": "Ajouter une couloir au-dessus",
+  "Add lane below": "Ajouter une couloir en dessous",
+  "Add output mappings to control which variables are merged back into the process scope.":
+    "Ajoutez des mappages de sortie pour contrôler quelles variables sont fusionnées de nouveau dans la portée du processus.",
+  "Add text annotation": "Ajouter une annotation textuelle",
+  "After": "Après",
+  "Append business knowledge model": "Ajouter un modèle de connaissances métier",
+  "Append compensation activity": "Ajouter une activité de compensation",
+  "Append conditional intermediate catch event":
+    "Ajouter un événement intermédiaire de capture conditionnel",
+  "Append decision": "Ajouter une décision",
+  "Append end event": "Ajouter un événement de fin",
+  "Append gateway": "Ajouter une passerelle",
+  "Append input data": "Ajouter des données d'entrée",
+  "Append intermediate/boundary event":
+    "Ajouter un événement intermédiaire/de limite",
+  "Append knowledge source": "Ajouter une source de connaissances",
+  "Append message intermediate catch event":
+    "Ajouter un événement intermédiaire de capture de message",
+  "Append receive task": "Ajouter une tâche de réception",
+  "Append signal intermediate catch event":
+    "Ajouter un événement intermédiaire de capture de signal",
+  "Append task": "Ajouter une tâche",
+  "Append timer intermediate catch event":
+    "Ajouter un événement intermédiaire de capture de minuteur",
+  "Assignee": "Attribué à",
+  assignment: "attribution",
+  Assignment: "Attribution",
+  "Assignment type": "Type d'attribution",
+  "Asynchronous after": "Asynchrone après",
+  "Asynchronous before": "Asynchrone avant",
+  "Asynchronous continuations": "Continuations asynchrones",
+  "Before": "Avant",
+  "Binding": "Liaison",
+  boolean: "booléen",
+  BPMN: "BPMN",
+  "Business ID": "Identifiant métier",
+  "Business ID propagation documentation":
+    "Documentation sur la propagation de l'identifiant métier",
+  "Business key": "Clé métier",
+  "Business key expression": "Expression de clé métier",
+  "Business rule task documentation":
+    "Documentation de la tâche de règle métier",
+  "Call activity documentation": "Documentation de l'activité d'appel",
+  "Called decision": "Décision appelée",
+  "Called decision documentation":
+    "Documentation de la décision appelée",
+  "Called element": "Élément appelé",
+  "Camunda Form": "Formulaire Camunda",
+  "Camunda Form (embedded)": "Formulaire Camunda (intégré)",
+  "Camunda Form (linked)": "Formulaire Camunda (lié)",
+  "Camunda Forms": "Formulaires Camunda",
+  "Camunda user task": "Tâche utilisateur Camunda",
+  "Cancel remaining instances": "Annuler les instances restantes",
+  "Candidate groups": "Groupes candidats",
+  "Candidate starter": "Initiateur candidat",
+  "Candidate starter groups": "Groupes initiateurs candidats",
+  "Candidate starter users": "Utilisateurs initiateurs candidats",
+  "Candidate users": "Utilisateurs candidats",
+  "Case ref": "Référence du dossier",
+  "Change element": "Modifier l'élément",
+  "Change type": "Modifier le type",
+  "Class": "Classe",
+  "Click to remove dynamic value with FEEL expression":
+    "Cliquez pour supprimer la valeur dynamique avec expression FEEL",
+  "Click to set a dynamic value with FEEL expression":
+    "Cliquez pour définir une valeur dynamique avec expression FEEL",
+  CMMN: "CMMN",
+  "Code": "Code",
+  "Code variable": "Variable de code",
+  "collectEntries (List<Object>)": "collectEntries (List<Object>)",
+  "Collection": "Collection",
+  "Compensation": "Compensation",
+  "complete": "terminer",
+  "Completion": "Achèvement",
+  "Completion condition": "Condition d'achèvement",
+  "Condition": "Condition",
+  "Condition expression": "Expression de condition",
+  "Condition Expression": "Expression de condition",
+  "Conditional event documentation":
+    "Documentation de l'événement conditionnel",
+  "Conditions documentation": "Documentation des conditions",
+  "Config": "Configuration",
+  "Configure the message that the task waits for.":
+    "Configurez le message que la tâche attend.",
+  "Configure the message that this event waits for.":
+    "Configurez le message que cet événement attend.",
+  "Configure the message that will start this process instance.":
+    "Configurez le message qui démarrera cette instance de processus.",
+  "Configure the message that will trigger this boundary event.":
+    "Configurez le message qui déclenchera cet événement de limite.",
+  "Connect to other element": "Connecter à un autre élément",
+  "Connect using association": "Connecter avec une association",
+  "Connect using data input association":
+    "Connecter avec une association d'entrée de données",
+  "Connector ID": "Identifiant du connecteur",
+  "Connector inputs": "Entrées du connecteur",
+  "Connector outputs": "Sorties du connecteur",
+  "Constraints": "Contraintes",
+  "Control the business ID set on a child process. If left empty, no business ID will be set.":
+    "Contrôlez l'identifiant métier défini sur un processus enfant. S'il est laissé vide, aucun identifiant métier ne sera défini.",
+  "Control which variables from the called process are merged back into the parent scope. By default, all child variables are propagated; use output mappings to selectively return specific variables.":
+    "Contrôlez quelles variables du processus appelé sont fusionnées de nouveau dans la portée parente. Par défaut, toutes les variables enfants sont propagées ; utilisez des mappages de sortie pour ne renvoyer que certaines variables.",
+  "create": "créer",
+  "Create": "Créer",
+  "Create data object reference": "Créer une référence d'objet de données",
+  "Create data store reference": "Créer une référence de magasin de données",
+  "Create decision": "Créer une décision",
+  "Create end event": "Créer un événement de fin",
+  "Create expanded sub-process": "Créer un sous-processus développé",
+  "Create gateway": "Créer une passerelle",
+  "Create group": "Créer un groupe",
+  "Create input data": "Créer des données d'entrée",
+  "Create intermediate/boundary event":
+    "Créer un événement intermédiaire/de limite",
+  "Create knowledge model": "Créer un modèle de connaissances",
+  "Create knowledge source": "Créer une source de connaissances",
+  "Create new ...": "Créer un nouveau ...",
+  "Create new list item": "Créer un nouvel élément de liste",
+  "Create pool/participant": "Créer un bassin/participant",
+  "Create start event": "Créer un événement de début",
+  "Create task": "Créer une tâche",
+  "Created in": "Créé dans",
+  "Custom form key": "Clé de formulaire personnalisée",
+  "Custom type": "Type personnalisé",
+  "Cycle": "Cycle",
+  "date": "date",
+  "Date": "Date",
+  "Decision ID": "Identifiant de la décision",
+  "Decision reference": "Référence de la décision",
+  "Default value": "Valeur par défaut",
+  "Define a boolean condition expression that determines when this sequence flow is taken.":
+    "Définissez une expression de condition booléenne qui détermine quand ce flux de séquence est emprunté.",
+  "Define a collection of elements which will be activated when the ad-hoc subprocess is reached.":
+    "Définissez une collection d'éléments qui seront activés lorsque le sous-processus ad hoc est atteint.",
+  "Define an input collection expression that defines the collection to iterate over (e.g.":
+    "Définissez une expression de collection d'entrée qui définit la collection à parcourir (p. ex.",
+  "Define how to collect the outputs of the ad-hoc subprocess. The output collection variable stores the list of results; the output element expression defines what each element contributes.":
+    "Définissez comment collecter les sorties du sous-processus ad hoc. La variable de collection de sortie stocke la liste des résultats ; l'expression d'élément de sortie définit la contribution de chaque élément.",
+  "Define static metadata passed to job workers alongside each job. Headers are not evaluated by the engine — use them for fixed worker configuration (e.g.":
+    "Définissez des métadonnées statiques transmises aux travailleurs de tâches avec chaque tâche. Les en-têtes ne sont pas évalués par le moteur — utilisez-les pour une configuration fixe du travailleur (p. ex.",
+  "Define the assignment, schedule, and priority of the user task. Assignee, candidate groups, and candidate users can be combined. Use due date and follow-up date to express deadlines and urgency.":
+    "Définissez l'attribution, la planification et la priorité de la tâche utilisateur. L'attribué, les groupes candidats et les utilisateurs candidats peuvent être combinés. Utilisez la date d'échéance et la date de suivi pour exprimer les délais et l'urgence.",
+  "Define the completion behavior of an ad-hoc subprocess. If no completion condition is set, it will be completed after all active elements have been completed.":
+    "Définissez le comportement d'achèvement d'un sous-processus ad hoc. Si aucune condition d'achèvement n'est définie, il sera achevé une fois tous les éléments actifs terminés.",
+  "Define the decision to evaluate and how to map back the evaluation result.":
+    "Définissez la décision à évaluer et la façon de remapper le résultat de l'évaluation.",
+  "Define the error to catch. Specify an error code (e.g.":
+    "Définissez l'erreur à capturer. Spécifiez un code d'erreur (p. ex.",
+  "Define the error to throw. Specify an error code (e.g.":
+    "Définissez l'erreur à lever. Spécifiez un code d'erreur (p. ex.",
+  "Define the FEEL expression to evaluate and the variable to store the result in.":
+    "Définissez l'expression FEEL à évaluer et la variable dans laquelle stocker le résultat.",
+  "Define the ID of the process to call (e.g.":
+    "Définissez l'identifiant du processus à appeler (p. ex.",
+  "Define the name of the variable that will contain the error code.":
+    "Définissez le nom de la variable qui contiendra le code d'erreur.",
+  "Define the name of the variable that will contain the error message.":
+    "Définissez le nom de la variable qui contiendra le message d'erreur.",
+  "Define the name of the variable that will contain the escalation code.":
+    "Définissez le nom de la variable qui contiendra le code d'escalade.",
+  "Delegate Class": "Classe déléguée",
+  "Delegate expression": "Expression déléguée",
+  "Delegate Expression": "Expression déléguée",
+  "Delegate Variable Mapping": "Mappage de variable délégué",
+  "delete": "supprimer",
+  "Delete": "Supprimer",
+  "Delete item": "Supprimer l'élément",
+  "deployment": "déploiement",
+  "Deployment binding": "Liaison de déploiement",
+  "Divide into three lanes": "Diviser en trois couloirs",
+  "Divide into two lanes": "Diviser en deux couloirs",
+  "DMN decision": "Décision DMN",
+  "Documentation": "Documentation",
+  "Documentation: Timer events": "Documentation : événements de minuteur",
+  "Documentation: Variable events": "Documentation : événements de variable",
+  "Due date": "Date d'échéance",
+  "Duration": "Durée",
+  "Element documentation": "Documentation de l'élément",
+  "Element variable": "Variable de l'élément",
+  "Embedded or External Task Forms":
+    "Formulaires de tâche intégrés ou externes",
+  "end": "fin",
+  "enum": "énumération",
+  "Error": "Erreur",
+  "Error event documentation": "Documentation de l'événement d'erreur",
+  "Errors": "Erreurs",
+  "Escalation": "Escalade",
+  "Evaluate a business rule, for example a DMN decision. To add a custom implementation, use a job worker.":
+    "Évaluez une règle métier, par exemple une décision DMN. Pour ajouter une implémentation personnalisée, utilisez un travailleur de tâches.",
+  "Event type": "Type d'événement",
+  "every 10 seconds, up to 5 times": "toutes les 10 secondes, jusqu'à 5 fois",
+  "every day, infinitely": "chaque jour, indéfiniment",
+  "every hour on the hour from 9-5 p.m. UTC Monday-Friday":
+    "toutes les heures pleines de 9 h à 17 h UTC, du lundi au vendredi",
+  "Exclusive": "Exclusif",
+  "Executable": "Exécutable",
+  "Execute this task for each element of a given collection.":
+    "Exécutez cette tâche pour chaque élément d'une collection donnée.",
+  "Execution listeners": "Écouteurs d'exécution",
+  "Execution listeners documentation":
+    "Documentation des écouteurs d'exécution",
+  "Expression": "Expression",
+  "Extension properties": "Propriétés d'extension",
+  "External form reference": "Référence de formulaire externe",
+  "External resource": "Ressource externe",
+  "External task": "Tâche externe",
+  "FEEL expression": "Expression FEEL",
+  "FEEL expression is mandatory": "L'expression FEEL est obligatoire",
+  "Field injection": "Injection de champ",
+  "Field injections": "Injections de champ",
+  "Follow up date": "Date de suivi",
+  "Form": "Formulaire",
+  "Form fields": "Champs du formulaire",
+  "Form ID": "Identifiant du formulaire",
+  "Form JSON configuration": "Configuration JSON du formulaire",
+  "Form key": "Clé du formulaire",
+  "Form reference": "Référence du formulaire",
+  "Format": "Format",
+  "Forms": "Formulaires",
+  "General": "Général",
+  "Generated Task Forms": "Formulaires de tâche générés",
+  "Global error reference": "Référence d'erreur globale",
+  "Global escalation reference": "Référence d'escalade globale",
+  "Global message reference": "Référence de message global",
+  "Global signal reference": "Référence de signal global",
+  "Headers": "En-têtes",
+  "History cleanup": "Nettoyage de l'historique",
+  "How to configure a timer": "Comment configurer un minuteur",
+  "ID": "Identifiant",
+  "ID must be a valid QName.": "L'identifiant doit être un QName valide.",
+  "ID must be unique.": "L'identifiant doit être unique.",
+  "ID must not be empty.": "L'identifiant ne doit pas être vide.",
+  "ID must not contain prefix.": "L'identifiant ne doit pas contenir de préfixe.",
+  "ID must not contain spaces.": "L'identifiant ne doit pas contenir d'espaces.",
+  "Identifier computed from the process context that is used to correlate an incoming message (e.g.":
+    "Identifiant calculé à partir du contexte du processus, utilisé pour corréler un message entrant (p. ex.",
+  "If turned on, all variables from the child process instance will be propagated to the parent process instance.":
+    "Si activé, toutes les variables de l'instance de processus enfant seront propagées à l'instance de processus parente.",
+  "If turned on, all variables from the parent process instance will be propagated to the child process instance.":
+    "Si activé, toutes les variables de l'instance de processus parente seront propagées à l'instance de processus enfant.",
+  "Implement a script task using an inline FEEL expression. To add a custom implementation, use a job worker.":
+    "Implémentez une tâche de script avec une expression FEEL en ligne. Pour ajouter une implémentation personnalisée, utilisez un travailleur de tâches.",
+  "Implement a user task managed by Camunda. To add a custom implementation, use a job worker.":
+    "Implémentez une tâche utilisateur gérée par Camunda. Pour ajouter une implémentation personnalisée, utilisez un travailleur de tâches.",
+  "Implement the ad-hoc subprocess as a job worker instead of activating inner elements. The job type determines which worker handles the subprocess execution.":
+    "Implémentez le sous-processus ad hoc comme un travailleur de tâches au lieu d'activer les éléments internes. Le type de tâche détermine quel travailleur gère l'exécution du sous-processus.",
+  "Implementation": "Implémentation",
+  "Implementation type": "Type d'implémentation",
+  "In mapping propagation": "Propagation du mappage d'entrée",
+  "In mappings": "Mappages d'entrée",
+  "Inherit from parent": "Hériter du parent",
+  "Initiator": "Initiateur",
+  "Inline script": "Script en ligne",
+  "Input collection": "Collection d'entrée",
+  "Input element": "Élément d'entrée",
+  "Input mapping": "Mappage d'entrée",
+  "Input mappings documentation": "Documentation des mappages d'entrée",
+  "Input propagation": "Propagation en entrée",
+  "Inputs": "Entrées",
+  "Java class": "Classe Java",
+  "Job execution": "Exécution de la tâche",
+  "Job priority": "Priorité de la tâche",
+  "Job priority documentation": "Documentation de la priorité de la tâche",
+  "Job type": "Type de tâche",
+  "Job worker": "Travailleur de tâches",
+  "JSON contains errors": "Le JSON contient des erreurs",
+  "Key": "Clé",
+  "Label": "Libellé",
+  "latest": "le plus récent",
+  "Latest binding": "Liaison à la version la plus récente",
+  "Learn how to define conditions.":
+    "Apprenez à définir des conditions.",
+  "Learn more.": "En savoir plus.",
+  "Link": "Lien",
+  "Link a form created with the Camunda Forms editor. Submitting this form will start a new process instance.":
+    "Lie un formulaire créé avec l'éditeur de formulaires Camunda. L'envoi de ce formulaire démarrera une nouvelle instance de processus.",
+  "Link a form created with the Camunda Forms editor. To associate a custom form, application, or URL to the user task, specify an external reference.":
+    "Lie un formulaire créé avec l'éditeur de formulaires Camunda. Pour associer un formulaire, une application ou une URL personnalisés à la tâche utilisateur, spécifiez une référence externe.",
+  "Link or embed a form created with the Camunda Forms editor. To associate a custom form, application, or URL to the user task, specify a form key.":
+    "Lie ou intègre un formulaire créé avec l'éditeur de formulaires Camunda. Pour associer un formulaire, une application ou une URL personnalisés à la tâche utilisateur, spécifiez une clé de formulaire.",
+  "List": "Liste",
+  "List contains {numOfItems} item": "La liste contient {numOfItems} élément",
+  "List contains {numOfItems} items": "La liste contient {numOfItems} éléments",
+  "List values": "Valeurs de la liste",
+  "Listener ID": "Identifiant de l'écouteur",
+  "Listener type": "Type d'écouteur",
+  "Local": "Local",
+  "long": "long",
+  "Loop": "Boucle",
+  "Loop cardinality": "Cardinalité de la boucle",
+  "Map": "Mappage",
+  "Map decision result": "Mapper le résultat de la décision",
+  "Map entries": "Entrées du mappage",
+  "Message": "Message",
+  "Message boundary event documentation":
+    "Documentation de l'événement de limite de message",
+  "Message catch event documentation":
+    "Documentation de l'événement de capture de message",
+  "Message start event documentation":
+    "Documentation de l'événement de début de message",
+  "Message throw event documentation":
+    "Documentation de l'événement d'envoi de message",
+  "Message variable": "Variable de message",
+  "Multi instance documentation": "Documentation du multi-instance",
+  "Multi-instance": "Multi-instance",
+  "Multiple elements are selected. Select a single element to edit its properties.":
+    "Plusieurs éléments sont sélectionnés. Sélectionnez un seul élément pour modifier ses propriétés.",
+  "Name": "Nom",
+  "Number of days before this resource is being cleaned up. If specified, takes precedence over the engine configuration.":
+    "Nombre de jours avant le nettoyage de cette ressource. Si spécifié, cette valeur prime sur la configuration du moteur.",
+  "Off": "Désactivé",
+  "On": "Activé",
+  "Open documentation": "Ouvrir la documentation",
+  "Open pop-up editor": "Ouvrir l'éditeur contextuel",
+  "Opened in editor": "Ouvert dans l'éditeur",
+  "or": "ou",
+  "Otherwise, only variables defined via input mappings will be propagated.":
+    "Sinon, seules les variables définies via les mappages d'entrée seront propagées.",
+  "Otherwise, only variables defined via output mappings will be propagated.":
+    "Sinon, seules les variables définies via les mappages de sortie seront propagées.",
+  "Out mapping propagation": "Propagation du mappage de sortie",
+  "Out mappings": "Mappages de sortie",
+  "Output collection": "Collection de sortie",
+  "Output element": "Élément de sortie",
+  "Output mapping": "Mappage de sortie",
+  "Output mappings documentation": "Documentation des mappages de sortie",
+  "Output propagation": "Propagation en sortie",
+  "Outputs": "Sorties",
+  "Parallel multi-instance": "Multi-instance parallèle",
+  "Participant multiplicity": "Multiplicité du participant",
+  "Participant Name": "Nom du participant",
+  "Priority": "Priorité",
+  "Process documentation": "Documentation du processus",
+  "Process ID": "Identifiant du processus",
+  "Process name": "Nom du processus",
+  "Process variables": "Variables du processus",
+  "Propagate all child process variables":
+    "Propager toutes les variables du processus enfant",
+  "Propagate all parent process variables":
+    "Propager toutes les variables du processus parent",
+  "Propagate all variables": "Propager toutes les variables",
+  "Properties": "Propriétés",
+  "React to user task lifecycle events by executing a job worker.":
+    "Réagissez aux événements du cycle de vie de la tâche utilisateur en exécutant un travailleur de tâches.",
+  "Receive task message documentation":
+    "Documentation du message de la tâche de réception",
+  "Refers to the process variable name":
+    "Fait référence au nom de la variable du processus",
+  "Resource": "Ressource",
+  "Result variable": "Variable de résultat",
+  "resultList (List<Map<String, Object>>)":
+    "resultList (List<Map<String, Object>>)",
+  "Retries": "Nouvelles tentatives",
+  "Retry time cycle": "Cycle de nouvelles tentatives",
+  "Scope": "Portée",
+  "Script": "Script",
+  "Script task documentation": "Documentation de la tâche de script",
+  "Script type": "Type de script",
+  "Section contains a warning": "La section contient un avertissement",
+  "Section contains an error": "La section contient une erreur",
+  "Section contains edits": "La section contient des modifications",
+  "Select an element to edit its properties.":
+    "Sélectionnez un élément pour modifier ses propriétés.",
+  "Send task documentation": "Documentation de la tâche d'envoi",
+  "Sequential multi-instance": "Multi-instance séquentiel",
+  "Service task documentation": "Documentation de la tâche de service",
+  "Signal": "Signal",
+  "singleEntry (TypedValue)": "singleEntry (TypedValue)",
+  "singleResult (Map<String, Object>)":
+    "singleResult (Map<String, Object>)",
+  "Source": "Source",
+  "Source expression": "Expression source",
+  "Specifies the default priority for all jobs created by a process. Must be an integer. If no value is provided, the default value is 0.":
+    "Spécifie la priorité par défaut de toutes les tâches créées par un processus. Doit être un entier. Si aucune valeur n'est fournie, la valeur par défaut est 0.",
+  "Specifies the priority of a job. Must be an integer. If no value is provided, the default value is 0.":
+    "Spécifie la priorité d'une tâche. Doit être un entier. Si aucune valeur n'est fournie, la valeur par défaut est 0.",
+  "Specifies the priority of a user task. Must be an integer between 0 and 100. If no value is provided, the default value is 50.":
+    "Spécifie la priorité d'une tâche utilisateur. Doit être un entier compris entre 0 et 100. Si aucune valeur n'est fournie, la valeur par défaut est 50.",
+  "Specify more than one group as a comma separated list.":
+    "Spécifiez plusieurs groupes sous forme de liste séparée par des virgules.",
+  "Specify more than one user as a comma separated list.":
+    "Spécifiez plusieurs utilisateurs sous forme de liste séparée par des virgules.",
+  "Specify more than one variable change event as a comma separated list. Variable change events are:":
+    "Spécifiez plusieurs événements de changement de variable sous forme de liste séparée par des virgules. Les événements de changement de variable sont :",
+  "Specify the condition that triggers this event.":
+    "Spécifiez la condition qui déclenche cet événement.",
+  "Specify which job workers handle the event work.":
+    "Spécifiez quels travailleurs de tâches gèrent le travail de l'événement.",
+  "Specify which job workers handle the task work to evaluate business rules.":
+    "Spécifiez quels travailleurs de tâches gèrent le travail de la tâche pour évaluer des règles métier.",
+  "Specify which job workers handle the task work to execute a script.":
+    "Spécifiez quels travailleurs de tâches gèrent le travail de la tâche pour exécuter un script.",
+  "Specify which job workers handle the task work to execute a service (e.g.":
+    "Spécifiez quels travailleurs de tâches gèrent le travail de la tâche pour exécuter un service (p. ex.",
+  "Specify which job workers handle the task work to send a message (e.g.":
+    "Spécifiez quels travailleurs de tâches gèrent le travail de la tâche pour envoyer un message (p. ex.",
+  "start": "début",
+  "Start event form documentation":
+    "Documentation du formulaire de l'événement de début",
+  "Start initiator": "Initiateur du démarrage",
+  "Start typing \"${}\" to create an expression.":
+    "Commencez à saisir \"${}\" pour créer une expression.",
+  "Startable": "Démarrable",
+  "string": "chaîne",
+  "String": "Chaîne",
+  "String or expression": "Chaîne ou expression",
+  "Subscription correlation key":
+    "Clé de corrélation de l'abonnement",
+  "Subscription correlation key documentation":
+    "Documentation de la clé de corrélation de l'abonnement",
+  "take": "prendre",
+  "Target": "Cible",
+  "Task definition": "Définition de la tâche",
+  "Task headers documentation": "Documentation des en-têtes de la tâche",
+  "Task listeners": "Écouteurs de tâche",
+  "Task listeners documentation": "Documentation des écouteurs de tâche",
+  "Tasklist": "Liste de tâches",
+  "Tenant ID": "Identifiant du tenant",
+  "The due date as an EL expression (e.g. ${someDate}) or an ISO date (e.g. 2015-06-26T09:54:00).":
+    "La date d'échéance au format d'expression EL (p. ex. ${someDate}) ou de date ISO (p. ex. 2015-06-26T09:54:00).",
+  "The number of times the engine tries executing this activity if a worker signals a failure. The default is three.":
+    "Nombre de tentatives d'exécution de cette activité par le moteur lorsqu'un travailleur signale un échec. La valeur par défaut est trois.",
+  "This maps to the process definition key.":
+    "Correspond à la clé de la définition du processus.",
+  "Throw expression": "Expression de levée",
+  "Time to live": "Durée de vie",
+  "timeout": "délai d'attente",
+  "Timer": "Minuteur",
+  "Timer documentation": "Documentation du minuteur",
+  "To collect the output define the output collection and the output element expressions.":
+    "Pour collecter la sortie, définissez la collection de sortie et les expressions d'élément de sortie.",
+  "Toggle list item": "Basculer l'élément de liste",
+  "Toggle non-interrupting": "Basculer non interruptif",
+  "Toggle section": "Basculer la section",
+  "Topic": "Sujet",
+  "Type": "Type",
+  "Unparsable FEEL expression.": "Expression FEEL impossible à analyser.",
+  "update": "mettre à jour",
+  "Update": "Mettre à jour",
+  "User assignment": "Attribution utilisateur",
+  "User task documentation": "Documentation de la tâche utilisateur",
+  "User task form documentation":
+    "Documentation du formulaire de la tâche utilisateur",
+  "User task priority documentation":
+    "Documentation de la priorité de la tâche utilisateur",
+  "Uses the most recent deployed resource with the given version tag.":
+    "Utilise la ressource déployée la plus récente portant la balise de version indiquée.",
+  "Uses the most recent deployed resource.":
+    "Utilise la ressource déployée la plus récente.",
+  "Uses the resource found in the same deployment.":
+    "Utilise la ressource trouvée dans le même déploiement.",
+  "UTC plus 2 hours zone offset": "Décalage horaire UTC plus 2 heures",
+  "UTC time": "Heure UTC",
+  "Value": "Valeur",
+  "Values": "Valeurs",
+  "Variable assignment value": "Valeur d'attribution de variable",
+  "Variable events": "Événements de variable",
+  "Variable events that trigger the condition evaluation. If none selected, all variable events will trigger the condition evaluation.":
+    "Événements de variable qui déclenchent l'évaluation de la condition. Si aucun n'est sélectionné, tous les événements de variable déclencheront l'évaluation de la condition.",
+  "Variable name": "Nom de la variable",
+  "version": "version",
+  "Version": "Version",
+  "version tag": "balise de version",
+  "Version tag": "Balise de version",
+  "Version tag binding": "Liaison de balise de version",
+  "Version tag by which the called decision will be referenced.":
+    "Balise de version à laquelle la décision appelée sera référencée.",
+  "Version tag by which the called process will be referenced.":
+    "Balise de version à laquelle le processus appelé sera référencé.",
+  "Version tag by which the linked form will be referenced.":
+    "Balise de version à laquelle le formulaire lié sera référencé.",
+  "Version tag by which this process can be referenced.":
+    "Balise de version à laquelle ce processus peut être référencé.",
+  versionTag: "versionTag",
+  "Wait for completion": "Attendre la fin",
+};

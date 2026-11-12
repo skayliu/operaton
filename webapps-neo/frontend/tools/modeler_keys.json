@@ -1,0 +1,7384 @@
+{
+  "generated_at": "2026-11-12T03:50:41.284Z",
+  "targets": [
+    "bpmn-js",
+    "diagram-js",
+    "bpmn-js-properties-panel",
+    "@bpmn-io/properties-panel",
+    "bpmn-js-bpmnlint",
+    "dmn-js",
+    "dmn-js-shared",
+    "dmn-js-drd",
+    "dmn-js-decision-table",
+    "dmn-js-literal-expression",
+    "dmn-js-boxed-expression",
+    "table-js"
+  ],
+  "totals": {
+    "keys": 440,
+    "tier1": 407,
+    "tier2": 33,
+    "indirect": 15,
+    "assembled": 2
+  },
+  "keys": [
+    {
+      "key": ",",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20897
+        }
+      ]
+    },
+    {
+      "key": ") to identify the error.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20686
+        }
+      ]
+    },
+    {
+      "key": ") to match a specific error, or leave empty to catch any error.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20698
+        }
+      ]
+    },
+    {
+      "key": ").",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20593
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20608
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20645
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20671
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20846
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20899
+        }
+      ]
+    },
+    {
+      "key": "{eventType}: {type}",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [
+        "eventType",
+        "type"
+      ],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9963
+        }
+      ]
+    },
+    {
+      "key": "{getEventLabel(element, listener.get('eventType'))}: {type}",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [
+        "type"
+      ],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6993
+        }
+      ]
+    },
+    {
+      "key": "<custom type>",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15361
+        }
+      ]
+    },
+    {
+      "key": "<empty>",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13493
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15462
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15528
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15620
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1810
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4574
+        }
+      ]
+    },
+    {
+      "key": "<none>",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2412
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2765
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2945
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3333
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3860
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4079
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5727
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7331
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7343
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7354
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9269
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10436
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11760
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12159
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12316
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12619
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13111
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14387
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15368
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15900
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18476
+        }
+      ]
+    },
+    {
+      "key": "1 hour and 30 minutes",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4200
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10580
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18601
+        }
+      ]
+    },
+    {
+      "key": "14 days",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4204
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10584
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18605
+        }
+      ]
+    },
+    {
+      "key": "15 seconds",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4196
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10576
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18597
+        }
+      ]
+    },
+    {
+      "key": "A cycle defined as ISO 8601 repeating intervals format, or a cron expression.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10545
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18567
+        }
+      ]
+    },
+    {
+      "key": "A cycle defined as ISO 8601 repeating intervals format.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4170
+        }
+      ]
+    },
+    {
+      "key": "A FEEL expression that determines whether the event should trigger.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20871
+        }
+      ]
+    },
+    {
+      "key": "A specific point in time defined as ISO 8601 combined date and time representation.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4149
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10523
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18546
+        }
+      ]
+    },
+    {
+      "key": "A time duration defined as ISO 8601 durations format.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4191
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10571
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18592
+        }
+      ]
+    },
+    {
+      "key": "About conditional events.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20864
+        }
+      ]
+    },
+    {
+      "key": "Activate create/remove space tool",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "key": "Activate global connect tool",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 155
+        }
+      ]
+    },
+    {
+      "key": "Activate hand tool",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 122
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "key": "Activate lasso tool",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 133
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 54
+        }
+      ]
+    },
+    {
+      "key": "Active elements",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11323
+        }
+      ]
+    },
+    {
+      "key": "Active elements collection",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5061
+        }
+      ]
+    },
+    {
+      "key": "Activity reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2426
+        }
+      ]
+    },
+    {
+      "key": "Ad-hoc subprocess documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20823
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20835
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20969
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20981
+        }
+      ]
+    },
+    {
+      "key": "Add custom key-value metadata to this element. Extension properties have no effect on process execution — they can be used to attach configuration visible for other consumers of the BPMN diagram.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20935
+        }
+      ]
+    },
+    {
+      "key": "Add custom logic that reacts to various events in the workflow execution life-cycle.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20923
+        }
+      ]
+    },
+    {
+      "key": "Add input mappings to control what is passed to the activity as local variables.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20710
+        }
+      ]
+    },
+    {
+      "key": "Add lane above",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 321
+        }
+      ]
+    },
+    {
+      "key": "Add lane below",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 363
+        }
+      ]
+    },
+    {
+      "key": "Add output mappings to control which variables are merged back into the process scope.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20722
+        }
+      ]
+    },
+    {
+      "key": "Add text annotation",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 483
+        },
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 493
+        },
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 510
+        },
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 557
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "key": "After",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11653
+        }
+      ]
+    },
+    {
+      "key": "Append business knowledge model",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 119
+        }
+      ]
+    },
+    {
+      "key": "Append compensation activity",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 416
+        }
+      ]
+    },
+    {
+      "key": "Append conditional intermediate catch event",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 399
+        }
+      ]
+    },
+    {
+      "key": "Append decision",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "key": "Append end event",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 431
+        }
+      ]
+    },
+    {
+      "key": "Append gateway",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "key": "Append input data",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 124
+        }
+      ]
+    },
+    {
+      "key": "Append intermediate/boundary event",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 446
+        }
+      ]
+    },
+    {
+      "key": "Append knowledge source",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "key": "Append message intermediate catch event",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 387
+        }
+      ]
+    },
+    {
+      "key": "Append receive task",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 382
+        }
+      ]
+    },
+    {
+      "key": "Append signal intermediate catch event",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 405
+        }
+      ]
+    },
+    {
+      "key": "Append task",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 441
+        }
+      ]
+    },
+    {
+      "key": "Append timer intermediate catch event",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 393
+        }
+      ]
+    },
+    {
+      "key": "Assignee",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5312
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19489
+        }
+      ]
+    },
+    {
+      "key": "assignment",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18842
+        }
+      ]
+    },
+    {
+      "key": "Assignment",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11295
+        }
+      ]
+    },
+    {
+      "key": "Assignment type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13791
+        }
+      ]
+    },
+    {
+      "key": "Asynchronous after",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17891
+        }
+      ]
+    },
+    {
+      "key": "Asynchronous before",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17864
+        }
+      ]
+    },
+    {
+      "key": "Asynchronous continuations",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20088
+        }
+      ]
+    },
+    {
+      "key": "Before",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11626
+        }
+      ]
+    },
+    {
+      "key": "Binding",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5885
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11889
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12050
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16098
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16386
+        }
+      ]
+    },
+    {
+      "key": "boolean",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15346
+        }
+      ]
+    },
+    {
+      "key": "BPMN",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5187
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12319
+        }
+      ]
+    },
+    {
+      "key": "Business ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5633
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11210
+        }
+      ]
+    },
+    {
+      "key": "Business ID propagation documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20751
+        }
+      ]
+    },
+    {
+      "key": "Business key",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12401
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20271
+        }
+      ]
+    },
+    {
+      "key": "Business key expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12427
+        }
+      ]
+    },
+    {
+      "key": "Business rule task documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20464
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20623
+        }
+      ]
+    },
+    {
+      "key": "Call activity documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20597
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20957
+        }
+      ]
+    },
+    {
+      "key": "Called decision",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11101
+        }
+      ]
+    },
+    {
+      "key": "Called decision documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20534
+        }
+      ]
+    },
+    {
+      "key": "Called element",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11198
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11851
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20028
+        }
+      ]
+    },
+    {
+      "key": "Camunda Form",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7334
+        }
+      ]
+    },
+    {
+      "key": "Camunda Form (embedded)",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7349
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7360
+        }
+      ]
+    },
+    {
+      "key": "Camunda Form (linked)",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7346
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7357
+        }
+      ]
+    },
+    {
+      "key": "Camunda Forms",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15903
+        }
+      ]
+    },
+    {
+      "key": "Camunda user task",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10642
+        }
+      ]
+    },
+    {
+      "key": "Cancel remaining instances",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2235
+        }
+      ]
+    },
+    {
+      "key": "Candidate groups",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5384
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19547
+        }
+      ]
+    },
+    {
+      "key": "Candidate starter",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20118
+        }
+      ]
+    },
+    {
+      "key": "Candidate starter groups",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12506
+        }
+      ]
+    },
+    {
+      "key": "Candidate starter users",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12536
+        }
+      ]
+    },
+    {
+      "key": "Candidate users",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5456
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19518
+        }
+      ]
+    },
+    {
+      "key": "Case ref",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12016
+        }
+      ]
+    },
+    {
+      "key": "Change element",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 459
+        },
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 468
+        }
+      ]
+    },
+    {
+      "key": "Change type",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 160
+        }
+      ]
+    },
+    {
+      "key": "Class",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12162
+        }
+      ]
+    },
+    {
+      "key": "Click to {active ? 'remove' : 'set a'} dynamic value with FEEL expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2833
+        }
+      ]
+    },
+    {
+      "key": "CMMN",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12322
+        }
+      ]
+    },
+    {
+      "key": "Code",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2841
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3021
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6537
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6595
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14465
+        }
+      ]
+    },
+    {
+      "key": "Code variable",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14233
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14659
+        }
+      ]
+    },
+    {
+      "key": "collectEntries (List<Object>)",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16536
+        }
+      ]
+    },
+    {
+      "key": "Collection",
+      "surface": "popupMenu",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/popup-menu/ReplaceMenuProvider.js",
+          "line": 589
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17804
+        }
+      ]
+    },
+    {
+      "key": "Compensation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4238
+        }
+      ]
+    },
+    {
+      "key": "complete",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18845
+        }
+      ]
+    },
+    {
+      "key": "Completion",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4370
+        }
+      ]
+    },
+    {
+      "key": "Completion condition",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2207
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3458
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5136
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8759
+        }
+      ]
+    },
+    {
+      "key": "Condition",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11175
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11384
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20043
+        }
+      ]
+    },
+    {
+      "key": "Condition expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6321
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6383
+        }
+      ]
+    },
+    {
+      "key": "Condition Expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12656
+        }
+      ]
+    },
+    {
+      "key": "Conditional event documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20863
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20875
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20887
+        }
+      ]
+    },
+    {
+      "key": "Conditions documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20452
+        }
+      ]
+    },
+    {
+      "key": "Config",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15033
+        }
+      ]
+    },
+    {
+      "key": "Configure the message that the task waits for.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20543
+        }
+      ]
+    },
+    {
+      "key": "Configure the message that this event waits for.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20565
+        }
+      ]
+    },
+    {
+      "key": "Configure the message that will start this process instance.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20554
+        }
+      ]
+    },
+    {
+      "key": "Configure the message that will trigger this boundary event.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20576
+        }
+      ]
+    },
+    {
+      "key": "Connect to other element",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 515
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 133
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 146
+        }
+      ]
+    },
+    {
+      "key": "Connect using association",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 529
+        }
+      ]
+    },
+    {
+      "key": "Connect using data input association",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 543
+        }
+      ]
+    },
+    {
+      "key": "Connector ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17006
+        }
+      ]
+    },
+    {
+      "key": "Connector inputs",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20365
+        }
+      ]
+    },
+    {
+      "key": "Connector outputs",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20381
+        }
+      ]
+    },
+    {
+      "key": "Constraints",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15595
+        }
+      ]
+    },
+    {
+      "key": "Control the business ID set on a child process. If left empty, no business ID will be set.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20747
+        }
+      ]
+    },
+    {
+      "key": "Control which variables from the called process are merged back into the parent scope. By default, all child variables are propagated; use output mappings to selectively return specific variables.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20953
+        }
+      ]
+    },
+    {
+      "key": "create",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18839
+        }
+      ]
+    },
+    {
+      "key": "Create",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6420
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1969
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4250
+        }
+      ]
+    },
+    {
+      "key": "Create data object reference",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "key": "Create data store reference",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "key": "Create decision",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 65
+        }
+      ]
+    },
+    {
+      "key": "Create end event",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "key": "Create expanded sub-process",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 198
+        }
+      ]
+    },
+    {
+      "key": "Create gateway",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "key": "Create group",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 215
+        }
+      ]
+    },
+    {
+      "key": "Create input data",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "key": "Create intermediate/boundary event",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "key": "Create knowledge model",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "key": "Create knowledge source",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "key": "Create new ...",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2768
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2948
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3336
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3863
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14390
+        }
+      ]
+    },
+    {
+      "key": "Create new list item",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1964
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4245
+        }
+      ]
+    },
+    {
+      "key": "Create pool/participant",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 207
+        }
+      ]
+    },
+    {
+      "key": "Create start event",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "key": "Create task",
+      "surface": "palette",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/palette/PaletteProvider.js",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "key": "Created in",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19266
+        }
+      ]
+    },
+    {
+      "key": "Custom form key",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7363
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7429
+        }
+      ]
+    },
+    {
+      "key": "Custom type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15408
+        }
+      ]
+    },
+    {
+      "key": "Cycle",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4088
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10380
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18485
+        }
+      ]
+    },
+    {
+      "key": "date",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15349
+        }
+      ]
+    },
+    {
+      "key": "Date",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4082
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10368
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18479
+        }
+      ]
+    },
+    {
+      "key": "Decision ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6098
+        }
+      ]
+    },
+    {
+      "key": "Decision reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16334
+        }
+      ]
+    },
+    {
+      "key": "Default value",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15438
+        }
+      ]
+    },
+    {
+      "key": "Define a boolean condition expression that determines when this sequence flow is taken.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20448
+        }
+      ]
+    },
+    {
+      "key": "Define a collection of elements which will be activated when the ad-hoc subprocess is reached.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20831
+        }
+      ]
+    },
+    {
+      "key": "Define an input collection expression that defines the collection to iterate over (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20669
+        }
+      ]
+    },
+    {
+      "key": "Define how to collect the outputs of the ad-hoc subprocess. The output collection variable stores the list of results; the output element expression defines what each element contributes.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20977
+        }
+      ]
+    },
+    {
+      "key": "Define static metadata passed to job workers alongside each job. Headers are not evaluated by the engine — use them for fixed worker configuration (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20895
+        }
+      ]
+    },
+    {
+      "key": "Define the assignment, schedule, and priority of the user task. Assignee, candidate groups, and candidate users can be combined. Use due date and follow-up date to express deadlines and urgency.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20436
+        }
+      ]
+    },
+    {
+      "key": "Define the completion behavior of an ad-hoc subprocess. If no completion condition is set, it will be completed after all active elements have been completed.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20819
+        }
+      ]
+    },
+    {
+      "key": "Define the decision to evaluate and how to map back the evaluation result.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20530
+        }
+      ]
+    },
+    {
+      "key": "Define the error to catch. Specify an error code (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20696
+        }
+      ]
+    },
+    {
+      "key": "Define the error to throw. Specify an error code (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20684
+        }
+      ]
+    },
+    {
+      "key": "Define the FEEL expression to evaluate and the variable to store the result in.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20941
+        }
+      ]
+    },
+    {
+      "key": "Define the ID of the process to call (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20589
+        }
+      ]
+    },
+    {
+      "key": "Define the name of the variable that will contain the error code.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14234
+        }
+      ]
+    },
+    {
+      "key": "Define the name of the variable that will contain the error message.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14264
+        }
+      ]
+    },
+    {
+      "key": "Define the name of the variable that will contain the escalation code.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14660
+        }
+      ]
+    },
+    {
+      "key": "Delegate Class",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12220
+        }
+      ]
+    },
+    {
+      "key": "Delegate expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12165
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16948
+        }
+      ]
+    },
+    {
+      "key": "Delegate Expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12195
+        }
+      ]
+    },
+    {
+      "key": "Delegate Variable Mapping",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12170
+        }
+      ]
+    },
+    {
+      "key": "delete",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18848
+        }
+      ]
+    },
+    {
+      "key": "Delete",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 224
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 189
+        },
+        {
+          "pkg": "dmn-js-drd",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 207
+        }
+      ]
+    },
+    {
+      "key": "Delete item",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1830
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4330
+        }
+      ]
+    },
+    {
+      "key": "deployment",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5877
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11878
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12042
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16085
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16370
+        }
+      ]
+    },
+    {
+      "key": "Deployment binding",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20765
+        }
+      ]
+    },
+    {
+      "key": "Divide into three lanes",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 350
+        }
+      ]
+    },
+    {
+      "key": "Divide into two lanes",
+      "surface": "contextPad",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/context-pad/ContextPadProvider.js",
+          "line": 337
+        }
+      ]
+    },
+    {
+      "key": "DMN decision",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5730
+        }
+      ]
+    },
+    {
+      "key": "Documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4257
+        }
+      ]
+    },
+    {
+      "key": "Documentation: Timer events",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4164
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4185
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4210
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18561
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18586
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18611
+        }
+      ]
+    },
+    {
+      "key": "Documentation: Variable events",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12912
+        }
+      ]
+    },
+    {
+      "key": "Due date",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10189
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19576
+        }
+      ]
+    },
+    {
+      "key": "Duration",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4085
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10374
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18482
+        }
+      ]
+    },
+    {
+      "key": "Element documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2574
+        }
+      ]
+    },
+    {
+      "key": "Element variable",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17833
+        }
+      ]
+    },
+    {
+      "key": "Embedded or External Task Forms",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15906
+        }
+      ]
+    },
+    {
+      "key": "end",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18868
+        }
+      ]
+    },
+    {
+      "key": "enum",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15352
+        }
+      ]
+    },
+    {
+      "key": "Error",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4266
+        }
+      ]
+    },
+    {
+      "key": "Error event documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20690
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20702
+        }
+      ]
+    },
+    {
+      "key": "Errors",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19982
+        }
+      ]
+    },
+    {
+      "key": "Escalation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4326
+        }
+      ]
+    },
+    {
+      "key": "Evaluate a business rule, for example a DMN decision. To add a custom implementation, use a job worker.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20460
+        }
+      ]
+    },
+    {
+      "key": "Event type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6940
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9930
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18873
+        }
+      ]
+    },
+    {
+      "key": "every 10 seconds, up to 5 times",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4175
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10550
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18572
+        }
+      ]
+    },
+    {
+      "key": "every day, infinitely",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4179
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10554
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18576
+        }
+      ]
+    },
+    {
+      "key": "every hour on the hour from 9-5 p.m. UTC Monday-Friday",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10558
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18580
+        }
+      ]
+    },
+    {
+      "key": "Exclusive",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11680
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17918
+        }
+      ]
+    },
+    {
+      "key": "Executable",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3090
+        }
+      ]
+    },
+    {
+      "key": "Execute this task for each element of a given collection.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20669
+        }
+      ]
+    },
+    {
+      "key": "Execution listeners",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11334
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20301
+        }
+      ]
+    },
+    {
+      "key": "Execution listeners documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20927
+        }
+      ]
+    },
+    {
+      "key": "Expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12625
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14820
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16889
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/InputEditor.js",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "key": "Extension properties",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11366
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20397
+        }
+      ]
+    },
+    {
+      "key": "External form reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7337
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7452
+        }
+      ]
+    },
+    {
+      "key": "External resource",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12752
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13114
+        }
+      ]
+    },
+    {
+      "key": "External task",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20073
+        }
+      ]
+    },
+    {
+      "key": "FEEL expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9272
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9451
+        }
+      ]
+    },
+    {
+      "key": "FEEL expression is mandatory",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2832
+        }
+      ]
+    },
+    {
+      "key": "Field injection",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19040
+        }
+      ]
+    },
+    {
+      "key": "Field injections",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20133
+        }
+      ]
+    },
+    {
+      "key": "Follow up date",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10265
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19606
+        }
+      ]
+    },
+    {
+      "key": "Form",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11187
+        }
+      ]
+    },
+    {
+      "key": "Form fields",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20255
+        }
+      ]
+    },
+    {
+      "key": "Form ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7405
+        }
+      ]
+    },
+    {
+      "key": "Form JSON configuration",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7382
+        }
+      ]
+    },
+    {
+      "key": "Form key",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16034
+        }
+      ]
+    },
+    {
+      "key": "Form reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16059
+        }
+      ]
+    },
+    {
+      "key": "Format",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12722
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13077
+        }
+      ]
+    },
+    {
+      "key": "Forms",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20286
+        }
+      ]
+    },
+    {
+      "key": "General",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4230
+        }
+      ]
+    },
+    {
+      "key": "Generated Task Forms",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15909
+        }
+      ]
+    },
+    {
+      "key": "Global error reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2782
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14404
+        }
+      ]
+    },
+    {
+      "key": "Global escalation reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2962
+        }
+      ]
+    },
+    {
+      "key": "Global message reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3350
+        }
+      ]
+    },
+    {
+      "key": "Global signal reference",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3877
+        }
+      ]
+    },
+    {
+      "key": "Headers",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6845
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11222
+        }
+      ]
+    },
+    {
+      "key": "History cleanup",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20149
+        }
+      ]
+    },
+    {
+      "key": "How to configure a timer",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10539
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10565
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10591
+        }
+      ]
+    },
+    {
+      "key": "ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15085
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15167
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15286
+        }
+      ]
+    },
+    {
+      "key": "ID must be a valid QName.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3138
+        }
+      ]
+    },
+    {
+      "key": "ID must be unique.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3126
+        }
+      ]
+    },
+    {
+      "key": "ID must not be empty.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3123
+        }
+      ]
+    },
+    {
+      "key": "ID must not contain prefix.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3136
+        }
+      ]
+    },
+    {
+      "key": "ID must not contain spaces.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3132
+        }
+      ]
+    },
+    {
+      "key": "Identifier computed from the process context that is used to correlate an incoming message (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20844
+        }
+      ]
+    },
+    {
+      "key": "If turned on, all variables from the child process instance will be propagated to the parent process instance.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8092
+        }
+      ]
+    },
+    {
+      "key": "If turned on, all variables from the parent process instance will be propagated to the child process instance.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7898
+        }
+      ]
+    },
+    {
+      "key": "Implement a script task using an inline FEEL expression. To add a custom implementation, use a job worker.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20472
+        }
+      ]
+    },
+    {
+      "key": "Implement a user task managed by Camunda. To add a custom implementation, use a job worker.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20484
+        }
+      ]
+    },
+    {
+      "key": "Implement the ad-hoc subprocess as a job worker instead of activating inner elements. The job type determines which worker handles the subprocess execution.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20965
+        }
+      ]
+    },
+    {
+      "key": "Implementation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5740
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9282
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11089
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11259
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11271
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11283
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19967
+        }
+      ]
+    },
+    {
+      "key": "Implementation type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5197
+        }
+      ]
+    },
+    {
+      "key": "In mapping propagation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20195
+        }
+      ]
+    },
+    {
+      "key": "In mappings",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20179
+        }
+      ]
+    },
+    {
+      "key": "Inherit from parent",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5601
+        }
+      ]
+    },
+    {
+      "key": "Initiator",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17060
+        }
+      ]
+    },
+    {
+      "key": "Inline script",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12755
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13117
+        }
+      ]
+    },
+    {
+      "key": "Input collection",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8664
+        }
+      ]
+    },
+    {
+      "key": "Input element",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8688
+        }
+      ]
+    },
+    {
+      "key": "Input mapping",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11149
+        }
+      ]
+    },
+    {
+      "key": "Input mappings documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20714
+        }
+      ]
+    },
+    {
+      "key": "Input propagation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11247
+        }
+      ]
+    },
+    {
+      "key": "Inputs",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20333
+        }
+      ]
+    },
+    {
+      "key": "Java class",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16859
+        }
+      ]
+    },
+    {
+      "key": "Job execution",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20103
+        }
+      ]
+    },
+    {
+      "key": "Job priority",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11137
+        }
+      ]
+    },
+    {
+      "key": "Job priority documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20995
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 21007
+        }
+      ]
+    },
+    {
+      "key": "Job type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9784
+        }
+      ]
+    },
+    {
+      "key": "Job worker",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5190
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5733
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9275
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10645
+        }
+      ]
+    },
+    {
+      "key": "JSON contains errors",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2514
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2516
+        }
+      ]
+    },
+    {
+      "key": "Key",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6700
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11777
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13584
+        }
+      ]
+    },
+    {
+      "key": "Label",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15317
+        }
+      ]
+    },
+    {
+      "key": "latest",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5874
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11875
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12039
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16088
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16373
+        }
+      ]
+    },
+    {
+      "key": "Latest binding",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20761
+        }
+      ]
+    },
+    {
+      "key": "Learn how to define conditions.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20453
+        }
+      ]
+    },
+    {
+      "key": "Learn more.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20441
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20465
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20477
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20489
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20502
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20513
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20523
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20535
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20548
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20559
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20570
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20581
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20598
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20613
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20624
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20635
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20650
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20661
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20676
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20691
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20703
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20715
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20727
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20739
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20752
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20811
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20824
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20836
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20851
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20876
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20888
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20904
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20916
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20928
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20946
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20958
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20970
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20982
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20996
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 21008
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 21024
+        }
+      ]
+    },
+    {
+      "key": "Link",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4310
+        }
+      ]
+    },
+    {
+      "key": "Link a form created with the Camunda Forms editor. Submitting this form will start a new process instance.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20497
+        }
+      ]
+    },
+    {
+      "key": "Link a form created with the Camunda Forms editor. To associate a custom form, application, or URL to the user task, specify an external reference.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20508
+        }
+      ]
+    },
+    {
+      "key": "Link or embed a form created with the Camunda Forms editor. To associate a custom form, application, or URL to the user task, specify a form key.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20518
+        }
+      ]
+    },
+    {
+      "key": "List",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13418
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13602
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13774
+        }
+      ]
+    },
+    {
+      "key": "List contains {numOfItems} item{items.length != 1 ? 's' : ''}",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [
+        "numOfItems"
+      ],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1972
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4253
+        }
+      ]
+    },
+    {
+      "key": "List values",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13402
+        }
+      ]
+    },
+    {
+      "key": "Listener ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18890
+        }
+      ]
+    },
+    {
+      "key": "Listener type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6623
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18928
+        }
+      ]
+    },
+    {
+      "key": "Local",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17155
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17398
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18201
+        }
+      ]
+    },
+    {
+      "key": "long",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15355
+        }
+      ]
+    },
+    {
+      "key": "Loop",
+      "surface": "popupMenu",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/popup-menu/ReplaceMenuProvider.js",
+          "line": 549
+        }
+      ]
+    },
+    {
+      "key": "Loop cardinality",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3435
+        }
+      ]
+    },
+    {
+      "key": "Map",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13417
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13601
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13777
+        }
+      ]
+    },
+    {
+      "key": "Map decision result",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16552
+        }
+      ]
+    },
+    {
+      "key": "Map entries",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13533
+        }
+      ]
+    },
+    {
+      "key": "Message",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4281
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14204
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14495
+        }
+      ]
+    },
+    {
+      "key": "Message boundary event documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20580
+        }
+      ]
+    },
+    {
+      "key": "Message catch event documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20569
+        }
+      ]
+    },
+    {
+      "key": "Message start event documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20558
+        }
+      ]
+    },
+    {
+      "key": "Message throw event documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20660
+        }
+      ]
+    },
+    {
+      "key": "Message variable",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14263
+        }
+      ]
+    },
+    {
+      "key": "Multi instance documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20675
+        }
+      ]
+    },
+    {
+      "key": "Multi-instance",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4355
+        }
+      ]
+    },
+    {
+      "key": "Multiple elements are selected. Select a single element to edit its properties.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1457
+        }
+      ]
+    },
+    {
+      "key": "Name",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2812
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2992
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3235
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3380
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3598
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3907
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8502
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9584
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10818
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14435
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14788
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15003
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15197
+        }
+      ]
+    },
+    {
+      "key": "Number of days before this resource is being cleaned up. If specified, takes precedence over the engine configuration.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 21020
+        }
+      ]
+    },
+    {
+      "key": "Off",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5602
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7895
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8089
+        }
+      ]
+    },
+    {
+      "key": "On",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5602
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7895
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8089
+        }
+      ]
+    },
+    {
+      "key": "Open documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 261
+        }
+      ]
+    },
+    {
+      "key": "Open pop-up editor",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2533
+        }
+      ]
+    },
+    {
+      "key": "Opened in editor",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2786
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4727
+        }
+      ]
+    },
+    {
+      "key": "or",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20591
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20643
+        }
+      ]
+    },
+    {
+      "key": "Otherwise, only variables defined via input mappings will be propagated.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7900
+        }
+      ]
+    },
+    {
+      "key": "Otherwise, only variables defined via output mappings will be propagated.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8094
+        }
+      ]
+    },
+    {
+      "key": "Out mapping propagation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20226
+        }
+      ]
+    },
+    {
+      "key": "Out mappings",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20210
+        }
+      ]
+    },
+    {
+      "key": "Output collection",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8711
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8878
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11311
+        }
+      ]
+    },
+    {
+      "key": "Output element",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8734
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8902
+        }
+      ]
+    },
+    {
+      "key": "Output mapping",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11162
+        }
+      ]
+    },
+    {
+      "key": "Output mappings documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20726
+        }
+      ]
+    },
+    {
+      "key": "Output propagation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11235
+        }
+      ]
+    },
+    {
+      "key": "Outputs",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20349
+        }
+      ]
+    },
+    {
+      "key": "Parallel multi-instance",
+      "surface": "popupMenu",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/popup-menu/ReplaceMenuProvider.js",
+          "line": 529
+        }
+      ]
+    },
+    {
+      "key": "Participant multiplicity",
+      "surface": "popupMenu",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/popup-menu/ReplaceMenuProvider.js",
+          "line": 627
+        }
+      ]
+    },
+    {
+      "key": "Participant Name",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3648
+        }
+      ]
+    },
+    {
+      "key": "Priority",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8434
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9192
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14717
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17615
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19636
+        }
+      ]
+    },
+    {
+      "key": "Process documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2594
+        }
+      ]
+    },
+    {
+      "key": "Process ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3755
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9691
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19792
+        }
+      ]
+    },
+    {
+      "key": "Process name",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3720
+        }
+      ]
+    },
+    {
+      "key": "Process variables",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20246
+        }
+      ]
+    },
+    {
+      "key": "Propagate all child process variables",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8088
+        }
+      ]
+    },
+    {
+      "key": "Propagate all parent process variables",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7894
+        }
+      ]
+    },
+    {
+      "key": "Propagate all variables",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17128
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18174
+        }
+      ]
+    },
+    {
+      "key": "Properties",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15687
+        }
+      ]
+    },
+    {
+      "key": "React to user task lifecycle events by executing a job worker.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20911
+        }
+      ]
+    },
+    {
+      "key": "Receive task message documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20547
+        }
+      ]
+    },
+    {
+      "key": "Refers to the process variable name",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15287
+        }
+      ]
+    },
+    {
+      "key": "Resource",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12819
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13188
+        }
+      ]
+    },
+    {
+      "key": "Result variable",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6173
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9526
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16505
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16918
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19372
+        }
+      ]
+    },
+    {
+      "key": "resultList (List<Map<String, Object>>)",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16539
+        }
+      ]
+    },
+    {
+      "key": "Retries",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6650
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 9857
+        }
+      ]
+    },
+    {
+      "key": "Retry time cycle",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17689
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17991
+        }
+      ]
+    },
+    {
+      "key": "Scope",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19244
+        }
+      ]
+    },
+    {
+      "key": "Script",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11113
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12622
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12790
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13156
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13419
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13603
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13780
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20013
+        }
+      ]
+    },
+    {
+      "key": "Script task documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20476
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20634
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20945
+        }
+      ]
+    },
+    {
+      "key": "Script type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12762
+        }
+      ]
+    },
+    {
+      "key": "Section contains a warning",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1295
+        }
+      ]
+    },
+    {
+      "key": "Section contains an error",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1289
+        }
+      ]
+    },
+    {
+      "key": "Section contains edits",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1301
+        }
+      ]
+    },
+    {
+      "key": "Select an element to edit its properties.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1451
+        }
+      ]
+    },
+    {
+      "key": "Send task documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20649
+        }
+      ]
+    },
+    {
+      "key": "Sequential multi-instance",
+      "surface": "popupMenu",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/popup-menu/ReplaceMenuProvider.js",
+          "line": 539
+        }
+      ]
+    },
+    {
+      "key": "Service task documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20612
+        }
+      ]
+    },
+    {
+      "key": "Signal",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4296
+        }
+      ]
+    },
+    {
+      "key": "singleEntry (TypedValue)",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16542
+        }
+      ]
+    },
+    {
+      "key": "singleResult (Map<String, Object>)",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16545
+        }
+      ]
+    },
+    {
+      "key": "Source",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17268
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17309
+        }
+      ]
+    },
+    {
+      "key": "Source expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17271
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17339
+        }
+      ]
+    },
+    {
+      "key": "Specifies the default priority for all jobs created by a process. Must be an integer. If no value is provided, the default value is 0.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20991
+        }
+      ]
+    },
+    {
+      "key": "Specifies the priority of a job. Must be an integer. If no value is provided, the default value is 0.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 21003
+        }
+      ]
+    },
+    {
+      "key": "Specifies the priority of a user task. Must be an integer between 0 and 100. If no value is provided, the default value is 50.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20806
+        }
+      ]
+    },
+    {
+      "key": "Specify more than one group as a comma separated list.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12507
+        }
+      ]
+    },
+    {
+      "key": "Specify more than one user as a comma separated list.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12537
+        }
+      ]
+    },
+    {
+      "key": "Specify more than one variable change event as a comma separated list. Variable change events are:",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12893
+        }
+      ]
+    },
+    {
+      "key": "Specify the condition that triggers this event.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20859
+        }
+      ]
+    },
+    {
+      "key": "Specify which job workers handle the event work.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20656
+        }
+      ]
+    },
+    {
+      "key": "Specify which job workers handle the task work to evaluate business rules.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20619
+        }
+      ]
+    },
+    {
+      "key": "Specify which job workers handle the task work to execute a script.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20630
+        }
+      ]
+    },
+    {
+      "key": "Specify which job workers handle the task work to execute a service (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20606
+        }
+      ]
+    },
+    {
+      "key": "Specify which job workers handle the task work to send a message (e.g.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20641
+        }
+      ]
+    },
+    {
+      "key": "start",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18865
+        }
+      ]
+    },
+    {
+      "key": "Start event form documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20501
+        }
+      ]
+    },
+    {
+      "key": "Start initiator",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20058
+        }
+      ]
+    },
+    {
+      "key": "Start typing \"${}\" to create an expression.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13822
+        }
+      ]
+    },
+    {
+      "key": "Startable",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19418
+        }
+      ]
+    },
+    {
+      "key": "string",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15358
+        }
+      ]
+    },
+    {
+      "key": "String",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14817
+        }
+      ]
+    },
+    {
+      "key": "String or expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13783
+        }
+      ]
+    },
+    {
+      "key": "Subscription correlation key",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8577
+        }
+      ]
+    },
+    {
+      "key": "Subscription correlation key documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20850
+        }
+      ]
+    },
+    {
+      "key": "take",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18860
+        }
+      ]
+    },
+    {
+      "key": "Target",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17369
+        }
+      ]
+    },
+    {
+      "key": "Task definition",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11125
+        }
+      ]
+    },
+    {
+      "key": "Task headers documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20903
+        }
+      ]
+    },
+    {
+      "key": "Task listeners",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11350
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20317
+        }
+      ]
+    },
+    {
+      "key": "Task listeners documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20915
+        }
+      ]
+    },
+    {
+      "key": "Tasklist",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20164
+        }
+      ]
+    },
+    {
+      "key": "Tenant ID",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11961
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12098
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16473
+        }
+      ]
+    },
+    {
+      "key": "The due date as an EL expression (e.g. ${someDate}) or an ISO date (e.g. 2015-06-26T09:54:00).",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [
+        "someDate"
+      ],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19577
+        }
+      ]
+    },
+    {
+      "key": "The number of times the engine tries executing this activity if a worker signals a failure. The default is three.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20735
+        }
+      ]
+    },
+    {
+      "key": "This maps to the process definition key.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19729
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19788
+        }
+      ]
+    },
+    {
+      "key": "Throw expression",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14525
+        }
+      ]
+    },
+    {
+      "key": "Time to live",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16231
+        }
+      ]
+    },
+    {
+      "key": "timeout",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18854
+        }
+      ]
+    },
+    {
+      "key": "Timer",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4340
+        }
+      ]
+    },
+    {
+      "key": "Timer documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10538
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10564
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10590
+        }
+      ]
+    },
+    {
+      "key": "To collect the output define the output collection and the output element expressions.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20671
+        }
+      ]
+    },
+    {
+      "key": "Toggle list item",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1823
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4260
+        }
+      ]
+    },
+    {
+      "key": "Toggle non-interrupting",
+      "surface": "popupMenu",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/popup-menu/ReplaceMenuProvider.js",
+          "line": 648
+        }
+      ]
+    },
+    {
+      "key": "Toggle section",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1255
+        },
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 1979
+        }
+      ]
+    },
+    {
+      "key": "Topic",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16977
+        }
+      ]
+    },
+    {
+      "key": "Type",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4094
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 7308
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10442
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10652
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12327
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12630
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13124
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14827
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15377
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15915
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16743
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 17279
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18491
+        }
+      ]
+    },
+    {
+      "key": "Unparsable FEEL expression.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "@bpmn-io/properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 3301
+        }
+      ]
+    },
+    {
+      "key": "update",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18851
+        }
+      ]
+    },
+    {
+      "key": "Update",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6423
+        }
+      ]
+    },
+    {
+      "key": "User assignment",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19998
+        }
+      ]
+    },
+    {
+      "key": "User task documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20440
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20488
+        }
+      ]
+    },
+    {
+      "key": "User task form documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20512
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20522
+        }
+      ]
+    },
+    {
+      "key": "User task priority documentation",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20810
+        }
+      ]
+    },
+    {
+      "key": "Uses the most recent deployed resource with the given version tag.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20770
+        }
+      ]
+    },
+    {
+      "key": "Uses the most recent deployed resource.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20762
+        }
+      ]
+    },
+    {
+      "key": "Uses the resource found in the same deployment.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20766
+        }
+      ]
+    },
+    {
+      "key": "UTC plus 2 hours zone offset",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4158
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10532
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18555
+        }
+      ]
+    },
+    {
+      "key": "UTC time",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4154
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10528
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18551
+        }
+      ]
+    },
+    {
+      "key": "Value",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 4134
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6730
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10500
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10848
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13623
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 13821
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 14863
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15115
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 18531
+        }
+      ]
+    },
+    {
+      "key": "Values",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 15503
+        }
+      ]
+    },
+    {
+      "key": "Variable assignment value",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 8001
+        }
+      ]
+    },
+    {
+      "key": "Variable events",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 6428
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12918
+        }
+      ]
+    },
+    {
+      "key": "Variable events that trigger the condition evaluation. If none selected, all variable events will trigger the condition evaluation.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20883
+        }
+      ]
+    },
+    {
+      "key": "Variable name",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12866
+        },
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/element-variable/components/ElementVariableComponent.js",
+          "line": 15
+        },
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/element-variable/components/ElementVariableEditorComponent.js",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "key": "version",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11881
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12045
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16091
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16376
+        }
+      ]
+    },
+    {
+      "key": "Version",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11913
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 12074
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16123
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16415
+        }
+      ]
+    },
+    {
+      "key": "version tag",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5880
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11884
+        }
+      ]
+    },
+    {
+      "key": "Version tag",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5968
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 5978
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 10759
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 11937
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16444
+        },
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 19680
+        }
+      ]
+    },
+    {
+      "key": "Version tag binding",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20769
+        }
+      ]
+    },
+    {
+      "key": "Version tag by which the called decision will be referenced.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20791
+        }
+      ]
+    },
+    {
+      "key": "Version tag by which the called process will be referenced.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20785
+        }
+      ]
+    },
+    {
+      "key": "Version tag by which the linked form will be referenced.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20797
+        }
+      ]
+    },
+    {
+      "key": "Version tag by which this process can be referenced.",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 20779
+        }
+      ]
+    },
+    {
+      "key": "versionTag",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 16379
+        }
+      ]
+    },
+    {
+      "key": "Wait for completion",
+      "surface": "propertiesPanel",
+      "tier": 1,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js-properties-panel",
+          "file": "dist/index.esm.js",
+          "line": 2381
+        }
+      ]
+    },
+    {
+      "key": "+ shift +",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/draw/BpmnRenderer.js",
+          "line": 1295
+        }
+      ]
+    },
+    {
+      "key": "Add input",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/create-inputs/components/CreateInputCell.js",
+          "line": 15
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/create-inputs/components/CreateInputHeaderCell.js",
+          "line": 14
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/create-inputs/components/CreateInputHeaderCell.js",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "key": "Add parameter",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/FormalParametersEditor.js",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "key": "Add rule",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/add-rule/components/AddRuleFootComponent.js",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "key": "And",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 85
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "key": "Annotation",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/annotations/editor/components/AnnotationCell.js",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "key": "Annotations",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/annotations/components/AnnotationHeader.js",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "key": "Decision name",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-properties/components/DecisionTablePropertiesEditorComponent.js",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "key": "Distribute elements horizontally",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/distribute-elements/DistributeElementsMenuProvider.js",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "key": "Distribute elements vertically",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "bpmn-js",
+          "file": "lib/features/distribute-elements/DistributeElementsMenuProvider.js",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "key": "Edit formal parameters",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/FormalParametersEditor.js",
+          "line": 30
+        },
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/FunctionDefinitionEditorComponent.js",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "key": "Edit function kind",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/FunctionDefinitionEditorComponent.js",
+          "line": 62
+        },
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/KindEditor.js",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "key": "Element name",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/element-properties/components/ElementPropertiesEditorComponent.js",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "key": "Enter expression",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/InputEditor.js",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "key": "Function kind: {kind}",
+      "surface": "other",
+      "tier": 2,
+      "vars": [
+        "kind"
+      ],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/FunctionDefinitionComponent.js",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "key": "Input",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/create-inputs/components/CreateInputHeaderCell.js",
+          "line": 13
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/InputEditor.js",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "key": "Input expression",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/InputEditor.js",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "key": "Input expression:",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "key": "Input label",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/InputEditor.js",
+          "line": 60
+        }
+      ]
+    },
+    {
+      "key": "Input label:",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "key": "Input type",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "key": "Input values",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "key": "Kind",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/KindEditor.js",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "key": "Output",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/OutputEditor.js",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "key": "Output label",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 110
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/OutputEditor.js",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "key": "Output name",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 112
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/OutputEditor.js",
+          "line": 42
+        },
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/editor/components/OutputEditor.js",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "key": "Output type",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "key": "Output values",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "key": "Remove parameter",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/function-definition/components/FormalParametersEditor.js",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "key": "Resize",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/column-resize/components/ResizeColumn.js",
+          "line": 67
+        }
+      ]
+    },
+    {
+      "key": "Then",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "key": "Variable type",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-boxed-expression",
+          "file": "lib/features/element-variable/components/ElementVariableComponent.js",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "key": "When",
+      "surface": "other",
+      "tier": 2,
+      "vars": [],
+      "sources": [
+        {
+          "pkg": "dmn-js-decision-table",
+          "file": "lib/features/decision-table-head/components/DecisionTableHead.js",
+          "line": 85
+        }
+      ]
+    }
+  ],
+  "indirect": [
+    {
+      "file": "bpmn-js/lib/features/modeling-feedback/ModelingFeedback.js",
+      "line": 38,
+      "expression": "COLLAB_ERR_MSG"
+    },
+    {
+      "file": "bpmn-js/lib/features/modeling-feedback/ModelingFeedback.js",
+      "line": 40,
+      "expression": "DATA_OBJECT_ERR_MSG"
+    },
+    {
+      "file": "bpmn-js/lib/features/popup-menu/ReplaceMenuProvider.js",
+      "line": 474,
+      "expression": "label"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 1288,
+      "expression": "template.name"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16709,
+      "expression": "IMPLEMENTATION_TYPE_NONE_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16712,
+      "expression": "IMPLEMENTATION_TYPE_JAVA_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16715,
+      "expression": "IMPLEMENTATION_TYPE_EXPRESSION_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16718,
+      "expression": "IMPLEMENTATION_TYPE_DELEGATE_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16723,
+      "expression": "IMPLEMENTATION_TYPE_DMN_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16729,
+      "expression": "IMPLEMENTATION_TYPE_EXTERNAL_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 16735,
+      "expression": "IMPLEMENTATION_TYPE_CONNECTOR_LABEL"
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 19093,
+      "expression": "label"
+    },
+    {
+      "file": "dmn-js-drd/lib/features/popup-menu/ReplaceMenuProvider.js",
+      "line": 102,
+      "expression": "definition.label"
+    },
+    {
+      "file": "dmn-js-boxed-expression/lib/features/element-variable/components/ElementVariableEditorComponent.js",
+      "line": 28,
+      "expression": "t"
+    },
+    {
+      "file": "dmn-js-boxed-expression/lib/features/function-definition/components/FormalParametersEditor.js",
+      "line": 61,
+      "expression": "t"
+    }
+  ],
+  "assembled": [
+    {
+      "file": "bpmn-js/lib/features/align-elements/AlignElementsMenuProvider.js",
+      "line": 89
+    },
+    {
+      "file": "bpmn-js-properties-panel/dist/index.esm.js",
+      "line": 19607
+    }
+  ]
+}
