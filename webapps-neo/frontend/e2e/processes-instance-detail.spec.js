@@ -40,7 +40,7 @@ const find_instance_link = async (page) => {
     {
       headers: {
         Authorization:
-          "Basic " + Buffer.from("demo:demo").toString("base64"),
+          `Basic ${Buffer.from("demo:demo").toString("base64")}`,
       },
     },
   );
