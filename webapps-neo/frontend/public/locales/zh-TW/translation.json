@@ -38,7 +38,13 @@
     "search": "搜尋",
     "ok": "確定",
     "date": "日期",
-    "time": "時間"
+    "time": "時間",
+    "loading-slow": "載入時間較長，請檢查網路連線，或重新載入頁面。",
+    "load-failed": {
+      "title": "此頁面未能載入",
+      "text": "應用程式有一部分未能下載，重新載入通常即可修正。",
+      "reload": "重新載入頁面"
+    }
   },
   "nav": {
     "tasks": "任務",
@@ -58,7 +64,8 @@
     "skip-to-content": "跳至主要內容",
     "go-to": "跳轉",
     "server": "伺服器",
-    "choose-server": "選擇伺服器"
+    "choose-server": "選擇伺服器",
+    "modeler": "建模器"
   },
   "goto": {
     "title": "跳轉",
@@ -990,5 +997,104 @@
     "submit": "建立管理員",
     "password-mismatch": "兩次輸入的密碼不一致。",
     "failed": "無法建立管理員。該管理員可能已存在，或密碼不符合密碼原則。"
+  },
+  "modeler": {
+    "loading": "正在載入建模器…",
+    "loading-detail": "編輯器只會下載一次，之後由瀏覽器快取。",
+    "title": "建模器",
+    "back": "返回",
+    "new": "新增",
+    "open": "開啟檔案",
+    "download": "下載",
+    "undo": "復原",
+    "redo": "重做",
+    "zoom-in": "放大",
+    "zoom-out": "縮小",
+    "fit": "符合檢視",
+    "minimap": "小地圖",
+    "properties": {
+      "label": "屬性",
+      "resize": "調整大小或摺疊屬性面板",
+      "expand": "顯示屬性",
+      "collapse": "隱藏屬性"
+    },
+    "draft-pending": "尚未存入草稿",
+    "confirm-replace": "要取代目前的草稿嗎？此瀏覽器中已存的草稿將被取代，且無法復原。",
+    "confirm-discard": "要丟棄此瀏覽器中儲存的草稿嗎？目前的畫布會被清空為空白範本，且無法復原。",
+    "replace": "取代",
+    "confirm-leave": "要離開建模器嗎？你最近的變更未能存為草稿，將會遺失。",
+    "leave": "離開",
+    "lint": {
+      "toggle": "顯示或隱藏驗證標記",
+      "off": "驗證已關閉",
+      "clean": "沒有問題",
+      "summary": "{{errors}} 個錯誤，{{warnings}} 個警告",
+      "problems": "發現 {{count}} 個問題"
+    },
+    "unsupported": "暫不支援 {{kind}} 建模，目前版本僅支援 BPMN。",
+    "errors": {
+      "import": "無法讀取此圖。",
+      "export": "無法匯出此圖。",
+      "download": "瀏覽器沒有開始下載。",
+      "unsupported-file": "{{name}} 不是 BPMN 檔案（{{kind}}）。",
+      "unknown-kind": "未知類型"
+    },
+    "deploy": {
+      "action": "部署",
+      "title": "部署圖表",
+      "hint": "部署會產生新版本，上一個版本仍保留在引擎歷史中。",
+      "name": "部署名稱",
+      "tenant": "租戶",
+      "tenant-placeholder": "留空表示使用預設租戶",
+      "duplicate-filtering": "略過未變更的資源",
+      "deploy-changed-only": "僅部署已變更的資源",
+      "files": "檔案",
+      "submit": "部署",
+      "deploying": "正在部署…",
+      "failed": "部署失敗。",
+      "failed-status": "部署失敗（HTTP {{status}}）：{{message}}",
+      "empty": "沒有可部署的內容——此圖無法匯出。",
+      "succeeded": "已將「{{name}}」部署為第 {{version}} 版。",
+      "succeeded-no-version": "已部署「{{name}}」。"
+    },
+    "export": {
+      "action": "XML / 匯出",
+      "title": "檢視 XML 並匯出",
+      "loading": "正在準備匯出…",
+      "xml-label": "BPMN XML",
+      "xml-meta": "{{lines}} 行 · {{size}}",
+      "copy": "複製 XML",
+      "copied": "已複製",
+      "copy-failed": "無法使用剪貼簿，請手動選取文字後複製。",
+      "scale": "解析度",
+      "scale-option": "{{value}}×",
+      "transparent": "透明背景",
+      "rendering": "正在產生圖片…",
+      "png-meta": "{{width}} × {{height}} 像素",
+      "preview": "匯出預覽",
+      "download": "下載 {{format}}",
+      "failed": "無法匯出此圖。",
+      "empty": "沒有可匯出的內容——此圖無法讀取。",
+      "png-failed": "此瀏覽器無法產生 PNG。",
+      "xml-truncated": "僅顯示前 {{lines}} 行，下載 XML 可檢視其餘內容。"
+    },
+    "draft": {
+      "restored": "已還原你上次造訪時未儲存的草稿。",
+      "discard": "捨棄草稿",
+      "save": "儲存草稿",
+      "save-hint": "現在將圖表寫入此瀏覽器；每次修改後也會自動儲存草稿。",
+      "saving": "正在儲存草稿…",
+      "saved": "草稿已儲存",
+      "saved-at": "草稿已於 {{time}} 儲存",
+      "failed": "草稿未能儲存（瀏覽器儲存空間無法使用）。"
+    },
+    "pick": {
+      "lead": "你想建什麼模型？請先選擇一種圖表類型，再進入編輯器。",
+      "bpmn-title": "商業流程建模",
+      "bpmn-text": "從空白流程圖開始，或開啟既有的 .bpmn 檔案。",
+      "dmn-title": "決策模型建模",
+      "dmn-text": "決策表和字面運算式尚未包含在此版本中。",
+      "soon": "即將支援"
+    }
   }
 }

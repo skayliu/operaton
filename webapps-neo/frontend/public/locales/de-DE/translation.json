@@ -38,7 +38,13 @@
     "search": "Suchen",
     "ok": "OK",
     "date": "Datum",
-    "time": "Uhrzeit"
+    "time": "Uhrzeit",
+    "loading-slow": "Der Vorgang dauert länger als erwartet. Prüfen Sie die Verbindung oder laden Sie die Seite neu.",
+    "load-failed": {
+      "title": "Diese Seite konnte nicht geladen werden",
+      "text": "Ein Teil der Anwendung wurde nicht heruntergeladen. Ein Neuladen der Seite behebt das Problem in der Regel.",
+      "reload": "Seite neu laden"
+    }
   },
   "nav": {
     "tasks": "Aufgaben",
@@ -58,7 +64,8 @@
     "skip-to-content": "Zum Inhalt springen",
     "go-to": "Gehe zu",
     "server": "Server",
-    "choose-server": "Server auswählen"
+    "choose-server": "Server auswählen",
+    "modeler": "Modellierer"
   },
   "goto": {
     "title": "Gehe zu",
@@ -990,5 +997,104 @@
     "submit": "Administrator anlegen",
     "password-mismatch": "Die Passwörter stimmen nicht überein.",
     "failed": "Der Administrator konnte nicht angelegt werden. Möglicherweise existiert er bereits oder das Passwort erfüllt die Passwortrichtlinie nicht."
+  },
+  "modeler": {
+    "loading": "Der Modellierer wird geladen …",
+    "loading-detail": "Der Editor wird einmal geladen und danach vom Browser zwischengespeichert.",
+    "title": "Modellierer",
+    "back": "Zurück",
+    "new": "Neu",
+    "open": "Datei öffnen",
+    "download": "Herunterladen",
+    "undo": "Rückgängig",
+    "redo": "Wiederherstellen",
+    "zoom-in": "Vergrößern",
+    "zoom-out": "Verkleinern",
+    "fit": "Einpassen",
+    "minimap": "Übersichtskarte",
+    "properties": {
+      "label": "Eigenschaften",
+      "resize": "Eigenschaftsbereich in der Größe ändern oder einklappen",
+      "expand": "Eigenschaften einblenden",
+      "collapse": "Eigenschaften ausblenden"
+    },
+    "draft-pending": "Noch nicht im Entwurf",
+    "confirm-replace": "Den aktuellen Entwurf ersetzen? Der in diesem Browser gespeicherte Entwurf wird ersetzt und kann nicht wiederhergestellt werden.",
+    "confirm-discard": "Den in diesem Browser gespeicherten Entwurf verwerfen? Die Arbeitsfläche wird auf ein leeres Diagramm zurückgesetzt; das kann nicht rückgängig gemacht werden.",
+    "replace": "Ersetzen",
+    "confirm-leave": "Den Modellierer verlassen? Ihre letzten Änderungen konnten nicht als Entwurf gespeichert werden und gehen verloren.",
+    "leave": "Verlassen",
+    "lint": {
+      "toggle": "Validierungsmarkierungen ein- oder ausblenden",
+      "off": "Validierung aus",
+      "clean": "Keine Probleme",
+      "summary": "{{errors}} Fehler, {{warnings}} Warnungen",
+      "problems": "{{count}} Probleme gefunden"
+    },
+    "unsupported": "Die Modellierung von {{kind}} ist noch nicht verfügbar. Diese Version unterstützt BPMN.",
+    "errors": {
+      "import": "Das Diagramm konnte nicht gelesen werden.",
+      "export": "Das Diagramm konnte nicht exportiert werden.",
+      "download": "Der Browser hat den Download nicht gestartet.",
+      "unsupported-file": "{{name}} ist keine BPMN-Datei ({{kind}}).",
+      "unknown-kind": "unbekannter Typ"
+    },
+    "deploy": {
+      "action": "Bereitstellen",
+      "title": "Diagramm bereitstellen",
+      "hint": "Beim Bereitstellen entsteht eine neue Version. Die vorherige Version bleibt im Verlauf der Engine erhalten.",
+      "name": "Name der Bereitstellung",
+      "tenant": "Mandant",
+      "tenant-placeholder": "Für den Standardmandanten leer lassen",
+      "duplicate-filtering": "Unveränderte Ressourcen überspringen",
+      "deploy-changed-only": "Nur geänderte Ressourcen bereitstellen",
+      "files": "Dateien",
+      "submit": "Bereitstellen",
+      "deploying": "Wird bereitgestellt …",
+      "failed": "Die Bereitstellung ist fehlgeschlagen.",
+      "failed-status": "Die Bereitstellung ist fehlgeschlagen (HTTP {{status}}): {{message}}",
+      "empty": "Es gibt nichts bereitzustellen — das Diagramm konnte nicht exportiert werden.",
+      "succeeded": "„{{name}}“ wurde als Version {{version}} bereitgestellt.",
+      "succeeded-no-version": "„{{name}}“ wurde bereitgestellt."
+    },
+    "export": {
+      "action": "XML / Export",
+      "title": "XML anzeigen und exportieren",
+      "loading": "Der Export wird vorbereitet …",
+      "xml-label": "BPMN-XML",
+      "xml-meta": "{{lines}} Zeilen · {{size}}",
+      "copy": "XML kopieren",
+      "copied": "Kopiert",
+      "copy-failed": "Die Zwischenablage ist nicht verfügbar. Markieren Sie den Text und kopieren Sie ihn manuell.",
+      "scale": "Auflösung",
+      "scale-option": "{{value}}×",
+      "transparent": "Transparenter Hintergrund",
+      "rendering": "Das Bild wird gerendert …",
+      "png-meta": "{{width}} × {{height}} px",
+      "preview": "Exportvorschau",
+      "download": "{{format}} herunterladen",
+      "failed": "Das Diagramm konnte nicht exportiert werden.",
+      "empty": "Es gibt nichts zu exportieren — das Diagramm konnte nicht gelesen werden.",
+      "png-failed": "Dieser Browser konnte kein PNG erzeugen.",
+      "xml-truncated": "Es werden die ersten {{lines}} Zeilen angezeigt — laden Sie das XML herunter, um den Rest zu lesen."
+    },
+    "draft": {
+      "restored": "Der nicht gespeicherte Entwurf Ihres letzten Besuchs wurde wiederhergestellt.",
+      "discard": "Entwurf verwerfen",
+      "save": "Entwurf speichern",
+      "save-hint": "Schreibt das Diagramm jetzt in diesen Browser. Entwürfe werden außerdem nach jeder Änderung automatisch gespeichert.",
+      "saving": "Entwurf wird gespeichert …",
+      "saved": "Entwurf gespeichert",
+      "saved-at": "Entwurf gespeichert um {{time}}",
+      "failed": "Der Entwurf konnte nicht gespeichert werden (Browserspeicher nicht verfügbar)."
+    },
+    "pick": {
+      "lead": "Was möchten Sie modellieren? Wählen Sie einen Diagrammtyp, um den Editor zu öffnen.",
+      "bpmn-title": "Einen Geschäftsprozess modellieren",
+      "bpmn-text": "Beginnen Sie mit einem leeren Prozessdiagramm oder öffnen Sie eine vorhandene .bpmn-Datei.",
+      "dmn-title": "Eine Entscheidung modellieren",
+      "dmn-text": "Entscheidungstabellen und literale Ausdrücke sind in dieser Version noch nicht enthalten.",
+      "soon": "Demnächst verfügbar"
+    }
   }
 }

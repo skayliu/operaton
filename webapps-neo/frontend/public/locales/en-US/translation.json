@@ -50,6 +50,7 @@
     "loading": "Loading the modeler...",
     "loading-detail": "The editor downloads once and is then cached by the browser.",
     "title": "Modeler",
+    "back": "Back",
     "new": "New",
     "open": "Open file",
     "download": "Download",
@@ -67,6 +68,7 @@
     },
     "draft-pending": "Not yet in draft",
     "confirm-replace": "Replace the current draft? The draft currently stored in this browser will be replaced and cannot be recovered.",
+    "confirm-discard": "Discard the draft stored in this browser? The canvas is reset to a blank diagram and this cannot be undone.",
     "replace": "Replace",
     "confirm-leave": "Leave the modeler? Your latest changes could not be saved as a draft and will be lost.",
     "leave": "Leave",
@@ -133,6 +135,14 @@
       "saved": "Draft saved",
       "saved-at": "Draft saved at {{time}}",
       "failed": "Draft could not be saved (browser storage unavailable)."
+    },
+    "pick": {
+      "lead": "What do you want to model? Pick a diagram type to open the editor.",
+      "bpmn-title": "Model a business process",
+      "bpmn-text": "Start from a blank process diagram, or open an existing .bpmn file.",
+      "dmn-title": "Model a decision",
+      "dmn-text": "Decision tables and literal expressions are not part of this version yet.",
+      "soon": "Coming soon"
     }
   },
   "nav": {

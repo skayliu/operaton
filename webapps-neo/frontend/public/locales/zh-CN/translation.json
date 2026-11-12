@@ -38,7 +38,13 @@
     "search": "搜索",
     "ok": "确定",
     "date": "日期",
-    "time": "时间"
+    "time": "时间",
+    "loading-slow": "加载时间较长，请检查网络连接，或重新加载页面。",
+    "load-failed": {
+      "title": "该页面未能加载",
+      "text": "应用有一部分未能下载，重新加载通常即可修复。",
+      "reload": "重新加载页面"
+    }
   },
   "nav": {
     "tasks": "任务",
@@ -58,7 +64,8 @@
     "skip-to-content": "跳到主要内容",
     "go-to": "跳转",
     "server": "服务器",
-    "choose-server": "选择服务器"
+    "choose-server": "选择服务器",
+    "modeler": "建模器"
   },
   "goto": {
     "title": "跳转",
@@ -990,5 +997,104 @@
     "submit": "创建管理员",
     "password-mismatch": "两次输入的密码不一致。",
     "failed": "无法创建管理员。该管理员可能已存在，或密码不符合密码策略。"
+  },
+  "modeler": {
+    "loading": "正在加载建模器…",
+    "loading-detail": "编辑器只下载一次，之后由浏览器缓存。",
+    "title": "建模器",
+    "back": "返回",
+    "new": "新建",
+    "open": "打开文件",
+    "download": "下载",
+    "undo": "撤销",
+    "redo": "重做",
+    "zoom-in": "放大",
+    "zoom-out": "缩小",
+    "fit": "适应视图",
+    "minimap": "小地图",
+    "properties": {
+      "label": "属性",
+      "resize": "调整大小或折叠属性面板",
+      "expand": "显示属性",
+      "collapse": "隐藏属性"
+    },
+    "draft-pending": "尚未存入草稿",
+    "confirm-replace": "要替换当前草稿吗？本浏览器中已存的草稿将被替换，且无法恢复。",
+    "confirm-discard": "要丢弃本浏览器中保存的草稿吗？当前画布会被清空为空白模板，且无法恢复。",
+    "replace": "替换",
+    "confirm-leave": "要离开建模器吗？你最近的改动未能存为草稿，将会丢失。",
+    "leave": "离开",
+    "lint": {
+      "toggle": "显示或隐藏校验标记",
+      "off": "校验已关闭",
+      "clean": "没有问题",
+      "summary": "{{errors}} 个错误，{{warnings}} 个警告",
+      "problems": "发现 {{count}} 个问题"
+    },
+    "unsupported": "暂不支持 {{kind}} 建模，当前版本仅支持 BPMN。",
+    "errors": {
+      "import": "无法读取该图。",
+      "export": "无法导出该图。",
+      "download": "浏览器没有开始下载。",
+      "unsupported-file": "{{name}} 不是 BPMN 文件（{{kind}}）。",
+      "unknown-kind": "未知类型"
+    },
+    "deploy": {
+      "action": "部署",
+      "title": "部署图",
+      "hint": "部署会生成一个新版本，上一个版本仍保留在引擎历史中。",
+      "name": "部署名称",
+      "tenant": "租户",
+      "tenant-placeholder": "留空表示使用默认租户",
+      "duplicate-filtering": "跳过未变更的资源",
+      "deploy-changed-only": "仅部署变更的资源",
+      "files": "文件",
+      "submit": "部署",
+      "deploying": "正在部署…",
+      "failed": "部署失败。",
+      "failed-status": "部署失败（HTTP {{status}}）：{{message}}",
+      "empty": "没有可部署的内容——该图未能导出。",
+      "succeeded": "已将“{{name}}”部署为第 {{version}} 版。",
+      "succeeded-no-version": "已部署“{{name}}”。"
+    },
+    "export": {
+      "action": "XML / 导出",
+      "title": "查看 XML 并导出",
+      "loading": "正在准备导出…",
+      "xml-label": "BPMN XML",
+      "xml-meta": "{{lines}} 行 · {{size}}",
+      "copy": "复制 XML",
+      "copied": "已复制",
+      "copy-failed": "无法使用剪贴板，请手动选中文本后复制。",
+      "scale": "分辨率",
+      "scale-option": "{{value}}×",
+      "transparent": "透明背景",
+      "rendering": "正在生成图片…",
+      "png-meta": "{{width}} × {{height}} 像素",
+      "preview": "导出预览",
+      "download": "下载 {{format}}",
+      "failed": "无法导出该图。",
+      "empty": "没有可导出的内容——该图未能读取。",
+      "png-failed": "该浏览器无法生成 PNG。",
+      "xml-truncated": "仅显示前 {{lines}} 行，下载 XML 可查看其余内容。"
+    },
+    "draft": {
+      "restored": "已恢复你上次访问时未保存的草稿。",
+      "discard": "丢弃草稿",
+      "save": "保存草稿",
+      "save-hint": "现在把图写入本浏览器；每次修改后也会自动保存草稿。",
+      "saving": "正在保存草稿…",
+      "saved": "草稿已保存",
+      "saved-at": "草稿已于 {{time}} 保存",
+      "failed": "草稿未能保存（浏览器存储不可用）。"
+    },
+    "pick": {
+      "lead": "你想建什么模型？请先选择一种图表类型，再进入编辑器。",
+      "bpmn-title": "业务流程建模",
+      "bpmn-text": "从空白流程图开始，或打开已有的 .bpmn 文件。",
+      "dmn-title": "决策模型建模",
+      "dmn-text": "决策表和字面表达式暂未包含在本版本中。",
+      "soon": "即将支持"
+    }
   }
 }
