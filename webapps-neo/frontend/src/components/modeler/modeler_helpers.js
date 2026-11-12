@@ -133,6 +133,53 @@ export const normalize_xml = (xml) =>
     .replace(/\r\n?/g, "\n")
     .trim();
 
+/**
+ * What a deployed process definition is called on a picker row.
+ *
+ * `name` is optional in the engine — a diagram deployed without one keeps its
+ * key as the name — so the key is the first fallback and the id the last.
+ */
+export const definition_label = (definition) =>
+  String(definition?.name ?? "").trim() ||
+  String(definition?.key ?? "").trim() ||
+  String(definition?.id ?? "").trim();
+
+/**
+ * The `key · v3 · tenant` line under that label.
+ *
+ * Built from parts rather than one template, so a missing piece disappears
+ * instead of printing a dangling separator: `version` is absent on payloads the
+ * engine returned without one, and a default-tenant definition has no tenant id
+ * at all.
+ */
+export const definition_meta = ({ key, version, tenantId } = {}) => {
+  const parts = [];
+
+  const process_key = String(key ?? "").trim();
+  if (process_key) parts.push(process_key);
+
+  const version_text = String(version ?? "").trim();
+  if (version_text) parts.push(`v${version_text}`);
+
+  const tenant = String(tenantId ?? "").trim();
+  if (tenant) parts.push(tenant);
+
+  return parts.join(" · ");
+};
+
+/**
+ * The file name a deployed definition is opened under.
+ *
+ * The engine reports the resource it stored (`order.bpmn`) and that is what the
+ * user deployed under, so it wins over the key. A payload without a resource
+ * falls back to the key, and only then to a generic name.
+ */
+export const definition_file_name = (definition, fallback = "process.bpmn") => {
+  const resource = String(definition?.resource ?? "").trim();
+  if (resource) return sanitize_file_name(resource, "bpmn");
+  return file_name_for_process(definition?.key, "bpmn") ?? fallback;
+};
+
 /** Whether two exports describe the same document. */
 export const same_xml = (left, right) => normalize_xml(left) === normalize_xml(right);
 
@@ -253,6 +300,78 @@ export const clamp_panel_width = (width, surface_width = Infinity) => {
   );
 
   return Math.round(Math.min(Math.max(numeric, PANEL_SIZE.min), ceiling));
+};
+
+/**
+ * The panel width a pointer position asks for.
+ *
+ * The panel sits on the right edge of the surface, so the distance from the
+ * pointer to that right edge *is* the width. `surface_right` has to come from
+ * the surface itself, not from the divider's own box: the divider is a few
+ * pixels wide, and measuring that would clamp the panel to its minimum and
+ * leave it stuck there.
+ */
+export const panel_width_from_pointer = (surface_right, client_x) =>
+  Number(surface_right) - Number(client_x);
+
+/**
+ * Whether two canvas sizes describe the same box.
+ *
+ * diagram-js only re-measures on a window resize, so the editor has to tell it
+ * when the panel takes width away from the canvas. Sizes arrive as floats, so
+ * sub-pixel jitter must not count as a change — otherwise dragging the
+ * splitter would fire `resized()` on every pointer move. A non-finite input
+ * counts as a change: the caller is asking a question the previous box cannot
+ * answer.
+ */
+export const same_size = (previous, next) =>
+  Boolean(
+    previous &&
+      next &&
+      Number.isFinite(previous?.width) &&
+      Number.isFinite(previous?.height) &&
+      Number.isFinite(next?.width) &&
+      Number.isFinite(next?.height) &&
+      // Canvas sizes are whole pixels in every browser; rounding keeps a
+      // fractional device-pixel-ratio from reading as a resize.
+      Math.round(previous.width) === Math.round(next.width) &&
+      Math.round(previous.height) === Math.round(next.height),
+  );
+
+/**
+ * The viewport that keeps the current view centred after the canvas box changed.
+ *
+ * `canvas.resized()` only drops the cached viewbox and announces the new size;
+ * nothing in diagram-js listens for it to move the diagram, and the transform
+ * that places the drawing is untouched. A canvas that just lost width to the
+ * properties panel therefore keeps its old origin and the diagram slides out of
+ * view instead of reflowing.
+ *
+ * The transform still reports the top-left corner in diagram coordinates and
+ * the zoom, and neither depends on the box size — so the centre of what was on
+ * screen is `x + previous.width / 2 / scale`. Rebuilding the box around that
+ * centre at the same zoom keeps the diagram under the user's eye, and leaves a
+ * later `fit-viewport` correct because it measures the box it is given.
+ *
+ * Returns `null` when there is nothing to keep: no drawing yet, or a box that
+ * cannot be measured.
+ */
+export const viewbox_after_resize = (viewbox, previous, next) => {
+  const scale = viewbox?.scale;
+  if (!(scale > 0)) return null;
+  if (!Number.isFinite(viewbox?.x) || !Number.isFinite(viewbox?.y)) return null;
+  if (!(previous?.width > 0) || !(previous?.height > 0)) return null;
+  if (!(next?.width > 0) || !(next?.height > 0)) return null;
+
+  const width = next.width / scale;
+  const height = next.height / scale;
+
+  return {
+    x: viewbox.x + previous.width / (2 * scale) - width / 2,
+    y: viewbox.y + previous.height / (2 * scale) - height / 2,
+    width,
+    height,
+  };
 };
 
 /** Storage keys for the layout choices that should survive a reload. */

@@ -1,5 +1,31 @@
 import { GET, GET_TEXT, POST, PUT, DELETE } from "../helper.jsx";
 
+/**
+ * The latest version of every deployed process definition.
+ *
+ * The cockpit's definition page reads `/process-definition/statistics` (one
+ * entry per definition, with instance counts); the modeler needs the other
+ * shape — key, resource name, version and tenant, without per-instance
+ * numbers — so it queries the definition list with `latest=true` and keeps
+ * its own signal. `latest` is what stops version 3 and version 2 of the same
+ * process both appearing as separate rows.
+ */
+export const get_latest_process_definitions = (
+  state,
+  params = {},
+  signal = state.api.process.definition.definitions,
+) => {
+  const qs = new URLSearchParams({
+    latest: true,
+    firstResult: 0,
+    maxResults: 50,
+    sortBy: "key",
+    sortOrder: "asc",
+    ...params,
+  }).toString();
+  return GET(`/process-definition?${qs}`, state, signal);
+};
+
 export const get_process_definitions = (state, params = {}) => {
   const qs = new URLSearchParams(params).toString();
   return GET(
@@ -16,7 +42,11 @@ export const get_process_definition_statistics_with_incidents = (state, id) =>
     state.api.process.definition.statistics,
   );
 
-export const get_process_definition = (state, id) =>
+export const get_process_definition = (
+  state,
+  id,
+  signal = state.api.process.definition.one,
+) =>
   GET(`/process-definition/${id}`, state, state.api.process.definition.one);
 
 export const get_called_process_definitions = (state, definition_id) =>
@@ -146,6 +176,7 @@ const delete_process_definition = (state, id) =>
 
 const process_definition = {
   list: get_process_definitions,
+  latest: get_latest_process_definitions,
   one: get_process_definition,
   called: get_called_process_definitions,
   by_deployment_id: get_process_definition_by_deployment_id,

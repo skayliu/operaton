@@ -193,10 +193,9 @@ describe("ModelerPage draft restore", () => {
       expect(getByTestId("canvas").textContent).toContain("Process_abc1234"),
     );
 
-    // The tool bar carries a permanent way out; the banner's own button only
-    // exists on the visit that restored something. This one asks first.
-    // The tool bar's button asks first; the question's own confirm carries the
-    // same label, so the click below is the second match.
+    // The tool bar's button is the only discard, and it asks first. The
+    // question's own confirm carries the same label, so the click below is the
+    // second match.
     getAllByText("modeler.draft.discard")[0].click();
 
     const confirm = await waitFor(() => {

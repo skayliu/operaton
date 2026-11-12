@@ -1,4 +1,10 @@
 import { describe, it, expect, vi } from "vitest";
+import { render_with_state } from "../test/render.jsx";
+import {
+  create_mock_state,
+  signal_response,
+  RESPONSE_STATE,
+} from "../test/helpers.js";
 import { h } from "preact";
 import { render } from "@testing-library/preact";
 
@@ -19,9 +25,25 @@ import { render } from "@testing-library/preact";
 
 const { state } = vi.hoisted(() => ({ state: { editor_imports: 0 } }));
 
-vi.mock("preact-iso", () => ({
-  useRoute: () => ({ params: {}, query: {}, path: "/modeler" }),
-  useLocation: () => ({ route: vi.fn(), path: "/modeler" }),
+// Only the routing hooks are faked. LocationProvider has to stay real, since
+// render_with_state wraps every render in it.
+vi.mock("preact-iso", async (importOriginal) => {
+  const actual = await importOriginal();
+  return {
+    ...actual,
+    useRoute: () => ({ params: {}, query: {}, path: "/modeler" }),
+    useLocation: () => ({ route: vi.fn(), path: "/modeler" }),
+  };
+});
+
+vi.mock("../api/engine_rest.jsx", () => ({
+  default: { process_definition: { latest: vi.fn() } },
+  RESPONSE_STATE: {
+    NOT_INITIALIZED: "NOT_INITIALIZED",
+    LOADING: "LOADING",
+    SUCCESS: "SUCCESS",
+    ERROR: "ERROR",
+  },
 }));
 
 vi.mock("../helper/leave_guard.js", () => ({
@@ -44,6 +66,7 @@ vi.mock("../components/modeler/BPMNModeler.jsx", async () => {
   };
 });
 
+import engine_rest from "../api/engine_rest.jsx";
 import { ModelerPage } from "./Modeler.jsx";
 
 /** Lets any queued dynamic import resolve before asserting it never happened. */
@@ -61,19 +84,57 @@ describe("ModelerPage picker route", () => {
     expect(state.editor_imports).toBe(0);
   });
 
-  it("keeps the BPMN card a real link and the DMN card a placeholder", () => {
+  it("keeps the BPMN row a real link and shows no placeholder card", () => {
     const { container } = render(h(ModelerPage, {}));
 
-    const cards = container.querySelectorAll(".modeler-pick");
-    expect(cards.length).toBe(2);
+    const rows = container.querySelectorAll("a.modeler-row");
+    expect(rows.length).toBe(1);
+    expect(rows[0].getAttribute("href")).toContain("/modeler/bpmn");
 
-    const bpmn = container.querySelector(".modeler-pick[href]");
-    expect(bpmn).toBeTruthy();
-    expect(bpmn.getAttribute("href")).toContain("/modeler/bpmn");
+    // A card that promises nothing is not shown at all: the DMN placeholder and
+    // its "coming soon" badge are gone.
+    expect(container.querySelector(".modeler-pick")).toBeNull();
+  });
+});
 
-    const pending = container.querySelector(".modeler-pick.is-pending");
-    expect(pending).toBeTruthy();
-    expect(pending.getAttribute("aria-disabled")).toBe("true");
-    expect(pending.querySelector("a")).toBeNull();
+/**
+ * The deployed-models list: what makes versioning reachable at all.
+ *
+ * Picking a row opens that definition's XML in the editor, and deploying the
+ * result creates the next version of the same process.
+ */
+describe("ModelerPicker deployed models", () => {
+  it("lists the definitions the engine reports and links each to its editor route", async () => {
+    const state = create_mock_state();
+    signal_response(state.api.process.definition.definitions, [
+      {
+        id: "invoice:3:deploy-1",
+        key: "invoice",
+        name: "Invoice",
+        version: 3,
+        resource: "invoice.bpmn",
+      },
+    ]);
+
+    // The component reads its request slot from the AppState context, so the
+    // state carrying the deployed definition has to be the one it renders with.
+    const { container } = render_with_state(h(ModelerPage, {}), { state });
+    await settle();
+
+    const rows = container.querySelectorAll("a.modeler-row");
+    expect(rows.length).toBe(2);
+    expect(rows[1].getAttribute("href")).toContain(
+      "/modeler/bpmn/invoice%3A3%3Adeploy-1",
+    );
+    expect(rows[1].textContent).toContain("Invoice");
+    expect(rows[1].textContent).toContain("v3");
+  });
+
+  it("asks the engine once and says where drafts are kept", async () => {
+    const { container } = render_with_state(h(ModelerPage, {}));
+    await settle();
+
+    expect(engine_rest.process_definition.latest).toHaveBeenCalledTimes(1);
+    expect(container.textContent).toContain("modeler.storage.note");
   });
 });

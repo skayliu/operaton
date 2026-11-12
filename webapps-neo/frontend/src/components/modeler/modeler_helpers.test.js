@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   centered_viewbox,
   clamp_panel_width,
+  panel_width_from_pointer,
   deployed_version,
   element_bounds,
   deployment_name_for,
@@ -20,6 +21,7 @@ import {
   normalize_xml,
   open_groups_layout,
   same_xml,
+  viewbox_after_resize,
   sanitize_file_name,
   strip_extension,
   export_name_for,
@@ -27,6 +29,7 @@ import {
   png_dimensions,
   png_scale,
   sanitize_base,
+  same_size,
   settle_before_leave,
   summarize_issues,
   svg_size,
@@ -597,5 +600,68 @@ describe("summarize_issues", () => {
     expect(summary.errors).toBe(0);
     expect(summary.warnings).toBe(0);
     expect(summary.infos).toBe(1);
+  });
+});
+
+describe("viewbox_after_resize", () => {
+  it("keeps the centre and the zoom when the canvas loses width", () => {
+    const viewbox = { x: 100, y: 50, width: 800, height: 600, scale: 1 };
+    expect(
+      viewbox_after_resize(viewbox, { width: 800, height: 600 }, { width: 480, height: 600 }),
+    ).toEqual({ x: 260, y: 50, width: 480, height: 600 });
+  });
+
+  it("keeps the zoom when the box grows", () => {
+    const viewbox = { x: 0, y: 0, width: 400, height: 300, scale: 2 };
+    expect(
+      viewbox_after_resize(viewbox, { width: 400, height: 300 }, { width: 800, height: 300 }),
+    ).toEqual({ x: -100, y: 0, width: 400, height: 150 });
+  });
+
+  it("centres a stacked mobile layout that only lost height", () => {
+    const viewbox = { x: 20, y: 20, width: 500, height: 800, scale: 1 };
+    expect(
+      viewbox_after_resize(viewbox, { width: 500, height: 800 }, { width: 500, height: 320 }),
+    ).toEqual({ x: 20, y: 260, width: 500, height: 320 });
+  });
+
+  it("returns null before the first measurement or without a drawing", () => {
+    const viewbox = { x: 0, y: 0, width: 800, height: 600, scale: 1 };
+    expect(viewbox_after_resize(viewbox, null, { width: 480, height: 600 })).toBeNull();
+    expect(viewbox_after_resize(null, { width: 800, height: 600 }, { width: 480, height: 600 })).toBeNull();
+    expect(
+      viewbox_after_resize({ x: 0, y: 0, width: 0, height: 0, scale: 0 }, { width: 800, height: 600 }, { width: 480, height: 600 }),
+    ).toBeNull();
+  });
+
+  it("returns null for a box that cannot be measured", () => {
+    const viewbox = { x: 0, y: 0, width: 800, height: 600, scale: 1 };
+    expect(viewbox_after_resize(viewbox, { width: 0, height: 600 }, { width: 480, height: 600 })).toBeNull();
+    expect(viewbox_after_resize(viewbox, { width: 800, height: 600 }, { width: 0, height: 600 })).toBeNull();
+  });
+});
+
+describe("same_size", () => {
+  it("treats an unchanged box as unchanged", () => {
+    expect(same_size({ width: 800, height: 600 }, { width: 800, height: 600 })).toBe(true);
+  });
+
+  it("ignores sub-pixel jitter, so a drag does not re-measure every move", () => {
+    expect(same_size({ width: 800.4, height: 600.2 }, { width: 800.1, height: 600.4 })).toBe(true);
+  });
+
+  it("reports a real resize", () => {
+    expect(same_size({ width: 800, height: 600 }, { width: 520, height: 600 })).toBe(false);
+  });
+
+  it("reports a height change from a stacked mobile layout", () => {
+    expect(same_size({ width: 800, height: 600 }, { width: 800, height: 240 })).toBe(false);
+  });
+
+  it("treats a missing or non-finite box as a change", () => {
+    expect(same_size(null, { width: 800, height: 600 })).toBe(false);
+    expect(same_size({ width: 800, height: 600 }, undefined)).toBe(false);
+    expect(same_size({ width: 0, height: 0 }, { width: 0, height: 0 })).toBe(true);
+    expect(same_size({ width: NaN, height: 600 }, { width: 800, height: 600 })).toBe(false);
   });
 });

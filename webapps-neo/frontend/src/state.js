@@ -110,6 +110,10 @@ const createAppState = () => {
         one: signal(null),
         list: signal(null),
         list_startable: signal(null),
+        // Latest version of every deployed definition, for the modeler's "open a deployed model" list.
+        // Separate from `list` (statistics, which the cockpit pages need) so
+        // the two are fetched and cleared independently.
+        definitions: signal(null),
         called: signal(null),
         diagram: signal(null),
         statistics: signal(null),

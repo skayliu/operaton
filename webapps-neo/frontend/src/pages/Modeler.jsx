@@ -1,5 +1,5 @@
 import { useSignal, useSignalEffect } from "@preact/signals";
-import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { useContext, useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { useLocation, useRoute } from "preact-iso";
 import { useTranslation } from "react-i18next";
 import { ConfirmDialog } from "../components/Dialog.jsx";
@@ -13,6 +13,8 @@ import { create_gate } from "../components/modeler/save_gate.js";
 import {
   KIND_NAMES,
   MODELER_KINDS,
+  definition_file_name,
+  definition_label,
   deployed_version,
   deployment_name_for,
   error_message,
@@ -23,9 +25,9 @@ import {
   same_xml,
   sanitize_file_name,
   settle_before_leave,
-  stored_minimap_open,
 } from "../components/modeler/modeler_helpers.js";
-import { save_file } from "../helper/download.js";
+import engine_rest, { RESPONSE_STATE } from "../api/engine_rest.jsx";
+import { AppState } from "../state.js";
 import { set_leave_guard } from "../helper/leave_guard.js";
 import { app_path } from "../config.js";
 import "../components/modeler/modeler.css";
@@ -56,6 +58,7 @@ const MAX_LISTED_ISSUES = 100;
  */
 export const ModelerPage = () => {
   const [t] = useTranslation(),
+    state = useContext(AppState),
     { params } = useRoute(),
     { route } = useLocation(),
     // The editor is fetched here rather than imported at module scope, so the
@@ -105,9 +108,6 @@ export const ModelerPage = () => {
     // deployment's outcome. Both are dismissible.
     draft_restored = useSignal(false),
     notice = useSignal(null),
-    // Mirrors the minimap module's own state so the toolbar button reports it;
-    // the editor corrects this as soon as it is constructed.
-    minimap_open = useSignal(stored_minimap_open()),
     // "idle | saving | saved | failed" — the toolbar's answer to "is my work
     // safe?". Autosave already runs; this makes it visible and gives the user
     // a way to force it.
@@ -117,6 +117,11 @@ export const ModelerPage = () => {
     // module so the toolbar toggle can show its state.
     lint = useSignal({ items: [], errors: 0, warnings: 0, infos: 0 }),
     lint_on = useSignal(true),
+    // Request slots for opening a deployed definition (`:id`). Deliberately
+    // local: the cockpit's process-definition signals are cleared when the
+    // Processes page unmounts, and a reload must not depend on that.
+    definition_meta = useSignal(null),
+    definition_xml = useSignal(null),
     // The "you have unsaved work" question is a real dialog rather than
     // `window.confirm`: a blocking browser prompt cannot be reached from the
     // promise-based leave guard, and it looks nothing like the rest of the app.
@@ -339,30 +344,6 @@ export const ModelerPage = () => {
     load_document(await file.text(), sanitize_file_name(file.name, "bpmn"));
   };
 
-  const export_xml = async () => {
-    const xml = await editor.current?.export_xml();
-    if (!xml) error.value = t("modeler.errors.export");
-    return xml;
-  };
-
-  const download = async () => {
-    error.value = null;
-    try {
-      const xml = await export_xml();
-      if (!xml) return;
-      const saved = await save_file(
-        new Blob([xml], { type: "application/xml" }),
-        sanitize_file_name(file_name.value, "bpmn"),
-      );
-      // A browser that blocks the download says nothing at all; without this
-      // the button just looks broken. `cancelled` is the user closing the save
-      // dialog, which is not an error.
-      if (saved === false) error.value = t("modeler.errors.download");
-    } catch (caught) {
-      error.value = error_message(caught, t("modeler.errors.download"));
-    }
-  };
-
   // The deploy dialog asks for the files at submit time, so it always uploads
   // what is on screen — including edits made after the dialog was opened.
   const build_files = async () => {
@@ -393,9 +374,10 @@ export const ModelerPage = () => {
    * Forget the stored draft and put a fresh template on the canvas.
    *
    * This is the only way out of a draft: the autosave keeps writing it back,
-   * and every later visit restores it. It answers the banner's "discard" as
-   * well as the tool bar's, which is why both exist — the banner is only there
-   * for the visit that actually restored something.
+   * and every later visit restores it. Both this and the tool bar's discard
+   * end here — the banner used to carry its own button as well, which put two
+   * identical "discard" labels a few pixels apart on the visit that restored
+   * something.
    */
   const discard_draft = () => {
     void clear_draft(kind);
@@ -413,10 +395,11 @@ export const ModelerPage = () => {
   /**
    * Discard, but only once the user has agreed.
    *
-   * The tool bar has no banner to lean on, and the button sits next to "save
-   * draft": one stray click would otherwise clear both the draft and the
-   * canvas. The banner's own button stays immediate — there the draft was just
-   * restored, so the intent is already unambiguous.
+   * The tool bar is the only place that offers it, so the question has to live
+   * here: the button sits next to "save draft", and one stray click would
+   * otherwise clear both the draft and the canvas. There is no immediate
+   * variant any more — the banner's own button was removed for being a second
+   * copy of this one.
    */
   const discard_with_confirm = async () => {
     if (!(await ask(t("modeler.confirm-discard"), t("modeler.draft.discard")))) {
@@ -474,7 +457,7 @@ export const ModelerPage = () => {
       // The route's `:id` (an already deployed definition, P3) wins over a
       // local draft, so that opening a definition never shows someone else's
       // unsaved work.
-      if (id) return false;
+      if (id) return await load_deployed_definition(id);
       const draft = await load_draft(target_kind);
       // The kind changed while IndexedDB answered: this draft belongs to
       // another page, not to the one on screen.
@@ -504,6 +487,66 @@ export const ModelerPage = () => {
       // may run from here on.
       gate.release();
     }
+  };
+
+  /**
+   * Put a deployed process definition on the canvas.
+   *
+   * `:id` is a process definition id from the picker's list, so the document
+   * comes from the engine rather than from the local draft: opening a deployed
+   * model must not show — and then autosave over — whatever was last being
+   * edited in this browser. Deploying the result creates the next version of
+   * that definition, because the process id inside the XML is unchanged.
+   */
+  const load_deployed_definition = async (definition_id) => {
+    // Without the state tree there is no engine to ask; the tests that render
+    // this page without a provider fall back to the blank template.
+    if (!state) return false;
+
+    // The signal itself, not its current value: these slots start out `null`,
+    // and the request helper writes its response straight onto whatever it is
+    // handed. Passing `signal.value` therefore threw on the first call and left
+    // the canvas on the blank template — the opened definition never arrived.
+    const meta = await engine_rest.process_definition.one(
+      state,
+      definition_id,
+      definition_meta,
+    );
+    if (meta?.status !== RESPONSE_STATE.SUCCESS) {
+      error.value = error_message(meta?.error, t("modeler.errors.import"));
+      return false;
+    }
+
+    const definition = meta.data ?? {};
+    const diagram = await engine_rest.process_definition.diagram(
+      state,
+      definition_id,
+      definition_xml,
+    );
+    const xml =
+      diagram?.status === RESPONSE_STATE.SUCCESS
+        ? diagram.data?.bpmn20Xml
+        : null;
+    if (!xml) {
+      error.value = error_message(diagram?.error, t("modeler.errors.import"));
+      return false;
+    }
+
+    // The resource name the engine stored is the name this was deployed
+    // under, and it is what the next deployment should be called too.
+    name_follows.current = false;
+    last_persisted.current = "";
+    load_document(
+      xml,
+      definition_file_name(definition, definition_id + ".bpmn"),
+    );
+
+    const name = definition_label(definition) || definition_id;
+    notice.value =
+      definition.version == null
+        ? t("modeler.definition.loaded-no-version", { name })
+        : t("modeler.definition.loaded", { name, version: definition.version });
+    return true;
   };
 
   /**
@@ -656,93 +699,108 @@ export const ModelerPage = () => {
       <div class="modeler-toolbar">
         <h1>{t("modeler.title")}</h1>
 
-        <div class="button-group">
+        <div class="modeler-toolbar-groups">
+          {/* Three intents, in the order they are used: what the document is,
+              what is being done to it, and where it goes. Deploy is alone —
+              it is the one button that changes the engine, and folding it in
+              with the rest made it look like another editing step. */}
+          <div
+            class="modeler-toolbar-group"
+            role="group"
+            aria-label={t("modeler.group.file")}
+          >
+            <button type="button" onClick={new_document}>
+              {t("modeler.new")}
+            </button>
+            <button type="button" onClick={() => file_input.current?.click()}>
+              {t("modeler.open")}
+            </button>
+            <button type="button" onClick={() => (export_open.value = true)}>
+              {t("modeler.export.action")}
+            </button>
+          </div>
+
+          <div
+            class="modeler-toolbar-group"
+            role="group"
+            aria-label={t("modeler.group.edit")}
+          >
+            <button type="button" onClick={() => editor.current?.undo()}>
+              {t("modeler.undo")}
+            </button>
+            <button type="button" onClick={() => editor.current?.redo()}>
+              {t("modeler.redo")}
+            </button>
+            <button
+              type="button"
+              aria-label={t("modeler.zoom-in")}
+              title={t("modeler.zoom-in")}
+              onClick={() => editor.current?.zoom(1)}
+            >
+              +
+            </button>
+            <button
+              type="button"
+              aria-label={t("modeler.zoom-out")}
+              title={t("modeler.zoom-out")}
+              onClick={() => editor.current?.zoom(-1)}
+            >
+              −
+            </button>
+            <button type="button" onClick={() => editor.current?.fit()}>
+              {t("modeler.fit")}
+            </button>
+            <button
+              type="button"
+              aria-pressed={lint_on.value}
+              title={t("modeler.lint.toggle")}
+              onClick={toggle_lint}
+            >
+              {lint_label()}
+            </button>
+            <button
+              type="button"
+              disabled={save_state.value === "saving"}
+              title={t("modeler.draft.save-hint")}
+              onClick={save_now}
+            >
+              {t("modeler.draft.save")}
+            </button>
+            {/* Always available: the draft is the one thing that survives
+                leaving, and without this there is no way to get rid of it once
+                the restored banner is gone. */}
+            <button type="button" onClick={discard_with_confirm}>
+              {t("modeler.draft.discard")}
+            </button>
+          </div>
+
+          <div class="modeler-toolbar-deploy">
+            <button
+              type="button"
+              class="primary"
+              onClick={() => (deploy_open.value = true)}
+            >
+              {t("modeler.deploy.action")}
+            </button>
+          </div>
+
           {/* Navigation, not editing: it belongs at the far end from the
               document actions. The draft is written on the way out, so the
               diagram is still there next time. */}
-          <button
-            type="button"
-            class="modeler-back"
-            onClick={() => route(app_path("/modeler"))}
+          <div
+            class="modeler-toolbar-group"
+            role="group"
+            aria-label={t("modeler.group.navigate")}
           >
-            {t("modeler.back")}
-          </button>
-          <button type="button" onClick={new_document}>
-            {t("modeler.new")}
-          </button>
-          <button type="button" onClick={() => file_input.current?.click()}>
-            {t("modeler.open")}
-          </button>
-          <button type="button" onClick={download}>
-            {t("modeler.download")}
-          </button>
-          <button type="button" onClick={() => (export_open.value = true)}>
-            {t("modeler.export.action")}
-          </button>
-          <button
-            type="button"
-            class="primary"
-            onClick={() => (deploy_open.value = true)}
-          >
-            {t("modeler.deploy.action")}
-          </button>
-          <button type="button" onClick={() => editor.current?.undo()}>
-            {t("modeler.undo")}
-          </button>
-          <button type="button" onClick={() => editor.current?.redo()}>
-            {t("modeler.redo")}
-          </button>
-          <button
-            type="button"
-            aria-label={t("modeler.zoom-in")}
-            title={t("modeler.zoom-in")}
-            onClick={() => editor.current?.zoom(1)}
-          >
-            +
-          </button>
-          <button
-            type="button"
-            aria-label={t("modeler.zoom-out")}
-            title={t("modeler.zoom-out")}
-            onClick={() => editor.current?.zoom(-1)}
-          >
-            −
-          </button>
-          <button type="button" onClick={() => editor.current?.fit()}>
-            {t("modeler.fit")}
-          </button>
-          <button
-            type="button"
-            aria-pressed={minimap_open.value}
-            title={t("modeler.minimap")}
-            onClick={() => editor.current?.toggle_minimap()}
-          >
-            {t("modeler.minimap")}
-          </button>
-          <button
-            type="button"
-            aria-pressed={lint_on.value}
-            title={t("modeler.lint.toggle")}
-            onClick={toggle_lint}
-          >
-            {lint_label()}
-          </button>
-          <button
-            type="button"
-            disabled={save_state.value === "saving"}
-            title={t("modeler.draft.save-hint")}
-            onClick={save_now}
-          >
-            {t("modeler.draft.save")}
-          </button>
-          {/* Always available: the draft is the one thing that survives
-              leaving, and without this there is no way to get rid of it once
-              the restored banner is gone. */}
-          <button type="button" onClick={discard_with_confirm}>
-            {t("modeler.draft.discard")}
-          </button>
+            <button
+              type="button"
+              class="modeler-back"
+              onClick={() => route(app_path("/modeler"))}
+            >
+              {t("modeler.back")}
+            </button>
+          </div>
         </div>
-
         <span class="modeler-file">
           <code>{file_name.value}</code>
           {/* "Not yet in draft", not "unsaved": the draft is written
@@ -777,9 +835,8 @@ export const ModelerPage = () => {
       {draft_restored.value && (
         <p class="modeler-notice">
           <span>{t("modeler.draft.restored")}</span>
-          <button type="button" onClick={discard_draft}>
-            {t("modeler.draft.discard")}
-          </button>
+          {/* No discard button here: the tool bar already carries one, and the
+              two sat side by side saying the same thing. */}
         </p>
       )}
 
@@ -829,7 +886,6 @@ export const ModelerPage = () => {
         on_import={(ok) =>
           ok ? import_gate.current.release() : import_gate.current.fail()
         }
-        on_minimap_change={(open) => (minimap_open.value = open)}
         on_lint={(issues) => (lint.value = issues)}
       />
 
