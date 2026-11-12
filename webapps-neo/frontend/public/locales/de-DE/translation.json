@@ -999,13 +999,35 @@
     "failed": "Der Administrator konnte nicht angelegt werden. Möglicherweise existiert er bereits oder das Passwort erfüllt die Passwortrichtlinie nicht."
   },
   "modeler": {
+    "storage": {
+      "note": "Entwürfe liegen nur in den Websitedaten dieses Browsers; werden sie gelöscht, sind sie weg. Auf den Server gelangt das Diagramm erst beim Deployment."
+    },
+    "group": {
+      "file": "Datei",
+      "edit": "Modell",
+      "navigate": "Ansicht",
+      "engine": "Modell",
+      "view": "Ansicht"
+    },
+    "definition": {
+      "loaded": "{{name}} geladen (Version {{version}}). Ein Deployment erzeugt eine neue Version.",
+      "loaded-no-version": "{{name}} geladen. Ein Deployment erzeugt eine neue Version."
+    },
+    "deployed": {
+      "title": "Bereitgestellte Modelle",
+      "lead": "Eine bereitgestellte Prozessdefinition zum Bearbeiten öffnen. Ein erneutes Deployment erzeugt die nächste Version – die vorherige bleibt in der Engine.",
+      "loading": "Bereitgestellte Modelle werden geladen…",
+      "empty": "Dieser Server hat keine bereitgestellten Prozessdefinitionen.",
+      "failed": "Die bereitgestellten Prozessdefinitionen konnten nicht geladen werden.",
+      "badge": "BPMN",
+      "open": "Bearbeiten"
+    },
     "loading": "Der Modellierer wird geladen …",
     "loading-detail": "Der Editor wird einmal geladen und danach vom Browser zwischengespeichert.",
     "title": "Modellierer",
     "back": "Zurück",
     "new": "Neu",
     "open": "Datei öffnen",
-    "download": "Herunterladen",
     "undo": "Rückgängig",
     "redo": "Wiederherstellen",
     "zoom-in": "Vergrößern",
@@ -1035,7 +1057,6 @@
     "errors": {
       "import": "Das Diagramm konnte nicht gelesen werden.",
       "export": "Das Diagramm konnte nicht exportiert werden.",
-      "download": "Der Browser hat den Download nicht gestartet.",
       "unsupported-file": "{{name}} ist keine BPMN-Datei ({{kind}}).",
       "unknown-kind": "unbekannter Typ"
     },
@@ -1058,7 +1079,7 @@
       "succeeded-no-version": "„{{name}}“ wurde bereitgestellt."
     },
     "export": {
-      "action": "XML / Export",
+      "action": "Herunterladen",
       "title": "XML anzeigen und exportieren",
       "loading": "Der Export wird vorbereitet …",
       "xml-label": "BPMN-XML",
@@ -1089,12 +1110,10 @@
       "failed": "Der Entwurf konnte nicht gespeichert werden (Browserspeicher nicht verfügbar)."
     },
     "pick": {
+      "new": "Neues Modell",
       "lead": "Was möchten Sie modellieren? Wählen Sie einen Diagrammtyp, um den Editor zu öffnen.",
       "bpmn-title": "Einen Geschäftsprozess modellieren",
-      "bpmn-text": "Beginnen Sie mit einem leeren Prozessdiagramm oder öffnen Sie eine vorhandene .bpmn-Datei.",
-      "dmn-title": "Eine Entscheidung modellieren",
-      "dmn-text": "Entscheidungstabellen und literale Ausdrücke sind in dieser Version noch nicht enthalten.",
-      "soon": "Demnächst verfügbar"
+      "bpmn-text": "Beginnen Sie mit einem leeren Prozessdiagramm oder öffnen Sie eine vorhandene .bpmn-Datei."
     }
   }
 }

@@ -47,13 +47,33 @@
     "time": "Time"
   },
   "modeler": {
+    "storage": {
+      "note": "Drafts are kept in this browser only (site data), and clearing them cannot be undone. The diagram reaches the server when you deploy it."
+    },
+    "group": {
+      "file": "File actions",
+      "edit": "Modeling actions",
+      "navigate": "Navigation"
+    },
+    "definition": {
+      "loaded": "Loaded {{name}} (version {{version}}). Deploying creates a new version.",
+      "loaded-no-version": "Loaded {{name}}. Deploying creates a new version."
+    },
+    "deployed": {
+      "title": "Deployed models",
+      "lead": "Open a deployed process definition to keep editing it. Deploying the result creates the next version — the previous one stays in the engine.",
+      "loading": "Loading deployed models…",
+      "empty": "This server has no deployed process definitions.",
+      "failed": "The deployed process definitions could not be loaded.",
+      "badge": "BPMN",
+      "open": "Edit"
+    },
     "loading": "Loading the modeler...",
     "loading-detail": "The editor downloads once and is then cached by the browser.",
     "title": "Modeler",
     "back": "Back",
     "new": "New",
     "open": "Open file",
-    "download": "Download",
     "undo": "Undo",
     "redo": "Redo",
     "zoom-in": "Zoom in",
@@ -83,7 +103,6 @@
     "errors": {
       "import": "The diagram could not be read.",
       "export": "The diagram could not be exported.",
-      "download": "The browser did not start the download.",
       "unsupported-file": "{{name}} is not a BPMN file ({{kind}}).",
       "unknown-kind": "unknown type"
     },
@@ -106,7 +125,7 @@
       "succeeded-no-version": "Deployed \"{{name}}\"."
     },
     "export": {
-      "action": "XML / Export",
+      "action": "Download",
       "title": "View XML and export",
       "loading": "Preparing the export…",
       "xml-label": "BPMN XML",
@@ -137,12 +156,10 @@
       "failed": "Draft could not be saved (browser storage unavailable)."
     },
     "pick": {
+      "new": "New model",
       "lead": "What do you want to model? Pick a diagram type to open the editor.",
       "bpmn-title": "Model a business process",
-      "bpmn-text": "Start from a blank process diagram, or open an existing .bpmn file.",
-      "dmn-title": "Model a decision",
-      "dmn-text": "Decision tables and literal expressions are not part of this version yet.",
-      "soon": "Coming soon"
+      "bpmn-text": "Start from a blank process diagram, or open an existing .bpmn file."
     }
   },
   "nav": {

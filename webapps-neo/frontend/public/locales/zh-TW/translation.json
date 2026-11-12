@@ -999,13 +999,35 @@
     "failed": "無法建立管理員。該管理員可能已存在，或密碼不符合密碼原則。"
   },
   "modeler": {
+    "storage": {
+      "note": "草稿只保存在此瀏覽器中（網站資料），清除後無法復原。只有部署時，流程圖才會上傳到伺服器。"
+    },
+    "group": {
+      "file": "文件",
+      "edit": "模型",
+      "navigate": "視圖",
+      "engine": "模型",
+      "view": "視圖"
+    },
+    "definition": {
+      "loaded": "已載入 {{name}}（版本 {{version}}）。部署後會建立新版本。",
+      "loaded-no-version": "已載入 {{name}}。部署後會建立新版本。"
+    },
+    "deployed": {
+      "title": "已部署的模型",
+      "lead": "開啟已部署的流程定義繼續編輯。再次部署會建立新版本，舊版本仍保留在引擎中。",
+      "loading": "正在載入已部署的模型…",
+      "empty": "此伺服器上尚無已部署的流程定義。",
+      "failed": "無法載入已部署的流程定義。",
+      "badge": "BPMN",
+      "open": "編輯"
+    },
     "loading": "正在載入建模器…",
     "loading-detail": "編輯器只會下載一次，之後由瀏覽器快取。",
     "title": "建模器",
     "back": "返回",
     "new": "新增",
     "open": "開啟檔案",
-    "download": "下載",
     "undo": "復原",
     "redo": "重做",
     "zoom-in": "放大",
@@ -1035,7 +1057,6 @@
     "errors": {
       "import": "無法讀取此圖。",
       "export": "無法匯出此圖。",
-      "download": "瀏覽器沒有開始下載。",
       "unsupported-file": "{{name}} 不是 BPMN 檔案（{{kind}}）。",
       "unknown-kind": "未知類型"
     },
@@ -1058,7 +1079,7 @@
       "succeeded-no-version": "已部署「{{name}}」。"
     },
     "export": {
-      "action": "XML / 匯出",
+      "action": "下載",
       "title": "檢視 XML 並匯出",
       "loading": "正在準備匯出…",
       "xml-label": "BPMN XML",
@@ -1089,12 +1110,10 @@
       "failed": "草稿未能儲存（瀏覽器儲存空間無法使用）。"
     },
     "pick": {
+      "new": "新增模型",
       "lead": "你想建什麼模型？請先選擇一種圖表類型，再進入編輯器。",
       "bpmn-title": "商業流程建模",
-      "bpmn-text": "從空白流程圖開始，或開啟既有的 .bpmn 檔案。",
-      "dmn-title": "決策模型建模",
-      "dmn-text": "決策表和字面運算式尚未包含在此版本中。",
-      "soon": "即將支援"
+      "bpmn-text": "從空白流程圖開始，或開啟既有的 .bpmn 檔案。"
     }
   }
 }
